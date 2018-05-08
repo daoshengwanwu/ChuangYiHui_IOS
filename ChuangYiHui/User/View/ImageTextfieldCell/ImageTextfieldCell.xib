@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageTextfieldCell" rowHeight="48" id="KGk-i7-Jjw" customClass="ImageTextfieldCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="47"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-tO-nCo">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="O6v-CZ-48c"/>
+                            <constraint firstAttribute="width" constant="26" id="yuE-sY-eWQ"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-DX-p11">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="LFP-Pi-59H"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8b-sx-JGy">
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2.5" id="662-Io-BOA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SFs-DX-p11" firstAttribute="leading" secondItem="Xyd-tO-nCo" secondAttribute="trailing" constant="8" id="8ic-dI-Qya"/>
+                    <constraint firstItem="Xyd-tO-nCo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CfQ-Ju-jvQ"/>
+                    <constraint firstAttribute="trailing" secondItem="I8b-sx-JGy" secondAttribute="trailing" id="Qjm-eD-lVz"/>
+                    <constraint firstItem="Xyd-tO-nCo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="X6D-DK-Qkx"/>
+                    <constraint firstAttribute="bottom" secondItem="I8b-sx-JGy" secondAttribute="bottom" id="fYC-VB-pSh"/>
+                    <constraint firstItem="I8b-sx-JGy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qAH-ls-D48"/>
+                    <constraint firstItem="SFs-DX-p11" firstAttribute="centerY" secondItem="Xyd-tO-nCo" secondAttribute="centerY" id="wBr-cX-ej9"/>
+                    <constraint firstAttribute="trailing" secondItem="SFs-DX-p11" secondAttribute="trailing" constant="14" id="zvH-sE-6pL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="image" destination="Xyd-tO-nCo" id="xYf-Dm-y2S"/>
+                <outlet property="textField" destination="SFs-DX-p11" id="0gN-kq-YgL"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="77"/>
+        </tableViewCell>
+    </objects>
+</document>

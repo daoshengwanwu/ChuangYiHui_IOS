@@ -1,0 +1,53 @@
+//
+//  Prefix.pch
+//  GoldUnion
+//
+//  Created by GYY on 13/04/2016.
+//  Copyright © 2016 LEE . All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+#endif
+
+#import "MBProgressHUD.h"
+#import "SVProgressHUD.h"
+#import "GlobalStatic.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "UIImageView+WebCache.h"
+#import "masonry.h"
+#import <AFNetworking/AFNetworking.h>
+#import "NetRequest.h"
+#import "HttpURL.h"
+#import "UserModel.h"
+#import "UserManager.h"
+#import "TeamModel.h"
+#import "ScoreModel.h"
+#import "SVHudManager.h"
+#import "SCLAlertView.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import "ExperienceModel.h"
+#import "UIColor+expanded.h"
+#import "CommentModel.h"
+#import "TaskModel.h"
+#import "NeedModel.h"
+#import "AchievementModel.h"
+#import <RongIMKit/RongIMKit.h>
+#import "CommonTool.h"
+
+#import "UILabel+Common.h"
+#import "Reachability.h"
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Prefix_pch */
