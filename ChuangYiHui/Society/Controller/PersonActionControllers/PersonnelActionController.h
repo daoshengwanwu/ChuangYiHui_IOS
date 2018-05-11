@@ -10,4 +10,6 @@
 
 @interface PersonnelActionController : UIViewController
 
+@property (nonatomic, strong)UserModel *model;
+
 @end

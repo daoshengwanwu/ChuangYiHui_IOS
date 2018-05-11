@@ -8,6 +8,7 @@
 
 #import "PersonnelActionController.h"
 #import "PersonActionListCell.h"
+#import "ObjectListController.h"
 
 #define PersonActionListCellIdentifier @"PersonActionListCell"
 
@@ -108,7 +109,13 @@
 #pragma mark UITableViewDelegate
 //点击每个cell执行的操作
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
+    //朋友评价
+    ObjectListController *vc = [ObjectListController new];
+    __weak typeof(self) weakSelf = self;
+    vc.object_id = weakSelf.model.user_id;
+    vc.displayType = User_Comments;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark DZNEmptyDelegate
