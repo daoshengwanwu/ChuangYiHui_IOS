@@ -57,6 +57,12 @@
                             <constraint firstAttribute="height" constant="50" id="Ned-3i-8SI"/>
                             <constraint firstAttribute="width" constant="50" id="dj7-R3-1bU"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016中国青少年" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAr-QY-3lT">
                         <rect key="frame" x="74" y="18" width="104" height="20"/>
@@ -95,18 +101,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="zan_off" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-Jr-BS2">
-                        <rect key="frame" x="242" y="138" width="15" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zan_off" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-Jr-BS2">
+                        <rect key="frame" x="242" y="143" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="BMV-EC-qcO"/>
                             <constraint firstAttribute="width" constant="20" id="Kfc-j0-1ye"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="rgr-7K-E0E"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="svm-qm-Vfu"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ROi-Yy-6Ea">
+                        <rect key="frame" x="305" y="30" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="cVZ-Vj-xa2"/>
+                            <constraint firstAttribute="width" constant="20" id="mYm-aK-DOZ"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="ROi-Yy-6Ea" secondAttribute="trailing" constant="10" id="3Gg-BX-Rvt"/>
                     <constraint firstItem="bxo-Jr-BS2" firstAttribute="centerY" secondItem="8SQ-LJ-csB" secondAttribute="centerY" id="3Sm-rY-Rjg"/>
                     <constraint firstAttribute="bottom" secondItem="9Pf-iZ-sG9" secondAttribute="bottom" id="3Yt-aS-dOb"/>
                     <constraint firstItem="7Bb-dm-hI5" firstAttribute="leading" secondItem="bxo-Jr-BS2" secondAttribute="trailing" constant="6" id="3aI-xb-Mqe"/>
+                    <constraint firstItem="ROi-Yy-6Ea" firstAttribute="centerY" secondItem="3mL-fp-469" secondAttribute="centerY" id="3vH-Ie-oQI"/>
                     <constraint firstItem="bxo-Jr-BS2" firstAttribute="leading" secondItem="9Pf-iZ-sG9" secondAttribute="trailing" constant="70" id="8gK-UI-DvI"/>
                     <constraint firstItem="8SQ-LJ-csB" firstAttribute="centerY" secondItem="eCp-IE-7y3" secondAttribute="centerY" id="ALl-Mk-lVq"/>
                     <constraint firstItem="8SQ-LJ-csB" firstAttribute="leading" secondItem="eCp-IE-7y3" secondAttribute="trailing" constant="6" id="Bfi-PE-HVL"/>
@@ -137,8 +154,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="StarButton" destination="ROi-Yy-6Ea" id="tgs-30-vL9"/>
+                <outlet property="comment_button" destination="eCp-IE-7y3" id="VDp-HR-YfR"/>
+                <outlet property="content" destination="64R-LO-h5C" id="0dM-rx-1Kn"/>
                 <outlet property="date_time" destination="gY6-aw-pAJ" id="vt7-8K-IZG"/>
                 <outlet property="head_icon" destination="3mL-fp-469" id="3JS-gZ-C5Z"/>
+                <outlet property="like_button" destination="bxo-Jr-BS2" id="h8Q-O8-COR"/>
                 <outlet property="like_count" destination="7Bb-dm-hI5" id="daG-Gb-gSE"/>
                 <outlet property="number" destination="8SQ-LJ-csB" id="zLn-8l-L8x"/>
                 <outlet property="title" destination="mAr-QY-3lT" id="mkj-oU-nvR"/>
@@ -150,6 +171,7 @@
         <image name="activity_time_blue" width="15" height="14"/>
         <image name="default_user_head" width="234" height="234"/>
         <image name="event_comment" width="49" height="46"/>
+        <image name="star_icon" width="36" height="36"/>
         <image name="zan_off" width="24" height="24"/>
     </resources>
 </document>

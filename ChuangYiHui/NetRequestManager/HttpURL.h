@@ -66,6 +66,11 @@
 #define URL_GET_OTHER_USER_OWNED_TEAMS(userId) [NSString stringWithFormat: @"%@users/%@/owned_teams/", BASE_URL, userId]
 //检测是否点赞
 #define URL_CHECK_IF_LIKE(userId) [NSString stringWithFormat: @"%@users/current/liked/users/%@/", BASE_URL, userId]
+//检测是否点赞动态
+#define URL_CHECK_IF_LIKE_ACTION(type,userId) [NSString stringWithFormat: @"%@users/current/liked/%@_actions/%@/", BASE_URL, type, userId]
+//检测是否收藏动态
+#define URL_CHECK_IF_FAVOR_ACTION(type,userId) [NSString stringWithFormat: @"%@users/current/favored/%@_actions/%@/", BASE_URL, type, userId]
+
 //检测是否是好友
 #define URL_CHECK_IF_FRIEND(myId, otherId) [NSString stringWithFormat: @"%@users/%@/friends/%@/", BASE_URL, myId, otherId]
 //发送好友请求
@@ -155,6 +160,15 @@
 //获取所有的承接需求
 #define URL_GET_ALL_UNDERTAKE_NEEDS URLFrame(@"teams/needs/undertake/")
 
+//获取关注的人员动态
+#define URL_GET_FOLLOWED_USER_EVENT URLFrame(@"users/current/followed_user/actions/")
+//获取关注的团队动态
+#define URL_GET_FOLLOWED_TEAM_EVENT URLFrame(@"users/current/followed_team/actions/")
+
+//获取所有的人员动态
+#define URL_GET_ALL_USER_EVENT URLFrame(@"users/current/user_actions/")
+//获取所有的团队动态
+#define URL_GET_ALL_TEAM_EVENT URLFrame(@"users/current/team_actions/")
 
 //获取某个团队的人员需求
 #define URL_GET_TEAM_MEMBER_NEEDS(teamId) [NSString stringWithFormat: @"%@teams/%@/needs/member/", BASE_URL, teamId]
