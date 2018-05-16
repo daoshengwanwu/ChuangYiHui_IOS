@@ -103,9 +103,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setCellByPersonActionModel:[_personactionArr objectAtIndex:indexPath.row]];
     
-    NSDictionary *replyDic = [self.replyArray objectAtIndex:indexPath.row];
-    objc_setAssociatedObject(cell.comment_button, "firstObject", replyDic[@"replyvoiceurl"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [cell.comment_button addTarget:self action:@selector(playAsk:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.comment_button addTarget:self action:@selector(playAsk:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 
 
