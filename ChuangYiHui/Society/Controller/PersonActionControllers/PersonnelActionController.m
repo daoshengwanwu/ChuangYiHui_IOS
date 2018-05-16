@@ -102,53 +102,23 @@
     PersonActionListCell *cell = [tableView dequeueReusableCellWithIdentifier:PersonActionListCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setCellByPersonActionModel:[_personactionArr objectAtIndex:indexPath.row]];
-    
 //    [cell.comment_button addTarget:self action:@selector(playAsk:) forControlEvents:UIControlEventTouchUpInside];
+    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickComment:)];
+    cell.comment_button.tag = indexPath.row;
+    cell.comment_button.userInteractionEnabled = YES;  //这句话千万不能忘记了
+    [cell.comment_button addGestureRecognizer:singleTap];
+//    [singleTap release];
     return cell;
-
-
-//    if (voiceUrl.length>0) {
-//        cell.askUrl.text = replyDic[@"voiceurl"];
-//        cell.quesType.image = [UIImage imageNamed:@"11111111111.png"];
-//        cell.voiceImage.hidden = NO;
-//        NSString *tmpp = [replyDic[@"duration"] stringByAppendingString:@"\""];
-//        //cell.quesContentLabel.text = [@"                " stringByAppendingString:tmpp];
-//        cell.askTimeDuration.hidden = NO;
-//        cell.askTimeDuration.text = tmpp;
-//
-//        float floatString = [tmpp floatValue];
-//        [cell.askButtonWidth setConstant:40+floatString*2];
-//        cell.voiceImage.imageEdgeInsets = UIEdgeInsetsMake(2, 0, 2, 15+floatString*2);
-//        //        cell.voiceImage.imageEdgeInsets = UIEdgeInsetsMake(2, 0, 2, 35);//参数分别是top, left, bottom, right，我这里写死了距离，实际操作中应该动态计算。
-//
-//        //点击提问语音按钮播放
-//        objc_setAssociatedObject(cell.voiceImage, "firstObject", replyDic[@"replyvoiceurl"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//        [cell.voiceImage addTarget:self action:@selector(playAsk:) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    if (replyVoiceUrl.length>0) {
-//        cell.replyUrl.text = replyDic[@"replyvoiceurl"];
-//        cell.replyType.image = [UIImage imageNamed:@"chat.png"];
-//        cell.replyVoiceImage.hidden = NO;
-//        NSString *tmpp = [replyDic[@"replyduration"] stringByAppendingString:@"\""];
-//        //        cell.replyContentLabel.text = [@"                                                " stringByAppendingString:tmpp];
-//        cell.replyTimeDuration.hidden = NO;
-//        cell.replyTimeDuration.text = tmpp;
-//        //cell.replyContentLabel.text = [tmpp stringByAppendingString:@"\t\t\t"];
-//
-//        float floatString = [tmpp floatValue];
-//        [cell.replyButtonWidth setConstant:40+floatString*2];
-//        cell.replyVoiceImage.imageEdgeInsets = UIEdgeInsetsMake(2, 15+floatString*2, 2, 0);
-//        //        cell.replyVoiceImage.imageEdgeInsets = UIEdgeInsetsMake(2, 35, 2, 0);//参数分别是top, left, bottom, right，我这里写死了距离，实际操作中应该动态计算。
-//
-//        //点击提问语音按钮播放
-//        objc_setAssociatedObject(cell.replyVoiceImage, "firstObject", replyDic[@"replyvoiceurl"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//        [cell.replyVoiceImage addTarget:self action:@selector(playReply:) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//
-//
-//    return cell;
 }
-
+- (void)onClickComment:(UITapGestureRecognizer *)recognizer
+{
+    //朋友评价
+//    _personactionArr[]
+    ObjectListController *vc = [ObjectListController new];
+    vc.object_id =  [NSString stringWithFormat:@"%ld", recognizer.view.tag];
+    vc.displayType = User_Comments;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark UITableViewDelegate
 //点击每个cell执行的操作
