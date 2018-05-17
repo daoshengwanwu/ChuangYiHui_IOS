@@ -8,12 +8,14 @@
 
 #import "OutSourceAdapter.h"
 #import "OutSourceRequireCell.h"
+#import "OutSourceDetailController.h"
 
 @interface OutSourceAdapter()
 
 @property (nonatomic, strong) UITableView * outSourceRequireTableView;
 @property (nonatomic, strong) NSArray * outSourceRequires;
 @property (nonatomic, assign) NSInteger outSourceListLimit;
+@property (nonatomic, strong) UIViewController * controller;
 
 @end
 
@@ -35,6 +37,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
+    [_controller presentViewController:[[OutSourceDetailController alloc] init] animated:true completion:^{
+        //跳转完成后需要执行的事件；
+    }];
 }
 
 - (UIImage *)imageForEmptyDataSet: (UIScrollView *)scrollView {
@@ -84,6 +89,10 @@
 
 - (NSInteger)getLimit {
     return _outSourceListLimit;
+}
+
+- (void)setViewController:(UIViewController*)controller {
+    self.controller = controller;
 }
 
 @end

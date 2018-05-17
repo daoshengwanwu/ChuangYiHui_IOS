@@ -16,6 +16,7 @@
 - (void)setUnderTakeRequireList:(NSArray*)list;
 - (void)setLimit:(NSInteger)limit;
 - (void)getDataFromServer;
+- (void)setViewController:(UIViewController*)controller;
 - (NSInteger)getLimit;
 
 @end

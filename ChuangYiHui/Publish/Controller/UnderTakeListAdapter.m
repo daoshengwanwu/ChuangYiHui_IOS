@@ -8,12 +8,14 @@
 
 #import "UnderTakeListAdapter.h"
 #import "UnderTakeRequireCell.h"
+#import "UnderTakeDetailController.h"
 
 @interface UnderTakeListAdapter()
 
 @property (nonatomic, strong) UITableView * underTakeRequireTableView;
 @property (nonatomic, strong) NSArray * underTakeRequires;
 @property (nonatomic, assign) NSInteger underTakeListLimit;
+@property (nonatomic, strong) UIViewController * controller;
 
 @end
 
@@ -35,6 +37,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
+    [_controller presentViewController:[[UnderTakeDetailController alloc] init] animated:true completion:^{
+        //跳转完成后需要执行的事件；
+    }];
+    
 }
 
 - (UIImage *)imageForEmptyDataSet: (UIScrollView *)scrollView {
@@ -84,6 +90,10 @@
 
 - (NSInteger)getLimit {
     return _underTakeListLimit;
+}
+
+- (void)setViewController:(UIViewController*)controller {
+    self.controller = controller;
 }
 
 @end

@@ -2,6 +2,7 @@
 #import "PublishPeopleRequireCell.h"
 #import "UnderTakeListAdapter.h"
 #import "OutSourceAdapter.h"
+#import "PeopleRequireDetailController.h"
 
 #define PeopleRequireCellIdentifier @"publishPeopleRequireCell"
 
@@ -205,6 +206,7 @@
     [adapter setTableView:_underTakeRequireTableView];
     [adapter setUnderTakeRequireList:_underTakeRequires];
     [adapter setLimit:10];
+    [adapter setViewController:self];
     
     
     [self.view addSubview:_underTakeRequireTableView];
@@ -290,6 +292,7 @@
     [outSourceAdapter setTableView:_outSourceRequireTableView];
     [outSourceAdapter setUnderTakeRequireList:_outSourceRequires];
     [outSourceAdapter setLimit:10];
+    [outSourceAdapter setViewController:self];
     
     [self.view addSubview:_outSourceRequireTableView];
     [_outSourceRequireTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -331,6 +334,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
+    [self presentViewController:[[PeopleRequireDetailController alloc] init] animated:true completion:^{
+        //跳转完成后需要执行的事件；
+    }];
 }
 
 - (UIImage *)imageForEmptyDataSet: (UIScrollView *)scrollView {
