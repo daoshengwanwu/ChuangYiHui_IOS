@@ -10,6 +10,19 @@
 
 @interface PeopleRequireDetailController ()
 
+@property(nonatomic, strong) PublishRequireModel * model;
+
+@property(nonatomic, strong) UILabel * teamName;
+@property(nonatomic, strong) UILabel * needTitle;
+@property(nonatomic, strong) UILabel * field;
+@property(nonatomic, strong) UILabel * skill;
+@property(nonatomic, strong) UILabel * degree;
+@property(nonatomic, strong) UILabel * age;
+@property(nonatomic, strong) UILabel * deadline;
+@property(nonatomic, strong) UILabel * area;
+@property(nonatomic, strong) UILabel * gender;
+@property(nonatomic, strong) UILabel * number;
+
 @end
 
 @implementation PeopleRequireDetailController
@@ -47,6 +60,9 @@
         make.width.mas_equalTo(10);
     }];
     [imageView setImage:[UIImage imageNamed:@"back"]];
+    [imageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTapped:)];
+    [imageView addGestureRecognizer:backTap];
     
     //标题栏标题
     UILabel * label = [UILabel new];
@@ -110,7 +126,8 @@
         make.left.equalTo(imageView.mas_right).offset(10);
         make.centerY.equalTo(imageView.mas_centerY);
     }];
-    label.text = @"团队名称";
+    label.text = _model.team_name;
+    _teamName = label;
     
     //粗线
     line = [UIView new];
@@ -162,7 +179,8 @@
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);
     }];
-    label.text = @"标题";
+    label.text = _model.title;
+    _needTitle = label;
     
     //领域
     UILabel * label2 = [UILabel new];
@@ -181,8 +199,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"文化传媒";
+    label.text = _model.field;
     label.textColor = blueTextColor;
+    _field = label;
     
     //技能
     label2 = [UILabel new];
@@ -201,8 +220,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = _model.skill;
     label.textColor = blueTextColor;
+    _skill = label;
     
     //学历
     label2 = [UILabel new];
@@ -221,8 +241,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = _model.degree;
     label.textColor = blueTextColor;
+    _degree = label;
     
     //性别
     label2 = [UILabel new];
@@ -241,8 +262,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = _model.gender;
     label.textColor = blueTextColor;
+    _gender = label;
     
     //地区
     label2 = [UILabel new];
@@ -261,8 +283,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = _model.province;
     label.textColor = blueTextColor;
+    _area = label;
     
     //年龄
     label2 = [UILabel new];
@@ -281,8 +304,9 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = @"不限";
     label.textColor = blueTextColor;
+    _age = label;
     
     //名额
     label2 = [UILabel new];
@@ -303,6 +327,7 @@
     }];
     label.text = @"人力资源";
     label.textColor = blueTextColor;
+    _number = label;
     
     //截止日期
     label2 = [UILabel new];
@@ -321,8 +346,9 @@
         make.left.equalTo(label2.mas_right).offset(5);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = @"人力资源";
+    label.text = _model.deadline;
     label.textColor = blueTextColor;
+    _deadline = label;
     
     //底部灰色
     line = [UIView new];
@@ -346,11 +372,62 @@
     }];
     [btn setTitle:@"申请加入" forState:UIControlStateNormal];
     btn.backgroundColor = blueTextColor;
+    
+    [btn addTarget:self action:@selector(onJoinClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self getNeedDetail];
+}
+
+- (void)backTapped:(UITapGestureRecognizer *)gr {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)onJoinClick {
+    NSString * url = [NSString stringWithFormat:@"%@teams/%@/needs/member_requests/", BASE_URL, _model.id];
+    [[NetRequest sharedInstance] httpRequestWithPost:url parameters:nil withToken:YES success:^(id data, NSString *message) {
+        int a = 10;
+    } failed:^(id data, NSString *message) {
+        UIAlertController * dialog = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [dialog addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil]];
+        [self presentViewController:dialog animated:YES completion:nil];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel *)model {
+    _model = model;
+    return self;
+}
+
+- (void)getNeedDetail {
+    NSString * needId = _model.id;
+    NSString * url = [NSString stringWithFormat:@"%@teams/needs/%@/", BASE_URL, needId];
+    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+        _model = [PublishRequireModel mj_objectWithKeyValues:data];
+        [self updateView];
+    } failed:^(id data, NSString *message) {
+        NSLog(@"%@", message);
+    }];
+}
+
+- (void)updateView {
+    _needTitle.text = _model.title;
+    _field.text = _model.field;
+    _skill.text = _model.skill;
+    if ([_model.gender isEqualToString:@"0"]) {
+        _gender.text = @"不限";
+    } else if ([_model.gender isEqualToString:@"1"]) {
+        _gender.text = @"男";
+    } else {
+        _gender.text = @"女";
+    }
+    _area.text = _model.province;
+    _number.text = _model.number;
+    _deadline.text = _model.deadline;
 }
 
 /*

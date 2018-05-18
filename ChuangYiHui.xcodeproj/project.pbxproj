@@ -218,10 +218,7 @@
 		F7FE4D8D20AC4F230061D165 /* UnderTakeListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7420AC4F230061D165 /* UnderTakeListAdapter.m */; };
 		F7FE4D8E20AC4F230061D165 /* OutSourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7520AC4F230061D165 /* OutSourceAdapter.m */; };
 		F7FE4D8F20AC4F230061D165 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7620AC4F230061D165 /* PublishViewController.m */; };
-		F7FE4D9020AC4F230061D165 /* PublishUnderTakeRequireModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7B20AC4F230061D165 /* PublishUnderTakeRequireModel.m */; };
-		F7FE4D9120AC4F230061D165 /* PublishOutSourceRequireModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7C20AC4F230061D165 /* PublishOutSourceRequireModel.m */; };
 		F7FE4D9220AC4F230061D165 /* PublishRequireModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7D20AC4F230061D165 /* PublishRequireModel.m */; };
-		F7FE4D9320AC4F230061D165 /* PublishPeopleRequireModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D8220AC4F230061D165 /* PublishPeopleRequireModel.m */; };
 		F7FE4D9420AC4F230061D165 /* OutSourceRequireCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D8420AC4F230061D165 /* OutSourceRequireCell.m */; };
 		F7FE4D9520AC4F230061D165 /* OutSourceRequireCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7FE4D8720AC4F230061D165 /* OutSourceRequireCell.xib */; };
 		F7FE4D9620AC4F230061D165 /* PublishPeopleRequireCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D8820AC4F230061D165 /* PublishPeopleRequireCell.m */; };
@@ -614,14 +611,8 @@
 		F7FE4D7720AC4F230061D165 /* OutSourceAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutSourceAdapter.h; sourceTree = "<group>"; };
 		F7FE4D7820AC4F230061D165 /* UnderTakeListAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderTakeListAdapter.h; sourceTree = "<group>"; };
 		F7FE4D7920AC4F230061D165 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
-		F7FE4D7B20AC4F230061D165 /* PublishUnderTakeRequireModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishUnderTakeRequireModel.m; sourceTree = "<group>"; };
-		F7FE4D7C20AC4F230061D165 /* PublishOutSourceRequireModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishOutSourceRequireModel.m; sourceTree = "<group>"; };
 		F7FE4D7D20AC4F230061D165 /* PublishRequireModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishRequireModel.m; sourceTree = "<group>"; };
-		F7FE4D7E20AC4F230061D165 /* PublishPeopleRequireModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishPeopleRequireModel.h; sourceTree = "<group>"; };
-		F7FE4D7F20AC4F230061D165 /* PublishOutSourceRequireModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishOutSourceRequireModel.h; sourceTree = "<group>"; };
-		F7FE4D8020AC4F230061D165 /* PublishUnderTakeRequireModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishUnderTakeRequireModel.h; sourceTree = "<group>"; };
 		F7FE4D8120AC4F230061D165 /* PublishRequireModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishRequireModel.h; sourceTree = "<group>"; };
-		F7FE4D8220AC4F230061D165 /* PublishPeopleRequireModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishPeopleRequireModel.m; sourceTree = "<group>"; };
 		F7FE4D8420AC4F230061D165 /* OutSourceRequireCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutSourceRequireCell.m; sourceTree = "<group>"; };
 		F7FE4D8520AC4F230061D165 /* PublishPeopleRequireCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishPeopleRequireCell.h; sourceTree = "<group>"; };
 		F7FE4D8620AC4F230061D165 /* UnderTakeRequireCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderTakeRequireCell.h; sourceTree = "<group>"; };
@@ -1900,14 +1891,8 @@
 		F7FE4D7A20AC4F230061D165 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F7FE4D7B20AC4F230061D165 /* PublishUnderTakeRequireModel.m */,
-				F7FE4D7C20AC4F230061D165 /* PublishOutSourceRequireModel.m */,
 				F7FE4D7D20AC4F230061D165 /* PublishRequireModel.m */,
-				F7FE4D7E20AC4F230061D165 /* PublishPeopleRequireModel.h */,
-				F7FE4D7F20AC4F230061D165 /* PublishOutSourceRequireModel.h */,
-				F7FE4D8020AC4F230061D165 /* PublishUnderTakeRequireModel.h */,
 				F7FE4D8120AC4F230061D165 /* PublishRequireModel.h */,
-				F7FE4D8220AC4F230061D165 /* PublishPeopleRequireModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2178,7 +2163,6 @@
 				E3B9D1ED1ED2FFD600F45201 /* TeamIntroductionController.m in Sources */,
 				E39B2ED31EE9952000C8DCAB /* AchievementModel.m in Sources */,
 				E3CD1C041EEC2CB800D8FE32 /* LoginController.m in Sources */,
-				F7FE4D9320AC4F230061D165 /* PublishPeopleRequireModel.m in Sources */,
 				E3D9B65D1EE7A58F004053D2 /* NeedCell.m in Sources */,
 				E319362E1EC03DCE00621CA4 /* AppDelegate.m in Sources */,
 				E32490F81F05246800BBC943 /* SchoolPickerView.m in Sources */,
@@ -2187,7 +2171,6 @@
 				E398F9A91EC33E2700CF83C1 /* AgreeOrDisagreeCell.m in Sources */,
 				E398F9391EC0A92300CF83C1 /* UserModel.m in Sources */,
 				E398F9621EC1ABC700CF83C1 /* UserListCell.m in Sources */,
-				F7FE4D9020AC4F230061D165 /* PublishUnderTakeRequireModel.m in Sources */,
 				6C276FDB20A082F900B0E572 /* TeamActionListCell.m in Sources */,
 				E398F97F1EC2FDE800CF83C1 /* ScanResultViewController.m in Sources */,
 				E33A5BA01EE6DF72001E95FF /* NeedListController.m in Sources */,
@@ -2227,7 +2210,6 @@
 				E3E8D1D51ED6B01A007B293D /* UserCommentsController.m in Sources */,
 				E398F9941EC2FFC200CF83C1 /* UIActionSheet+LBXAlertAction.m in Sources */,
 				E33E95B51ECDA465002B10FB /* DistancePickerView.m in Sources */,
-				F7FE4D9120AC4F230061D165 /* PublishOutSourceRequireModel.m in Sources */,
 				E3C036701ECE9347002EF585 /* TeamDescriptionController.m in Sources */,
 				E3A1AC611EE549980037ED9A /* TaskListController.m in Sources */,
 				E3D1E9311EC588EF00B1F552 /* TeamDetailController.m in Sources */,

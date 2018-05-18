@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PublishRequireModel.h"
 
 @interface PeopleRequireDetailController : UIViewController
+
+- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel*)model;
 
 @end
