@@ -103,20 +103,79 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setCellByPersonActionModel:[_personactionArr objectAtIndex:indexPath.row]];
 //    [cell.comment_button addTarget:self action:@selector(playAsk:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //点击评论
     UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickComment:)];
     cell.comment_button.tag = indexPath.row;
     cell.comment_button.userInteractionEnabled = YES;  //这句话千万不能忘记了
     [cell.comment_button addGestureRecognizer:singleTap];
+    
+    //点击点赞
+    UITapGestureRecognizer *singleTapOnZan =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickZan:)];
+    cell.like_button.tag = indexPath.row;
+    cell.like_button.userInteractionEnabled = YES;  //这句话千万不能忘记了
+    [cell.like_button addGestureRecognizer:singleTapOnZan];
+    
+    //点击收藏
+    UITapGestureRecognizer *singleTapOnSC =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickSC:)];
+    cell.StarButton.tag = indexPath.row;
+    cell.StarButton.userInteractionEnabled = YES;  //这句话千万不能忘记了
+    [cell.StarButton addGestureRecognizer:singleTapOnSC];
+    
 //    [singleTap release];
     return cell;
 }
+
+- (void)onClickZan:(UITapGestureRecognizer *)recognizer
+{
+//    //朋友评价
+//    //    _personactionArr[]
+//    ObjectListController *vc = [ObjectListController new];
+//    //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
+//    vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
+//    vc.displayType = User_Event_Comments;
+//    [self.navigationController pushViewController:vc animated:YES];
+//    PersonActionModel *model = [_personactionArr objectAtIndex:recognizer.view.tag];
+    
+//    _number.text = model.comment_count;
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTION(@"user", model.action_id) success:^(id data, NSString *message) {
+//        //        NSLog(@"已点赞");
+//        //        _isLiked = YES;
+//        [_like_button setImage:[UIImage imageNamed:@"zan_on"]];
+//    } failed:^(id data, NSString *message) {
+//        //        NSLog(@"未点赞");
+//        //        _isLiked = NO;
+//        [_like_button setImage:[UIImage imageNamed:@"zan_off"]];
+//    }];
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FAVOR_ACTION(@"user", model.action_id) success:^(id data, NSString *message) {
+//        //        NSLog(@"已收藏");
+//        //        _isLiked = YES;
+//        [_StarButton setImage:[UIImage imageNamed:@"star_icon_hover"]];
+//    } failed:^(id data, NSString *message) {
+//        //        NSLog(@"未收藏");
+//        //        _isLiked = NO;
+//        [_StarButton setImage:[UIImage imageNamed:@"star_icon"]];
+}
+
+- (void)onClickSC:(UITapGestureRecognizer *)recognizer
+{
+//    //朋友评价
+//    //    _personactionArr[]
+//    ObjectListController *vc = [ObjectListController new];
+//    //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
+//    vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
+//    vc.displayType = User_Event_Comments;
+//    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)onClickComment:(UITapGestureRecognizer *)recognizer
 {
     //朋友评价
 //    _personactionArr[]
     ObjectListController *vc = [ObjectListController new];
-    vc.object_id =  [NSString stringWithFormat:@"%ld", recognizer.view.tag];
-    vc.displayType = User_Comments;
+//    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
+    vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
+    vc.displayType = User_Event_Comments;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -77,6 +77,8 @@
 #define URL_SEND_FRIEND_REQUEST(userId) [NSString stringWithFormat: @"%@users/%@/friend_requests/", BASE_URL, userId]
 //get:获取某个用户的评论 post:对某个用户评价
 #define URL_GET_USER_COMMENTS(userId) [NSString stringWithFormat: @"%@users/%@/comments/", BASE_URL, userId]
+//get:获取某个动态的评论 post:对某个动态评论
+#define URL_GET_EVENT_COMMENTS(type,event_id) [NSString stringWithFormat: @"%@users/current/%@_action/%@/comments/", BASE_URL, type, event_id]
 //举报
 #define URL_REPORT URLFrame(@"users/current/report/")
 //点赞和取消点赞
