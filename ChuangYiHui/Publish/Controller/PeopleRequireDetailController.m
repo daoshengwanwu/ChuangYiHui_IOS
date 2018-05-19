@@ -12,6 +12,8 @@
 
 @property(nonatomic, strong) PublishRequireModel * model;
 
+@property(nonatomic, assign) NSInteger type;
+
 @property(nonatomic, strong) UILabel * teamName;
 @property(nonatomic, strong) UILabel * needTitle;
 @property(nonatomic, strong) UILabel * field;
@@ -22,6 +24,8 @@
 @property(nonatomic, strong) UILabel * area;
 @property(nonatomic, strong) UILabel * gender;
 @property(nonatomic, strong) UILabel * number;
+@property(nonatomic, strong) UILabel * startTime;
+@property(nonatomic, strong) UILabel * endTime;
 
 @end
 
@@ -182,14 +186,20 @@
     label.text = _model.title;
     _needTitle = label;
     
-    //领域
+    //领域，描述， 描述
     UILabel * label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(20);
         make.left.mas_equalTo(0);
     }];
+    if (_type == 0) {
     label2.text = @"领域：";
+    } else if (_type == 1) {
+        label2.text = @"描述：";
+    } else if (_type == 2) {
+        label2.text = @"描述：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -203,14 +213,20 @@
     label.textColor = blueTextColor;
     _field = label;
     
-    //技能
+    //技能，擅长领域，领域
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"技能：";
+    if (_type == 0) {
+        label2.text = @"技能：";
+    } else if (_type == 1) {
+        label2.text = @"擅长领域：";
+    } else if (_type == 2) {
+        label2.text = @"领域：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -224,14 +240,20 @@
     label.textColor = blueTextColor;
     _skill = label;
     
-    //学历
+    //学历，擅长技能，技能
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"学历：";
+    if (_type == 0) {
+        label2.text = @"学历：";
+    } else if (_type == 1) {
+        label2.text = @"擅长技能：";
+    } else if (_type == 2) {
+        label2.text = @"技能：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -245,14 +267,20 @@
     label.textColor = blueTextColor;
     _degree = label;
     
-    //性别
+    //性别，服务地区，学历
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"性别：";
+    if (_type == 0) {
+        label2.text = @"性别：";
+    } else if (_type == 1) {
+        label2.text = @"服务地区：";
+    } else if (_type == 2) {
+        label2.text = @"学历：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -266,14 +294,20 @@
     label.textColor = blueTextColor;
     _gender = label;
     
-    //地区
+    //地区，酬劳，人数
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"地区：";
+    if (_type == 0) {
+        label2.text = @"地区：";
+    } else if (_type == 1) {
+        label2.text = @"酬劳：";
+    } else if (_type == 2) {
+        label2.text = @"人数：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -287,14 +321,20 @@
     label.textColor = blueTextColor;
     _area = label;
     
-    //年龄
+    //年龄，截止日期，地区
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"年龄：";
+    if (_type == 0) {
+        label2.text = @"年龄：";
+    } else if (_type == 1) {
+        label2.text = @"截止日期：";
+    } else if (_type == 2) {
+        label2.text = @"地区：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -308,14 +348,20 @@
     label.textColor = blueTextColor;
     _age = label;
     
-    //名额
+    //名额，开始时间，费用
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"名额：";
+    if (_type == 0) {
+        label2.text = @"名额：";
+    } else if (_type == 1) {
+        label2.text = @"开始时间：";
+    } else if (_type == 2) {
+        label2.text = @"费用：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -329,14 +375,20 @@
     label.textColor = blueTextColor;
     _number = label;
     
-    //截止日期
+    //截止日期，结束时间，截止日期
     label2 = [UILabel new];
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(10);
         make.left.mas_equalTo(0);
     }];
-    label2.text = @"截止日期：";
+    if (_type == 0) {
+        label2.text = @"截止日期：";
+    } else if (_type == 1) {
+        label2.text = @"结束时间：";
+    } else if (_type == 2) {
+        label2.text = @"截止日期：";
+    }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
     
@@ -349,6 +401,50 @@
     label.text = _model.deadline;
     label.textColor = blueTextColor;
     _deadline = label;
+    
+    if (_type == 2) {
+        //开始时间
+        label2 = [UILabel new];
+        [container addSubview:label2];
+        [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(label.mas_bottom).offset(10);
+            make.left.mas_equalTo(0);
+        }];
+        label2.text = @"开始时间：";
+        label2.textColor = grayTextColor;
+        label2.font = [UIFont systemFontOfSize:14];
+        
+        label = [UILabel new];
+        [container addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(label2.mas_right).offset(5);
+            make.centerY.equalTo(label2.mas_centerY);
+        }];
+        label.text = _model.deadline;
+        label.textColor = blueTextColor;
+        _startTime = label;
+        
+        //结束时间
+        label2 = [UILabel new];
+        [container addSubview:label2];
+        [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(label.mas_bottom).offset(10);
+            make.left.mas_equalTo(0);
+        }];
+        label2.text = @"结束时间：";
+        label2.textColor = grayTextColor;
+        label2.font = [UIFont systemFontOfSize:14];
+        
+        label = [UILabel new];
+        [container addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(label2.mas_right).offset(5);
+            make.centerY.equalTo(label2.mas_centerY);
+        }];
+        label.text = _model.deadline;
+        label.textColor = blueTextColor;
+        _endTime = label;
+    }
     
     //底部灰色
     line = [UIView new];
@@ -383,9 +479,17 @@
 }
 
 - (void)onJoinClick {
-    NSString * url = [NSString stringWithFormat:@"%@teams/%@/needs/member_requests/", BASE_URL, _model.id];
+    NSString * url = nil;
+    if (_type == 0) {
+        url = [NSString stringWithFormat:@"%@teams/%@/needs/member_requests/", BASE_URL, _model.id];
+    } else if (_type == 1 || _type == 2) {
+        url = [NSString stringWithFormat:@"%@teams/%@/needs/requests/%@/", BASE_URL, _model.team_id, _model.id];
+    }
+    
     [[NetRequest sharedInstance] httpRequestWithPost:url parameters:nil withToken:YES success:^(id data, NSString *message) {
-        int a = 10;
+        UIAlertController * dialog = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [dialog addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil]];
+        [self presentViewController:dialog animated:YES completion:nil];
     } failed:^(id data, NSString *message) {
         UIAlertController * dialog = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
         [dialog addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil]];
@@ -398,8 +502,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel *)model {
+- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel *)model Type:(NSInteger)type {
     _model = model;
+    _type = type;
+    
     return self;
 }
 
@@ -415,19 +521,41 @@
 }
 
 - (void)updateView {
-    _needTitle.text = _model.title;
-    _field.text = _model.field;
-    _skill.text = _model.skill;
-    if ([_model.gender isEqualToString:@"0"]) {
-        _gender.text = @"不限";
-    } else if ([_model.gender isEqualToString:@"1"]) {
-        _gender.text = @"男";
-    } else {
-        _gender.text = @"女";
+    if (_type == 0) { //人员需求详情
+        _needTitle.text = _model.title;
+        _field.text = _model.field;
+        _skill.text = _model.skill;
+        if ([_model.gender isEqualToString:@"0"]) {
+            _gender.text = @"不限";
+        } else if ([_model.gender isEqualToString:@"1"]) {
+            _gender.text = @"男";
+        } else {
+            _gender.text = @"女";
+        }
+        _area.text = _model.province;
+        _number.text = _model.number;
+        _deadline.text = _model.deadline;
+    } else if (_type == 1) { //承接需求
+        _field.text = _model.description;
+        _skill.text = _model.field;
+        _degree.text = _model.skill;
+        _gender.text = _model.province;
+        _area.text = _model.cost;
+        _age.text = _model.deadline;
+        _number.text = _model.time_started;
+        _deadline.text = _model.time_ended;
+    } else if (_type == 2) { //外包需求
+        _field.text = _model.debugDescription;
+        _skill.text = _model.field;
+        _degree.text = _model.skill;
+        _gender.text = _model.degree;
+        _area.text = _model.number;
+        _age.text = _model.province;
+        _number.text = _model.cost;
+        _deadline.text = _model.deadline;
+        _startTime.text = _model.time_started;
+        _endTime.text = _model.time_ended;
     }
-    _area.text = _model.province;
-    _number.text = _model.number;
-    _deadline.text = _model.deadline;
 }
 
 /*

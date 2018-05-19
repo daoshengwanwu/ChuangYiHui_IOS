@@ -30,11 +30,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.783711"
+            timestampString = "548409734.5340379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "-onJoinClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,11 +46,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.783794"
+            timestampString = "548409734.534659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "-onJoinClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,11 +62,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.783852"
+            timestampString = "548409734.534941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "489"
+            endingLineNumber = "489"
             landmarkName = "-onJoinClick"
             landmarkType = "7">
             <Locations>
@@ -110,11 +110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.783904"
+            timestampString = "548409734.535158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "514"
+            endingLineNumber = "514"
             landmarkName = "-getNeedDetail"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,11 +126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.783952"
+            timestampString = "548409734.535376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "516"
+            endingLineNumber = "516"
             landmarkName = "-getNeedDetail"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,11 +142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.7839971"
+            timestampString = "548409734.535605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
             landmarkName = "-getNeedDetail"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.784043"
+            timestampString = "548409734.535812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "515"
+            endingLineNumber = "515"
             landmarkName = "-getNeedDetail"
             landmarkType = "7">
             <Locations>
@@ -221,11 +221,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.78409"
+            timestampString = "548409734.536016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
+            startingLineNumber = "519"
+            endingLineNumber = "519"
             landmarkName = "-getNeedDetail"
             landmarkType = "7">
          </BreakpointContent>
@@ -237,11 +237,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChuangYiHui/Publish/Controller/PeopleRequireDetailController.m"
-            timestampString = "548324952.784135"
+            timestampString = "548409734.5362231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "-backTapped:"
             landmarkType = "7">
          </BreakpointContent>

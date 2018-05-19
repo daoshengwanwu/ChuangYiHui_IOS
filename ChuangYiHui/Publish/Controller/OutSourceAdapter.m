@@ -8,7 +8,7 @@
 
 #import "OutSourceAdapter.h"
 #import "OutSourceRequireCell.h"
-#import "OutSourceDetailController.h"
+#import "PeopleRequireDetailController.h"
 
 @interface OutSourceAdapter()
 
@@ -37,7 +37,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
-    [_controller presentViewController:[[OutSourceDetailController alloc] init] animated:true completion:^{
+    [_controller presentViewController:[[PeopleRequireDetailController alloc] initWithPublishRequireModel:[_outSourceRequires objectAtIndex:indexPath.row] Type:2] animated:true completion:^{
         //跳转完成后需要执行的事件；
     }];
 }

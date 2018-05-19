@@ -334,7 +334,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
-    [self presentViewController:[[PeopleRequireDetailController alloc] initWithPublishRequireModel:[_peopleRequires objectAtIndex:indexPath.row]] animated:true completion:^{
+    [self presentViewController:[[PeopleRequireDetailController alloc] initWithPublishRequireModel:[_peopleRequires objectAtIndex:indexPath.row] Type:0] animated:true completion:^{
         //跳转完成后需要执行的事件；
     }];
 }

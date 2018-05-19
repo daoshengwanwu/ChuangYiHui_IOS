@@ -11,6 +11,6 @@
 
 @interface PeopleRequireDetailController : UIViewController
 
-- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel*)model;
+- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel*)model Type:(NSInteger)type;
 
 @end

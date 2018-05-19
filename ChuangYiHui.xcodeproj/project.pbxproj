@@ -210,10 +210,6 @@
 		E3E8D1E21ED80302007B293D /* UserInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E8D1E11ED80302007B293D /* UserInformationController.m */; };
 		E3E8D1E71ED80445007B293D /* LabelLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E8D1E51ED80445007B293D /* LabelLabelCell.m */; };
 		E3E8D1E81ED80445007B293D /* LabelLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E8D1E61ED80445007B293D /* LabelLabelCell.xib */; };
-		F780B2AF20AD1B6B00BC5BD6 /* UnderTakeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F780B2AD20AD1B6B00BC5BD6 /* UnderTakeDetailController.m */; };
-		F780B2B020AD1B6B00BC5BD6 /* UnderTakeDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F780B2AE20AD1B6B00BC5BD6 /* UnderTakeDetailController.xib */; };
-		F780B2B420AD1B7F00BC5BD6 /* OutSourceDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F780B2B220AD1B7F00BC5BD6 /* OutSourceDetailController.m */; };
-		F780B2B520AD1B7F00BC5BD6 /* OutSourceDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F780B2B320AD1B7F00BC5BD6 /* OutSourceDetailController.xib */; };
 		F7C42D7120AD456C00AC2266 /* PeopleRequireDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */; };
 		F7FE4D8D20AC4F230061D165 /* UnderTakeListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7420AC4F230061D165 /* UnderTakeListAdapter.m */; };
 		F7FE4D8E20AC4F230061D165 /* OutSourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7520AC4F230061D165 /* OutSourceAdapter.m */; };
@@ -597,12 +593,6 @@
 		E3E8D1E41ED80445007B293D /* LabelLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelLabelCell.h; sourceTree = "<group>"; };
 		E3E8D1E51ED80445007B293D /* LabelLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelLabelCell.m; sourceTree = "<group>"; };
 		E3E8D1E61ED80445007B293D /* LabelLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelLabelCell.xib; sourceTree = "<group>"; };
-		F780B2AC20AD1B6B00BC5BD6 /* UnderTakeDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnderTakeDetailController.h; sourceTree = "<group>"; };
-		F780B2AD20AD1B6B00BC5BD6 /* UnderTakeDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnderTakeDetailController.m; sourceTree = "<group>"; };
-		F780B2AE20AD1B6B00BC5BD6 /* UnderTakeDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnderTakeDetailController.xib; sourceTree = "<group>"; };
-		F780B2B120AD1B7F00BC5BD6 /* OutSourceDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutSourceDetailController.h; sourceTree = "<group>"; };
-		F780B2B220AD1B7F00BC5BD6 /* OutSourceDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutSourceDetailController.m; sourceTree = "<group>"; };
-		F780B2B320AD1B7F00BC5BD6 /* OutSourceDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutSourceDetailController.xib; sourceTree = "<group>"; };
 		F7C42D6F20AD456C00AC2266 /* PeopleRequireDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleRequireDetailController.h; sourceTree = "<group>"; };
 		F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleRequireDetailController.m; sourceTree = "<group>"; };
 		F7FE4D7420AC4F230061D165 /* UnderTakeListAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderTakeListAdapter.m; sourceTree = "<group>"; };
@@ -1876,12 +1866,6 @@
 				F7FE4D7720AC4F230061D165 /* OutSourceAdapter.h */,
 				F7FE4D7820AC4F230061D165 /* UnderTakeListAdapter.h */,
 				F7FE4D7920AC4F230061D165 /* PublishViewController.h */,
-				F780B2AC20AD1B6B00BC5BD6 /* UnderTakeDetailController.h */,
-				F780B2AD20AD1B6B00BC5BD6 /* UnderTakeDetailController.m */,
-				F780B2AE20AD1B6B00BC5BD6 /* UnderTakeDetailController.xib */,
-				F780B2B120AD1B7F00BC5BD6 /* OutSourceDetailController.h */,
-				F780B2B220AD1B7F00BC5BD6 /* OutSourceDetailController.m */,
-				F780B2B320AD1B7F00BC5BD6 /* OutSourceDetailController.xib */,
 				F7C42D6F20AD456C00AC2266 /* PeopleRequireDetailController.h */,
 				F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */,
 			);
@@ -2058,12 +2042,10 @@
 				E3BC582E1ECAA7390068C971 /* TeamHeaderView.xib in Resources */,
 				E3E8D1DB1ED6B0A5007B293D /* UserCommentCell.xib in Resources */,
 				E398F9AA1EC33E2700CF83C1 /* AgreeOrDisagreeCell.xib in Resources */,
-				F780B2B520AD1B7F00BC5BD6 /* OutSourceDetailController.xib in Resources */,
 				E398F9571EC1652D00CF83C1 /* ImageTitleArrowCell.xib in Resources */,
 				E398F95D1EC16FEC00CF83C1 /* PersonalHeaderView.xib in Resources */,
 				E3BC58231EC97C960068C971 /* LabelFieldCell.xib in Resources */,
 				E39B2ED91EE99E5100C8DCAB /* AchievementCell.xib in Resources */,
-				F780B2B020AD1B6B00BC5BD6 /* UnderTakeDetailController.xib in Resources */,
 				6C276FD720A082DE00B0E572 /* PersonActionListCell.xib in Resources */,
 				F7FE4D9720AC4F230061D165 /* PublishPeopleRequireCell.xib in Resources */,
 				F7FE4D9920AC4F230061D165 /* UnderTakeRequireCell.xib in Resources */,
@@ -2229,11 +2211,9 @@
 				E398F9A31EC3178F00CF83C1 /* ScoreCell.m in Sources */,
 				E3C0366D1ECDDF51002EF585 /* FieldPickerView.m in Sources */,
 				E3C036A31ECEE0C6002EF585 /* PersonalConversationListViewController.m in Sources */,
-				F780B2AF20AD1B6B00BC5BD6 /* UnderTakeDetailController.m in Sources */,
 				E3E8D1E71ED80445007B293D /* LabelLabelCell.m in Sources */,
 				6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */,
 				E398F9951EC2FFC200CF83C1 /* UIAlertController+supportedInterfaceOrientations.m in Sources */,
-				F780B2B420AD1B7F00BC5BD6 /* OutSourceDetailController.m in Sources */,
 				E3BC582C1ECAA7270068C971 /* TeamHeaderView.m in Sources */,
 				E3D1E92B1EC4993F00B1F552 /* PersonalTeamListController.m in Sources */,
 				E30EE5741EDE618E00B14A2D /* WBPopMenuModel.m in Sources */,

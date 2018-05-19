@@ -8,7 +8,7 @@
 
 #import "UnderTakeListAdapter.h"
 #import "UnderTakeRequireCell.h"
-#import "UnderTakeDetailController.h"
+#import "PeopleRequireDetailController.h"
 
 @interface UnderTakeListAdapter()
 
@@ -37,7 +37,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
-    [_controller presentViewController:[[UnderTakeDetailController alloc] init] animated:true completion:^{
+    [_controller presentViewController:[[PeopleRequireDetailController alloc] initWithPublishRequireModel:[_underTakeRequires objectAtIndex:indexPath.row] Type:1] animated:true completion:^{
         //跳转完成后需要执行的事件；
     }];
     
