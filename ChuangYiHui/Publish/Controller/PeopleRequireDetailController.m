@@ -76,7 +76,13 @@
         make.centerX.equalTo(header.mas_centerX);
     }];
     label.font = [UIFont systemFontOfSize:21];
+    if (_type == 0) {
     label.text = @"人员需求详情";
+    } else if (_type == 1) {
+        label.text = @"承接需求详情";
+    } else if (_type == 2) {
+        label.text = @"外包需求详情";
+    }
     label.textColor = blueTextColor;
     
     //标题栏举报
