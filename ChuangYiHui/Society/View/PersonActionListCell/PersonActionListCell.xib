@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-04-22" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY6-aw-pAJ">
-                        <rect key="frame" x="94" y="48" width="69.5" height="14.5"/>
+                        <rect key="frame" x="94.5" y="48" width="70" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="d8D-ZJ-tib"/>
                         </constraints>
@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_time_blue" translatesAutoresizingMaskIntoConstraints="NO" id="XcZ-4I-cP8">
-                        <rect key="frame" x="74" y="48" width="15" height="15"/>
+                        <rect key="frame" x="74.5" y="48" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="A4c-f8-fca"/>
                             <constraint firstAttribute="height" constant="15" id="Ugk-fN-f0r"/>
@@ -45,14 +45,14 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_comment" translatesAutoresizingMaskIntoConstraints="NO" id="eCp-IE-7y3">
-                        <rect key="frame" x="70" y="143" width="20" height="20"/>
+                        <rect key="frame" x="70.5" y="143" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="0k1-bp-QZd"/>
                             <constraint firstAttribute="width" constant="20" id="xcg-bd-UaO"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_head" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-fp-469">
-                        <rect key="frame" x="16" y="15" width="50" height="50"/>
+                        <rect key="frame" x="16.5" y="15" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Ned-3i-8SI"/>
                             <constraint firstAttribute="width" constant="50" id="dj7-R3-1bU"/>
@@ -65,7 +65,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016中国青少年" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAr-QY-3lT">
-                        <rect key="frame" x="74" y="18" width="104" height="20"/>
+                        <rect key="frame" x="74.5" y="18" width="104" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="YA4-p6-2y6"/>
                         </constraints>
@@ -74,8 +74,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdasdasdasdasdsadasdasdasdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64R-LO-h5C">
-                        <rect key="frame" x="13" y="80" width="317" height="52"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="13.5" y="80" width="335.5" height="52"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -102,7 +102,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zan_off" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-Jr-BS2">
-                        <rect key="frame" x="242" y="143" width="20" height="20"/>
+                        <rect key="frame" x="251.5" y="143" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="BMV-EC-qcO"/>
                             <constraint firstAttribute="width" constant="20" id="Kfc-j0-1ye"/>
@@ -111,7 +111,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ROi-Yy-6Ea">
-                        <rect key="frame" x="305" y="30" width="20" height="20"/>
+                        <rect key="frame" x="324" y="30" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="cVZ-Vj-xa2"/>
                             <constraint firstAttribute="width" constant="20" id="mYm-aK-DOZ"/>
