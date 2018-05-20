@@ -22,7 +22,7 @@
 //    _date_time.text = model.time_created;
     _date_time.text = [model.time_created stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     _number.text = model.comment_count;
-//    _content.text = [[NSString alloc] initWithFormat:@"%@,%@,%@,%@", model.name, model.action,model.object_type,model.object_name ];
+//    _content.text = [[NSString alloc] initWithFormat:@"%@,%@,%@,%@", model.name, model.action,model.object_type,model.object_name];
     NSString *tmp = @"";
     if([model.action isEqual:@"join"]){
         tmp = @"加入";
