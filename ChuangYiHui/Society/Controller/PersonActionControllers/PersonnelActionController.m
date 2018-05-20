@@ -9,6 +9,7 @@
 #import "PersonnelActionController.h"
 #import "PersonActionListCell.h"
 #import "ObjectListController.h"
+#import "UserDetailController.h"
 
 #define PersonActionListCellIdentifier @"PersonActionListCell"
 
@@ -128,44 +129,47 @@
 
 - (void)onClickZan:(UITapGestureRecognizer *)recognizer
 {
-//    //朋友评价
-//    //    _personactionArr[]
-//    ObjectListController *vc = [ObjectListController new];
-//    //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
-//    vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
-//    vc.displayType = User_Event_Comments;
-//    [self.navigationController pushViewController:vc animated:YES];
-//    PersonActionModel *model = [_personactionArr objectAtIndex:recognizer.view.tag];
-    
-//    _number.text = model.comment_count;
-//    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTION(@"user", model.action_id) success:^(id data, NSString *message) {
-//        //        NSLog(@"已点赞");
-//        //        _isLiked = YES;
-//        [_like_button setImage:[UIImage imageNamed:@"zan_on"]];
-//    } failed:^(id data, NSString *message) {
-//        //        NSLog(@"未点赞");
-//        //        _isLiked = NO;
-//        [_like_button setImage:[UIImage imageNamed:@"zan_off"]];
-//    }];
-//    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FAVOR_ACTION(@"user", model.action_id) success:^(id data, NSString *message) {
-//        //        NSLog(@"已收藏");
-//        //        _isLiked = YES;
-//        [_StarButton setImage:[UIImage imageNamed:@"star_icon_hover"]];
-//    } failed:^(id data, NSString *message) {
-//        //        NSLog(@"未收藏");
-//        //        _isLiked = NO;
-//        [_StarButton setImage:[UIImage imageNamed:@"star_icon"]];
+    UIView * v=[recognizer.view superview];
+    PersonActionListCell *cell=(PersonActionListCell *)[v superview];//找到cell
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) success:^(id data, NSString *message) {
+            //取消点赞
+            [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_LIKE_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) success:^(id data, NSString *message) {
+                [cell.like_button setImage:[UIImage imageNamed:@"zan_off"]];
+                //        int lll = ;
+                [cell.like_count setText:[NSString stringWithFormat:@"%d", [cell.like_count.text intValue] - 1]];
+            } failed:^(id data, NSString *message) {
+        }];
+            } failed:^(id data, NSString *message) {
+                //点赞
+                [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_LIKE_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
+                    //            _isLiked = YES;
+                    [cell.like_button setImage:[UIImage imageNamed:@"zan_on"]];
+                    //        NSString *lll = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).liker_count;
+                    //            NSLog(@"点赞成功 %ld", _likerCount);
+                    [cell.like_count setText:[NSString stringWithFormat:@"%d", [cell.like_count.text intValue] + 1]];
+                } failed:^(id data, NSString *message) {
+                }];
+    }];
 }
 
 - (void)onClickSC:(UITapGestureRecognizer *)recognizer
 {
-//    //朋友评价
-//    //    _personactionArr[]
-//    ObjectListController *vc = [ObjectListController new];
-//    //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
-//    vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
-//    vc.displayType = User_Event_Comments;
-//    [self.navigationController pushViewController:vc animated:YES];
+    UIView * v=[recognizer.view superview];
+    PersonActionListCell *cell=(PersonActionListCell *)[v superview];//找到cell
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FAVOR_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) success:^(id data, NSString *message) {
+        //取消收藏
+        [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_FAVOR_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) success:^(id data, NSString *message) {
+            [cell.StarButton setImage:[UIImage imageNamed:@"star_icon"]];
+        } failed:^(id data, NSString *message) {
+        }];
+    } failed:^(id data, NSString *message) {
+        //收藏
+        [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_FAVOR_ACTION(@"user", ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
+            //            _isLiked = YES;
+            [cell.StarButton setImage:[UIImage imageNamed:@"star_icon_hover"]];
+        } failed:^(id data, NSString *message) {
+        }];
+    }];
 }
 
 - (void)onClickComment:(UITapGestureRecognizer *)recognizer
@@ -189,6 +193,13 @@
 //    vc.object_id = weakSelf.model.user_id;
 //    vc.displayType = User_Comments;
 //    [self.navigationController pushViewController:vc animated:YES];
+    //跳转到用户详情的页面
+    UserDetailController *vc = [UserDetailController new];
+    PersonActionModel *model = [_personactionArr objectAtIndex:indexPath.row];
+    UserModel *userModel = [UserModel new];
+    [userModel setUser_id:model.id];
+    vc.model = userModel;
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 

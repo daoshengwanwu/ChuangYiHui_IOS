@@ -66,7 +66,7 @@
 #define URL_GET_OTHER_USER_OWNED_TEAMS(userId) [NSString stringWithFormat: @"%@users/%@/owned_teams/", BASE_URL, userId]
 //检测是否点赞
 #define URL_CHECK_IF_LIKE(userId) [NSString stringWithFormat: @"%@users/current/liked/users/%@/", BASE_URL, userId]
-//检测是否点赞动态
+//get 检测是否点赞动态 post点赞  delete取消点赞
 #define URL_CHECK_IF_LIKE_ACTION(type,userId) [NSString stringWithFormat: @"%@users/current/liked/%@_actions/%@/", BASE_URL, type, userId]
 //检测是否收藏动态
 #define URL_CHECK_IF_FAVOR_ACTION(type,userId) [NSString stringWithFormat: @"%@users/current/favored/%@_actions/%@/", BASE_URL, type, userId]
