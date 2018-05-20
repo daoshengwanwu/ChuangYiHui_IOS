@@ -17,6 +17,7 @@
 - (void)setTableView:(UITableView*)tableView;
 - (void)setUnderTakeRequireList:(NSArray*)list;
 - (void)setLimit:(NSInteger)limit;
+- (void)setViewController:(UIViewController*)controller;
 - (void)getDataFromServer;
 - (NSInteger)getLimit;
 
