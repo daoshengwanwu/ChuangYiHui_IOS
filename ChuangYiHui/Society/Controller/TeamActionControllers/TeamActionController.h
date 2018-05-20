@@ -10,4 +10,6 @@
 
 @interface TeamActionController : UIViewController
 
+@property (nonatomic, strong)TeamModel *model;
+
 @end

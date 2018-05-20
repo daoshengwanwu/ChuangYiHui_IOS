@@ -22,7 +22,7 @@
 //    _date_time.text = model.time_created;
     _date_time.text = [model.time_created stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     _number.text = model.comment_count;
-//    _content.text = [[NSString alloc] initWithFormat:@"%@,%@,%@,%@", model.name, model.action,model.object_type,model.object_name];
+    
     NSString *tmp = @"";
     if([model.action isEqual:@"join"]){
         tmp = @"加入";
@@ -33,10 +33,11 @@
     }else{
         tmp = @"发布";
     }
-    NSString * str1 = [[NSString alloc] initWithFormat:@"%@ <font color='#FF0000'><small>%@</small></font> %@", model.name, tmp ,model.object_name ];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[str1 dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    _content.attributedText = attributedString;
-    _content.font = [UIFont fontWithName:@"Arial" size:18];
+    _content.text = [[NSString alloc] initWithFormat:@"%@ %@ %@", model.name, tmp,model.object_name];
+//    NSString * str1 = [[NSString alloc] initWithFormat:@"%@ <font color='#FF0000'><small>%@</small></font> %@", model.name, tmp ,model.object_name ];
+//    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[str1 dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+//    _content.attributedText = attributedString;
+//    _content.font = [UIFont fontWithName:@"Arial" size:18];
     [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTION(@"user", model.action_id) success:^(id data, NSString *message) {
 //        NSLog(@"已点赞");
 //        _isLiked = YES;
