@@ -199,6 +199,7 @@
     TeamModel *teamModel = [TeamModel new];
     [teamModel setTeam_id:model.id];
     vc.teamModel = teamModel;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

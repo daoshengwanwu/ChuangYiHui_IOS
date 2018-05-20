@@ -180,6 +180,7 @@
 //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
     vc.object_id = ((PersonActionModel*)[_personactionArr objectAtIndex:recognizer.view.tag]).action_id;
     vc.displayType = User_Event_Comments;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -199,6 +200,7 @@
     UserModel *userModel = [UserModel new];
     [userModel setUser_id:model.id];
     vc.model = userModel;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 
 }
