@@ -469,6 +469,7 @@
     [alert addButton:@"确定" actionBlock:^(void) {
         [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textField.text} withToken:NO success:^(id data, NSString *message) {
             [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"评论成功" andTime:1.0f];
+            [self getObjects];
         } failed:^(id data, NSString *message) {
             [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
         }];
