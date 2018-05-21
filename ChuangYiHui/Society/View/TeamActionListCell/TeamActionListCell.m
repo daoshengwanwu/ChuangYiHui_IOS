@@ -34,7 +34,7 @@
     }else{
         _content.text = [[NSString alloc] initWithFormat:@"%@ *** %@", model.name,model.object_name];
     }
-//    _content.text = [[NSString alloc] initWithFormat:@"%@ %@ %@", model.name, tmp,model.object_name]; 
+//    _content.text = [[NSString alloc] initWithFormat:@"%@ %@ %@", model.name, tmp,model.object_name];
     //    NSString * str1 = [[NSString alloc] initWithFormat:@"%@ <font color='#FF0000'><small>%@</small></font> %@", model.name, tmp ,model.object_name ];
     //    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[str1 dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     //    _content.attributedText = attributedString;

@@ -72,6 +72,8 @@
         tableView;
     });
     
+    [self setUpRightButton];
+    
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
@@ -450,7 +452,30 @@
     }
     
 }
+//设置导航栏的右边按钮
+- (void)setUpRightButton{
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [rightButton setImage:[UIImage imageNamed:@"add_icon"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
 
+//评论
+- (void)rightButtonAction{
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.customViewColor = MAIN_COLOR;
+    UITextField *textField = [alert addTextField:@"输入评论内容"];
+    [alert addButton:@"确定" actionBlock:^(void) {
+        [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textField.text} withToken:NO success:^(id data, NSString *message) {
+            [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"评论成功" andTime:1.0f];
+        } failed:^(id data, NSString *message) {
+            [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+        }];
+    }];
+    
+    [alert showEdit:self title:@"评论" subTitle:@"" closeButtonTitle:@"取消" duration:0.0f];
+}
 
 #pragma mark DZNEmptyDelegate
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
