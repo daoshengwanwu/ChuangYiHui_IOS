@@ -9,6 +9,7 @@
 #import "UserManager.h"
 #import "UserModel.h"
 
+
 #define USER_INFO_PATH @"userInfo.data"
 
 static UserManager *_instance;
@@ -68,6 +69,44 @@ static UserManager *_instance;
         }
     }
     return NO;
+}
+
+- (NSString *) dealError: (int)statusCode andParam2: (NSString*)responseString {
+    if (responseString!=nil && [responseString length] > 3 && ![responseString isEqualToString:@""]) {
+        return responseString;
+    } else {
+        if (statusCode == 401) {
+            return @"token错误";
+        } else if (statusCode == 403) {
+            return @"无法完成该操作";
+        } else if (statusCode == 404) {
+            return @"404找不到地址";
+        } else if (statusCode == 500) {
+            return @"服务器接口出现问题";
+        } else if (statusCode == 0302000) {
+            return @"姓名与身份证不匹配";
+        } else if (statusCode == 0302001) {
+            return @"eID证书已过期";
+        } else if (statusCode == 0302002) {
+            return @"eID签名验签失败";
+        } else if (statusCode == 0302003) {
+            return @"eID HMAC验签失败";
+        } else if (statusCode == 0302004) {
+            return @"姓名与身份证不匹配";
+        } else if (statusCode == 0401000) {
+            return @"服务器异常";
+        } else if (statusCode == 0201004) {
+            return @"data_to_sign 重复";
+        } else if (statusCode == 0201006) {
+            return @"appid不可用";
+        } else if (statusCode == 304) {
+            return @"未实名认证";
+        } else if (statusCode > 100000) {
+            return @"eID认证失败";
+        } else {
+            return @"网络异常%";
+        }
+    }
 }
 
 - (BOOL)loadUserInfo

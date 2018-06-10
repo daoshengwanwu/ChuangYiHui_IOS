@@ -28,5 +28,6 @@
 //活动当前的状态
 @property (nonatomic, strong)NSString *status;
 @property (nonatomic, strong)NSString *province;
+@property (nonatomic, strong)NSString *content;
 
 @end

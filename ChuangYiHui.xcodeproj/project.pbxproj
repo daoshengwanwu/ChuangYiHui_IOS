@@ -1223,6 +1223,7 @@
 		E398F9211EC0A45000CF83C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E398F92B1EC0A4C600CF83C1 /* User.storyboard */,
 				E3E8D1DC1ED6B34A007B293D /* CommentModel */,
 				E3BC580D1EC94A0D0068C971 /* ExperienceModel */,
 				E398F9361EC0A91E00CF83C1 /* UserModel */,
@@ -1242,7 +1243,6 @@
 				E3BC581D1EC97C640068C971 /* LabelFieldCell */,
 				E3BC58111EC94BDB0068C971 /* ExperienceCell */,
 				E398F95E1EC1ABB000CF83C1 /* UserListCell */,
-				E398F92B1EC0A4C600CF83C1 /* User.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";

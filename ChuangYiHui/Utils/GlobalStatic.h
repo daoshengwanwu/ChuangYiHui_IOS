@@ -105,6 +105,7 @@ typedef NS_ENUM(NSInteger, DisplayType) {
     Team_Visitors,
     Team_Member_Requests,
     Team_Achievements,
+    Activity_Comments,
 };
 
 

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DWz-Mu-k7t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DWz-Mu-k7t">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="884" y="211.84407796101951"/>
         </scene>
-        <!--活动详情-->
+        <!--详情-->
         <scene sceneID="HfX-KZ-rSI">
             <objects>
-                <viewController storyboardIdentifier="activityDetail" title="活动详情" automaticallyAdjustsScrollViewInsets="NO" id="3v1-lB-S2y" customClass="ActivityDetailController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="activityDetail" title="详情" automaticallyAdjustsScrollViewInsets="NO" id="3v1-lB-S2y" customClass="ActivityDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gme-pg-uEc"/>
                         <viewControllerLayoutGuide type="bottom" id="jZg-zb-DO8"/>
@@ -41,22 +44,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntc-f8-0vH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="558"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzn-cN-UCV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="cOL-ja-1Ph"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5M3-GG-PwI">
+                                        <rect key="frame" x="0.0" y="105" width="375" height="5"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="hYx-s7-TlM"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obD-dm-RSX">
+                                        <rect key="frame" x="0.0" y="15" width="375" height="90"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0q-24-Ekw">
+                                                <rect key="frame" x="8" y="4" width="304" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="gmA-bw-exs"/>
                                                 </constraints>
@@ -64,7 +72,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vem-gQ-ADy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-04-05至2018-09-09   北京市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vem-gQ-ADy">
+                                                <rect key="frame" x="8" y="33" width="304" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="poK-TT-8Uv"/>
                                                 </constraints>
@@ -73,6 +82,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**人已报名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syb-iR-qGV">
+                                                <rect key="frame" x="8" y="62" width="121" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="121" id="0F2-aw-euJ"/>
                                                     <constraint firstAttribute="height" constant="21" id="gsH-rM-ii1"/>
@@ -82,33 +92,38 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZWk-vK-Ftz">
+                                                <rect key="frame" x="320" y="42" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2ht-4X-xz4"/>
                                                     <constraint firstAttribute="width" constant="40" id="BLn-lW-APV"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_icon" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-hh-fmd">
+                                                <rect key="frame" x="196" y="60.5" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="BdR-xq-8vh"/>
                                                     <constraint firstAttribute="width" constant="24" id="Foc-8B-8pK"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zan_off" translatesAutoresizingMaskIntoConstraints="NO" id="jdJ-4l-LWq">
+                                                <rect key="frame" x="235" y="60.5" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Jaz-pa-UUr"/>
                                                     <constraint firstAttribute="width" constant="24" id="lgP-qX-lGc"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可报名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYO-Sv-OeB">
+                                                <rect key="frame" x="320" y="4" width="47" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="FFI-u9-443"/>
                                                     <constraint firstAttribute="width" constant="47" id="U2l-lB-Cjz"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ged-Rh-bpu">
+                                                <rect key="frame" x="266" y="62" width="29" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="VZh-Ge-ifu"/>
                                                     <constraint firstAttribute="width" constant="29" id="bCh-og-jWl"/>
@@ -142,6 +157,7 @@
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="活动详情" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-TB-hqV">
+                                        <rect key="frame" x="0.0" y="110" width="375" height="448"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="448" id="Zme-bO-X0x"/>
@@ -168,9 +184,10 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMl-bI-egW">
-                                <frame key="frameInset" minY="622" width="189" height="45"/>
+                                <rect key="frame" x="0.0" y="622" width="189" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论(100)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZK-5n-uXr">
+                                        <rect key="frame" x="67" y="12" width="62" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="lzH-yc-JL4"/>
                                             <constraint firstAttribute="height" constant="21" id="oAV-TO-hVm"/>
@@ -180,6 +197,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_comment_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tJT-lG-Igg">
+                                        <rect key="frame" x="34" y="9.5" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="2xh-nU-VFY"/>
                                             <constraint firstAttribute="height" constant="26" id="IAf-0z-hfJ"/>
@@ -196,7 +214,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSm-WK-T5g">
-                                <frame key="frameInset" minX="189" minY="622" width="186" height="45"/>
+                                <rect key="frame" x="189" y="622" width="186" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.70588235294117641" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="12G-1i-L5d"/>
@@ -248,7 +266,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DWz-Mu-k7t" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j6I-yH-Exq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
