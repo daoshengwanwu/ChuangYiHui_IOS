@@ -49,7 +49,7 @@
         tableView.dataSource = self;
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        if (_displayType == User_Comments||_displayType == User_Event_Comments||_displayType == Team_Event_Comments||_displayType == Activity_Comments) {
+        if (_displayType == User_Comments||_displayType == User_Event_Comments||_displayType == Team_Event_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments) {
             tableView.estimatedRowHeight = [self getRowHeight];
             tableView.rowHeight = UITableViewAutomaticDimension;
         }else{
@@ -123,6 +123,10 @@
             self.title = @"评论";
             break;
             
+            case Competition_Comments:
+            self.title = @"评论";
+            break;
+            
             case Team_Event_Comments:
             self.title = @"评论";
             break;
@@ -170,6 +174,10 @@
             rowHeight = 75.0;
             break;
             
+            case Competition_Comments:
+            rowHeight = 75.0;
+            break;
+            
             case Team_Event_Comments:
             rowHeight = 75.0;
             break;
@@ -213,6 +221,10 @@
             
             case Activity_Comments:
             baseUrl = URL_GET_ACTIVITY_COMMENTS(_object_id);
+            break;
+            
+            case Competition_Comments:
+            baseUrl = URL_GET_COMPETITION_COMMENTS(_object_id);
             break;
             
             case Team_Event_Comments:
@@ -274,7 +286,7 @@
             _objectArr = [ScoreModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
         }else if (_displayType == User_Followed_Team){
             _objectArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
-        }else if(_displayType == User_Comments||_displayType == Activity_Comments){
+        }else if(_displayType == User_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments){
             _objectArr = [CommentModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
         }else if(_displayType == User_Event_Comments){
             _objectArr = [CommentModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
@@ -415,7 +427,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setTeamCellByTeamModel:[_objectArr objectAtIndex:indexPath.row]];
         return cell;
-    }else if(_displayType == User_Comments||_displayType == Activity_Comments){
+    }else if(_displayType == User_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments){
         UserCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setCellByCommentModel:[_objectArr objectAtIndex:indexPath.row]];
@@ -449,7 +461,7 @@
         UserDetailController *vc = [UserDetailController new];
         vc.model = [_objectArr objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if(_displayType == User_Comments || _displayType == User_Event_Comments || _displayType == Team_Event_Comments || _displayType == Activity_Comments){
+    }else if(_displayType == User_Comments || _displayType == User_Event_Comments || _displayType == Team_Event_Comments || _displayType == Activity_Comments||_displayType==Competition_Comments){
         //跳转到用户详情的页面
         UserDetailController *vc = [UserDetailController new];
         CommentModel *model = [_objectArr objectAtIndex:indexPath.row];

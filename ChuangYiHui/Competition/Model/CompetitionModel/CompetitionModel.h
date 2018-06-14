@@ -28,5 +28,6 @@
 @property (nonatomic, strong)NSString *allow_team;
 //活动当前的状态
 @property (nonatomic, strong)NSString *status;
-
+@property (nonatomic, strong)NSString *content;
+@property (nonatomic, strong)NSString *province;
 @end

@@ -13,6 +13,8 @@
 		6C276FD720A082DE00B0E572 /* PersonActionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C276FD520A082DE00B0E572 /* PersonActionListCell.xib */; };
 		6C276FDB20A082F900B0E572 /* TeamActionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C276FD920A082F900B0E572 /* TeamActionListCell.m */; };
 		6C276FDC20A082F900B0E572 /* TeamActionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C276FDA20A082F900B0E572 /* TeamActionListCell.xib */; };
+		6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */; };
+		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
 		6C9E29E020A13F7900D4069F /* PersonActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DF20A13F7900D4069F /* PersonActionModel.m */; };
 		C2ACDAFB8929D823AD44EB18 /* libPods-ChuangYiHui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0012BC484D6454451AB7F336 /* libPods-ChuangYiHui.a */; };
@@ -131,7 +133,7 @@
 		E3B9AA001F407DA200AB2823 /* HelperController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B9A9FF1F407DA200AB2823 /* HelperController.m */; };
 		E3B9AA051F41327000AB2823 /* CompetitionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B9AA031F41327000AB2823 /* CompetitionListCell.m */; };
 		E3B9AA061F41327000AB2823 /* CompetitionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B9AA041F41327000AB2823 /* CompetitionListCell.xib */; };
-		E3B9AA081F4136F800AB2823 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B9AA071F4136F800AB2823 /* Activity.storyboard */; };
+		E3B9AA081F4136F800AB2823 /* Competition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B9AA071F4136F800AB2823 /* Competition.storyboard */; };
 		E3B9D1DE1ED2C1E200F45201 /* SetUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B9D1DD1ED2C1E200F45201 /* SetUpController.m */; };
 		E3B9D1E21ED2CD0B00F45201 /* ServiceProtocolController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B9D1E11ED2CD0B00F45201 /* ServiceProtocolController.m */; };
 		E3B9D1E41ED2CDC400F45201 /* protocol.html in Resources */ = {isa = PBXBuildFile; fileRef = E3B9D1E31ED2CDC400F45201 /* protocol.html */; };
@@ -253,6 +255,10 @@
 		6C276FD820A082F900B0E572 /* TeamActionListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamActionListCell.h; sourceTree = "<group>"; };
 		6C276FD920A082F900B0E572 /* TeamActionListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamActionListCell.m; sourceTree = "<group>"; };
 		6C276FDA20A082F900B0E572 /* TeamActionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamActionListCell.xib; sourceTree = "<group>"; };
+		6C9A869C20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailControllerViewController.h; sourceTree = "<group>"; };
+		6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailControllerViewController.m; sourceTree = "<group>"; };
+		6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJsonModel.h; sourceTree = "<group>"; };
+		6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyJsonModel.m; sourceTree = "<group>"; };
 		6C9E29DB20A13F6000D4069F /* TeamActionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamActionModel.h; sourceTree = "<group>"; };
 		6C9E29DC20A13F6000D4069F /* TeamActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamActionModel.m; sourceTree = "<group>"; };
 		6C9E29DE20A13F7900D4069F /* PersonActionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonActionModel.h; sourceTree = "<group>"; };
@@ -471,7 +477,7 @@
 		E3B9AA021F41327000AB2823 /* CompetitionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionListCell.h; sourceTree = "<group>"; };
 		E3B9AA031F41327000AB2823 /* CompetitionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionListCell.m; sourceTree = "<group>"; };
 		E3B9AA041F41327000AB2823 /* CompetitionListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompetitionListCell.xib; sourceTree = "<group>"; };
-		E3B9AA071F4136F800AB2823 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		E3B9AA071F4136F800AB2823 /* Competition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Competition.storyboard; sourceTree = "<group>"; };
 		E3B9D1DC1ED2C1E200F45201 /* SetUpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpController.h; sourceTree = "<group>"; };
 		E3B9D1DD1ED2C1E200F45201 /* SetUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpController.m; sourceTree = "<group>"; };
 		E3B9D1E01ED2CD0B00F45201 /* ServiceProtocolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceProtocolController.h; sourceTree = "<group>"; };
@@ -1504,6 +1510,7 @@
 		E3B9A9D31F3FFD8200AB2823 /* Competition */ = {
 			isa = PBXGroup;
 			children = (
+				E3B9AA071F4136F800AB2823 /* Competition.storyboard */,
 				E3B9A9D81F3FFDC800AB2823 /* Controller */,
 				E3B9A9D91F3FFDC800AB2823 /* Model */,
 				E3B9A9DA1F3FFDC800AB2823 /* View */,
@@ -1525,7 +1532,6 @@
 			isa = PBXGroup;
 			children = (
 				E3B9A9E41F404A9100AB2823 /* ActivityListCell */,
-				E3B9AA071F4136F800AB2823 /* Activity.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1554,6 +1560,8 @@
 			children = (
 				E3B9A9DB1F3FFDF000AB2823 /* CompetitionListController.h */,
 				E3B9A9DC1F3FFDF000AB2823 /* CompetitionListController.m */,
+				6C9A869C20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.h */,
+				6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1598,6 +1606,8 @@
 			children = (
 				E3B9A9F21F40556C00AB2823 /* CompetitionModel.h */,
 				E3B9A9F31F40556C00AB2823 /* CompetitionModel.m */,
+				6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */,
+				6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */,
 			);
 			path = CompetitionModel;
 			sourceTree = "<group>";
@@ -2029,7 +2039,7 @@
 				F7FE4D9520AC4F230061D165 /* OutSourceRequireCell.xib in Resources */,
 				E398F9281EC0A4AF00CF83C1 /* Personal.storyboard in Resources */,
 				E33E957E1ECD52F4002B10FB /* UserHeaderView.xib in Resources */,
-				E3B9AA081F4136F800AB2823 /* Activity.storyboard in Resources */,
+				E3B9AA081F4136F800AB2823 /* Competition.storyboard in Resources */,
 				E3B9A9E91F404AA900AB2823 /* ActivityListCell.xib in Resources */,
 				E398F9801EC2FDE800CF83C1 /* ScanResultViewController.xib in Resources */,
 				E398F9471EC0B18500CF83C1 /* HotSpot.storyboard in Resources */,
@@ -2168,6 +2178,7 @@
 				E3BC58221EC97C960068C971 /* LabelFieldCell.m in Sources */,
 				E33E95B21ECDA465002B10FB /* ActionSheetDatePicker.m in Sources */,
 				F7FE4D8F20AC4F230061D165 /* PublishViewController.m in Sources */,
+				6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */,
 				E398F9111EC0A00900CF83C1 /* NetRequest.m in Sources */,
 				E3D1E9251EC412A800B1F552 /* XLSlideSwitch.m in Sources */,
 				E3BFAE471F21DC1A00CFB792 /* OutSourceNeedDetailController.m in Sources */,
@@ -2186,6 +2197,7 @@
 				E3CD1C071EEC2CCD00D8FE32 /* RegisterController.m in Sources */,
 				6C276FCC20A0818E00B0E572 /* PersonnelActionController.m in Sources */,
 				E30EE5791EDE618E00B14A2D /* WBTableViewDelegate.m in Sources */,
+				6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */,
 				E398F93D1EC0A95B00CF83C1 /* UserManager.m in Sources */,
 				E398F9321EC0A55E00CF83C1 /* PersonalController.m in Sources */,
 				E3CD67BC1ECC2FB8005C94BD /* CreateTeamController.m in Sources */,

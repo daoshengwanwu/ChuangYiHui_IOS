@@ -13,6 +13,7 @@
 #import "ActivityModel.h"
 #import "ActivityDetailController.h"
 #import "PublishViewController.h"
+#import "CompetitionDetailControllerViewController.h"
 
 
 @interface HotSpotController ()<XLSlideSwitchDelegate>
@@ -47,12 +48,26 @@
 
 - (void)registerNotificationCenter{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToActivityDetail:) name:@"GoToActivityDetail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToCompetitionDetail:) name:@"GoToCompetitionDetail" object:nil];
 }
 
 - (void)goToActivityDetail :(NSNotification *)notification{
     ActivityModel *model = [notification object];
     UIStoryboard *hotspotSB = [UIStoryboard storyboardWithName:@"HotSpot" bundle:nil];
     ActivityDetailController *vc = [hotspotSB instantiateViewControllerWithIdentifier:@"activityDetail"];
+    vc.model = model;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+//- (void)registerNotificationCenter{
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToCompetitionDetail:) name:@"goToCompetitionDetail" object:nil];
+//}
+
+- (void)goToCompetitionDetail :(NSNotification *)notification{
+    CompetitionModel *model = [notification object];
+    UIStoryboard *hotspotSB = [UIStoryboard storyboardWithName:@"Competition" bundle:nil];
+    CompetitionDetailControllerViewController *vc = [hotspotSB instantiateViewControllerWithIdentifier:@"competitionDetail"];
     vc.model = model;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

@@ -1,27 +1,27 @@
 //
-//  ActivityDetailController.m
+//  CompetitionDetailControllerViewController.m
 //  ChuangYiHui
 //
-//  Created by litingdong on 2017/8/13.
-//  Copyright © 2017年 litingdong. All rights reserved.
+//  Created by litingdong on 2018/6/11.
+//  Copyright © 2018年 p1p1us. All rights reserved.
 //
 
-#import "ActivityDetailController.h"
+#import "CompetitionDetailControllerViewController.h"
 #import "UserManager.h"
 #import "PersonalQRCodeController.h"
 #import "ObjectListController.h"
 
-@interface ActivityDetailController ()
+@interface CompetitionDetailControllerViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *activity_title;
-@property (weak, nonatomic) IBOutlet UILabel *activity_title_detail;
+@property (weak, nonatomic) IBOutlet UILabel *competition_title;
+@property (weak, nonatomic) IBOutlet UILabel *competition_title_detail;
 @property (weak, nonatomic) IBOutlet UILabel *participate_count;
 @property (weak, nonatomic) IBOutlet UIImageView *collect_image;
 @property (weak, nonatomic) IBOutlet UIImageView *likeImage;
 @property (weak, nonatomic) IBOutlet UILabel *liker_count;
 @property (weak, nonatomic) IBOutlet UIImageView *QRCode_image;
 @property (weak, nonatomic) IBOutlet UILabel *status;
-@property (weak, nonatomic) IBOutlet UITextView *activity_detail;
+@property (weak, nonatomic) IBOutlet UITextView *competition_detail;
 @property (weak, nonatomic) IBOutlet UIButton *join_in_button;
 @property (weak, nonatomic) IBOutlet UILabel *comment_label;
 @property (weak, nonatomic) IBOutlet UIView *comment_view;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation ActivityDetailController
+@implementation CompetitionDetailControllerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,12 +49,12 @@
     _isFocused = NO;
     _applied = NO;
     
-    [self judgeApplied];
-    [self getActivityProfile];
-    [self checkIfLike:_model.activity_id];
-    [self checkIfCollected:_model.activity_id];
-//    [self addBottonView];
-
+//    [self judgeApplied];
+    [self getCompetitionProfile];
+    [self checkIfLike:_model.competition_id];
+    [self checkIfCollected:_model.competition_id];
+    //    [self addBottonView];
+    
 }
 
 
@@ -63,29 +63,29 @@
 }
 
 //获取个人资料
-- (void)getActivityProfile{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_ACTIVITY_DETAIL(_model.activity_id) success:^(id data, NSString *message) {
-        _model = [ActivityModel mj_objectWithKeyValues:data];
+- (void)getCompetitionProfile{
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITION_DETAIL(_model.competition_id) success:^(id data, NSString *message) {
+        _model = [CompetitionModel mj_objectWithKeyValues:data];
         _liker_count.text = _model.liker_count;
         _likerCount = [_model.liker_count integerValue];
-        _participate_count.text =  [NSString stringWithFormat:@"%@/%@人已报名", _model.user_participator_count, _model.allow_user ];
-//        _user_participator_count = [_model.user_participator_count integerValue];
-        _activity_detail.text = _model.content;
-        _activity_title.text = _model.name;
-        _activity_title_detail.text = [NSString stringWithFormat:@"%@至%@   %@", _model.time_started, _model.time_ended, _model.province];
-//        _time_started = _model.time_started;
-//        _time_ended = _model.time_ended;
-//        _province = _model.province;
-//        _allow_user = _model.allow_user;
+        _participate_count.text =  [NSString stringWithFormat:@"%@/%@团队已报名", _model.team_participator_count, _model.allow_team ];
+        //        _user_participator_count = [_model.user_participator_count integerValue];
+        _competition_detail.text = _model.content;
+        _competition_title.text = _model.name;
+        _competition_title_detail.text = [NSString stringWithFormat:@"%@至%@   %@", _model.time_started, _model.time_ended, _model.province];
+        //        _time_started = _model.time_started;
+        //        _time_ended = _model.time_ended;
+        //        _province = _model.province;
+        //        _allow_user = _model.allow_user;
         if ([_model.status isEqualToString:@"0"]){
             _status.text = @"未开始";
             _status.textColor = [UIColor grayColor];
-            [_join_in_button setTitle:@"活动未开始" forState:UIControlStateNormal];
+            [_join_in_button setTitle:@"竞赛未开始" forState:UIControlStateNormal];
             _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
         }
-        if ([_model.status isEqualToString:@"1"]){
+        else if ([_model.status isEqualToString:@"1"]){
             if (_applied){
-                NSLog(@"22222");
+//                NSLog(@"22222");
                 _status.text = @"已报名";
                 [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
                 
@@ -104,13 +104,25 @@
                 }
             }
         }
-        if ([_model.status isEqualToString:@"2"]){
-            _status.text = @"活动结束";
+        else if ([_model.status isEqualToString:@"6"]){
+            _status.text = @"竞赛结束";
             _status.textColor = [UIColor redColor];
-            [_join_in_button setTitle:@"活动结束" forState:UIControlStateNormal];
+            [_join_in_button setTitle:@"竞赛结束" forState:UIControlStateNormal];
             _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
         }
-//        _status.text = _model.status;
+        else{
+            if (_applied) {
+                _status.text = @"进行中";
+                [_join_in_button setTitle:@"查看详情" forState:UIControlStateNormal];
+//                _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
+            }
+            else{
+                _status.text = @"报名结束";
+                [_join_in_button setTitle:@"报名结束" forState:UIControlStateNormal];
+                _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
+            }
+        }
+        //        _status.text = _model.status;
         [self getCommentDetail];
         
         UITapGestureRecognizer *likeviewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeTap:)];
@@ -128,7 +140,7 @@
         UITapGestureRecognizer *commentviewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentTap:)];
         _comment_view.userInteractionEnabled = YES;  //这句话千万不能忘记了
         [_comment_view addGestureRecognizer:commentviewTap];
-
+        
         [_join_in_button addTarget:self action:@selector(joinTap) forControlEvents:UIControlEventTouchUpInside];
         
     } failed:^(id data, NSString *message) {
@@ -139,18 +151,18 @@
 - (void)likeTap:(UITapGestureRecognizer *)recognizer
 {
     if(_isLiked){
-        [self unLike:_model.activity_id];
+        [self unLike:_model.competition_id];
     }else{
-        [self like:_model.activity_id];
+        [self like:_model.competition_id];
     }
 }
 //收藏、取消收藏
 - (void)collectTap:(UITapGestureRecognizer *)recognizer
 {
     if(_isFocused){
-        [self unFocus:_model.activity_id];
+        [self unFocus:_model.competition_id];
     }else{
-        [self focus:_model.activity_id];
+        [self focus:_model.competition_id];
     }
 }
 //点击二维码
@@ -158,8 +170,8 @@
 {
     UIStoryboard *personalSB = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
     PersonalQRCodeController *vc = [personalSB instantiateViewControllerWithIdentifier:@"QRCodeController"];
-    vc.object_id = _model.activity_id;
-    vc.type = @"activity";
+    vc.object_id = _model.competition_id;
+    vc.type = @"competition";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -169,8 +181,8 @@
     //    _personactionArr[]
     ObjectListController *vc = [ObjectListController new];
     //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
-    vc.object_id = _model.activity_id;
-    vc.displayType = Activity_Comments;
+    vc.object_id = _model.competition_id;
+    vc.displayType = Competition_Comments;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -188,17 +200,41 @@
                                                                       //响应事件
                                                                       NSLog(@"action = %@", action);
                                                                   }];
-//            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
-//                                                                 handler:^(UIAlertAction * action) {
-//                                                                     //响应事件
-//                                                                     NSLog(@"action = %@", action);
-//                                                                 }];
+            //            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
+            //                                                                 handler:^(UIAlertAction * action) {
+            //                                                                     //响应事件
+            //                                                                     NSLog(@"action = %@", action);
+            //                                                                 }];
             
             [alert addAction:defaultAction];
-//            [alert addAction:cancelAction];
+            //            [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }
         else{
+            //显示弹出框列表选择
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                           message:@"请选择一个团队报名"
+                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
+                                                                 handler:^(UIAlertAction * action) {
+                                                                     //响应事件
+                                                                     NSLog(@"action = %@", action);
+                                                                 }];
+            UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"团队" style:UIAlertActionStyleDestructive
+                                                                 handler:^(UIAlertAction * action) {
+                                                                     //响应事件
+                                                                     NSLog(@"action = %@", action);
+                                                                 }];
+            UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * action) {
+                                                                   //响应事件
+                                                                   NSLog(@"action = %@", action);
+                                                               }];
+            [alert addAction:saveAction];
+            [alert addAction:cancelAction];
+            [alert addAction:deleteAction];
+            [self presentViewController:alert animated:YES completion:nil];
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
                                                                            message:@"是否确认报名？"
                                                                     preferredStyle:UIAlertControllerStyleAlert];
@@ -206,10 +242,10 @@
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
                                                                   handler:^(UIAlertAction * action) {
                                                                       //响应事件
-                                                                      [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_ACTIVITY_PARTICIPATE_USERS(_model.activity_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
+                                                                      [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
                                                                           UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                                                                                         message:@"报名成功！"
-                                                                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                                                                                                                          message:@"报名成功！"
+                                                                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                                                                           
                                                                           UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
                                                                                                                                 handler:^(UIAlertAction * action) {
@@ -218,13 +254,13 @@
                                                                                                                                 }];
                                                                           
                                                                           [alert1 addAction:defaultAction];
-                                                                          NSLog(@"activity_id=%@",_model.activity_id);
+                                                                          NSLog(@"competition_id=%@",_model.competition_id);
                                                                           [self presentViewController:alert1 animated:YES completion:nil];
-                                                                          [self getActivityProfile];
+                                                                          [self getCompetitionProfile];
                                                                       } failed:^(id data, NSString *message) {
-//                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
-//                                                                          NSLog(@"datais:%@",data);
-//                                                                          NSLog(@"messageis:%@",message);
+                                                                          //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
+                                                                          //                                                                          NSLog(@"datais:%@",data);
+                                                                          //                                                                          NSLog(@"messageis:%@",message);
                                                                           [SVProgressHUD showErrorWithStatus:message];
                                                                       }];
                                                                   }];
@@ -240,23 +276,34 @@
         }
     }
 }
-
 //判断是否已报名
 - (void)judgeApplied{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_ACTIVITY_PARTICIPATE_USERS(_model.activity_id) success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) success:^(id data, NSString *message) {
         //        _commentmodel = [CommentModel mj_objectWithKeyValues:data];
-        NSString *participators = [[data objectForKey:@"list"] componentsJoinedByString:@" "];
+//        TeamModel *teamModel = [TeamModel mj_objectWithKeyValues:data];
         UserModel *userModel = [[UserManager sharedManager] getCurrentUser];
-        NSString *currentUserName = [NSString stringWithFormat:@" %@;", userModel.user_id];
-//        NSLog(@"participators%@",participators);
-//        NSLog(@"currentUserName%@",currentUserName);
-        if ([participators containsString:currentUserName]) {
-            _applied = YES;
-            [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
-            _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
-//            NSLog(@"applied%@",_applied);
-        } else {
-            _applied = NO;
+        NSString *currentUserId = [NSString stringWithFormat:@": %@,", userModel.user_id];
+        NSLog(@"size:%@",[data objectForKey:@"list"]);
+        NSLog(@"size1:%@",[data objectForKey:@"list"]);
+        for (int i = 0; i<[[data objectForKey:@"list"] getSize]; i++) {
+            NSString *participator = [[[data objectForKey:@"list"] objectAtIndex:i] objectForKey:@"id"];
+            NSLog(@"participator:%@",[[data objectForKey:@"list"] objectAtIndex:i]);
+            NSLog(@"participatorid:%@",[[[data objectForKey:@"list"] objectAtIndex:i] objectForKey:@"id"]);
+            [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_TEAM_MEMBERS(participator) success:^(id data, NSString *message) {
+                NSString *members = [[data objectForKey:@"list"] componentsJoinedByString:@" "];
+                //        NSLog(@"participators%@",participators);
+                //        NSLog(@"currentUserName%@",currentUserName);
+                if ([members containsString:currentUserId]) {
+                    _applied = YES;
+                    [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
+                    _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
+                    //            NSLog(@"applied%@",_applied);
+                } else {
+                    _applied = NO;
+                }
+            }failed:^(id data, NSString *message) {
+                [SVProgressHUD showErrorWithStatus:message];
+            }];
         }
     } failed:^(id data, NSString *message) {
         [SVProgressHUD showErrorWithStatus:message];
@@ -265,18 +312,18 @@
 
 //获取评论详情
 - (void)getCommentDetail{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_ACTIVITY_COMMENTS(_model.activity_id) success:^(id data, NSString *message) {
-//        _commentmodel = [CommentModel mj_objectWithKeyValues:data];
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITION_COMMENTS(_model.competition_id) success:^(id data, NSString *message) {
+        //        _commentmodel = [CommentModel mj_objectWithKeyValues:data];
         _comment_label.text = [NSString stringWithFormat:@"评论(%@)",[data objectForKey:@"count"]];
-//        NSLog(@"datadata%@",data);
+        //        NSLog(@"datadata%@",data);
     } failed:^(id data, NSString *message) {
         [SVProgressHUD showErrorWithStatus:message];
     }];
 }
 
 //检测是否点过赞
-- (void)checkIfLike: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTIVITY(@"activities",activity_id) success:^(id data, NSString *message) {
+- (void)checkIfLike: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_LIKE_ACTIVITY(@"competitions",competition_id) success:^(id data, NSString *message) {
         NSLog(@"已点赞");
         _isLiked = YES;
         [self setLikeImg:_isLiked];
@@ -296,8 +343,8 @@
 }
 
 //点赞
-- (void)like: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_LIKE_ACTIVITY(@"activities",activity_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
+- (void)like: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_LIKE_ACTIVITY(@"competitions",competition_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
         _isLiked = YES;
         [self setLikeImg:_isLiked];
         _likerCount = _likerCount + 1;
@@ -309,8 +356,8 @@
 }
 
 //取消点赞
-- (void)unLike: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_LIKE_ACTIVITY(@"activities",activity_id) success:^(id data, NSString *message) {
+- (void)unLike: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_LIKE_ACTIVITY(@"competitions",competition_id) success:^(id data, NSString *message) {
         _isLiked = NO;
         [self setLikeImg:_isLiked];
         _likerCount = _likerCount - 1;
@@ -322,8 +369,8 @@
 
 
 //监测是否收藏过
-- (void)checkIfCollected: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FAVOR_ACTICITY(@"activities",activity_id) success:^(id data, NSString *message) {
+- (void)checkIfCollected: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FAVOR_ACTICITY(@"competitions",competition_id) success:^(id data, NSString *message) {
         NSLog(@"已关注");
         _isFocused = YES;
         [self setCollectImg:_isFocused];
@@ -343,8 +390,8 @@
 }
 
 //收藏
-- (void)focus: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_FAVOR_ACTICITY(@"activities",activity_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
+- (void)focus: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithPost:URL_CHECK_IF_FAVOR_ACTICITY(@"competitions",competition_id) parameters:@{} withToken:NO success:^(id data, NSString *message) {
         _isFocused = YES;
         [self setCollectImg:_isFocused];
     } failed:^(id data, NSString *message) {
@@ -353,8 +400,8 @@
 }
 
 //取消收藏
-- (void)unFocus: (NSString *)activity_id{
-    [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_FAVOR_ACTICITY(@"activities",activity_id) success:^(id data, NSString *message) {
+- (void)unFocus: (NSString *)competition_id{
+    [[NetRequest sharedInstance] httpRequestWithDELETE:URL_CHECK_IF_FAVOR_ACTICITY(@"competitions",competition_id) success:^(id data, NSString *message) {
         _isFocused = NO;
         [self setCollectImg:_isFocused];
     } failed:^(id data, NSString *message) {
@@ -368,15 +415,16 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
 @end
+

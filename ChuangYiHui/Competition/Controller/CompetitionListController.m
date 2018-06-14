@@ -156,7 +156,7 @@
 #pragma mark UITableViewDelegate
 //点击每个cell执行的操作
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GoToCompetitionDetail" object:[_competitionArr objectAtIndex:indexPath.row]];
 }
 
 #pragma mark DZNEmptyDelegate
