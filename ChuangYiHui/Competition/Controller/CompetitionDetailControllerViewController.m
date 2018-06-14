@@ -211,59 +211,58 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
         else{
-            //显示弹出框列表选择
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                           message:@"请选择一个团队报名"
-                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
-            
-            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
-                                                                 handler:^(UIAlertAction * action) {
-                                                                     //响应事件
-                                                                     NSLog(@"action = %@", action);
-                                                                 }];
-            UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"团队" style:UIAlertActionStyleDestructive
-                                                                 handler:^(UIAlertAction * action) {
-                                                                     //响应事件
-                                                                     NSLog(@"action = %@", action);
-                                                                 }];
-            UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault
-                                                               handler:^(UIAlertAction * action) {
-                                                                   //响应事件
-                                                                   NSLog(@"action = %@", action);
-                                                               }];
-            [alert addAction:saveAction];
-            [alert addAction:cancelAction];
-            [alert addAction:deleteAction];
-            [self presentViewController:alert animated:YES completion:nil];
+//            //显示弹出框列表选择
+//            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
+//                                                                           message:@"请选择一个团队报名"
+//                                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
+//                                                                 handler:^(UIAlertAction * action) {
+//                                                                     //响应事件
+//                                                                     NSLog(@"action = %@", action);
+//                                                                 }];
+//            UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"团队" style:UIAlertActionStyleDestructive
+//                                                                 handler:^(UIAlertAction * action) {
+//                                                                     //响应事件
+//                                                                     NSLog(@"action = %@", action);
+//                                                                 }];
+//            UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault
+//                                                               handler:^(UIAlertAction * action) {
+//                                                                   //响应事件
+//                                                                   NSLog(@"action = %@", action);
+//                                                               }];
+//            [alert addAction:saveAction];
+//            [alert addAction:cancelAction];
+//            [alert addAction:deleteAction];
+//            [self presentViewController:alert animated:YES completion:nil];
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
                                                                            message:@"是否确认报名？"
                                                                     preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {
-                                                                      //响应事件
-                                                                      [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
-                                                                          UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                                                                                          message:@"报名成功！"
-                                                                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                                                                          
-                                                                          UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
-                                                                                                                                handler:^(UIAlertAction * action) {
-                                                                                                                                    //响应事件
-                                                                                                                                    NSLog(@"action = %@", action);
-                                                                                                                                }];
-                                                                          
-                                                                          [alert1 addAction:defaultAction];
-                                                                          NSLog(@"competition_id=%@",_model.competition_id);
-                                                                          [self presentViewController:alert1 animated:YES completion:nil];
-                                                                          [self getCompetitionProfile];
-                                                                      } failed:^(id data, NSString *message) {
-                                                                          //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
-                                                                          //                                                                          NSLog(@"datais:%@",data);
-                                                                          //                                                                          NSLog(@"messageis:%@",message);
-                                                                          [SVProgressHUD showErrorWithStatus:message];
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {
+                                                                          //响应事件
+                                                                          [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
+                                                                              UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                                                                                              message:@"报名成功！"
+                                                                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                                                              
+                                                                              UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
+                                                                                                                                    handler:^(UIAlertAction * action) {
+                                                                                                                                        //响应事件
+                                                                                                                                        NSLog(@"action = %@", action);
+                                                                                                                                    }];
+                                                                              
+                                                                              [alert1 addAction:defaultAction];
+                                                                              NSLog(@"competition_id=%@",_model.competition_id);
+                                                                              [self presentViewController:alert1 animated:YES completion:nil];
+                                                                              [self getCompetitionProfile];
+                                                                          } failed:^(id data, NSString *message) {
+                                                                              //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
+                                                                              //                                                                          NSLog(@"datais:%@",data);
+                                                                              //                                                                          NSLog(@"messageis:%@",message);
+                                                                              [SVProgressHUD showErrorWithStatus:message];
+                                                                          }];
                                                                       }];
-                                                                  }];
             UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
                                                                  handler:^(UIAlertAction * action) {
                                                                      //响应事件
