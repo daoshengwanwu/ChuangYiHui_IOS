@@ -10,8 +10,10 @@
 #import "UserManager.h"
 #import "PersonalQRCodeController.h"
 #import "ObjectListController.h"
+#import "OwendTeamPickerView.h"
+#import "LabelLabelArrowCell.h"
 
-@interface CompetitionDetailControllerViewController ()
+@interface CompetitionDetailControllerViewController ()<OwendTeamPPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *competition_title;
 @property (weak, nonatomic) IBOutlet UILabel *competition_title_detail;
@@ -26,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *comment_label;
 @property (weak, nonatomic) IBOutlet UIView *comment_view;
 
+
+@property (nonatomic, strong)OwendTeamPickerView *owendteamPickerView;
+
 @property (nonatomic, assign)BOOL isLiked;
 //检测是否是朋友
 @property (nonatomic, assign)BOOL isFriend;
@@ -36,6 +41,7 @@
 //名额已满，来晚了
 @property (nonatomic, assign)BOOL is_status1_but_full;
 @property (nonatomic, assign)NSInteger likerCount;
+
 //@property (nonatomic, assign)NSInteger user_participator_count;
 //@property (nonatomic, assign)NSInteger team_participator_count;
 
@@ -49,7 +55,7 @@
     _isFocused = NO;
     _applied = NO;
     
-//    [self judgeApplied];
+    [self judgeApplied];
     [self getCompetitionProfile];
     [self checkIfLike:_model.competition_id];
     [self checkIfCollected:_model.competition_id];
@@ -267,6 +273,11 @@
                                                                  handler:^(UIAlertAction * action) {
                                                                      //响应事件
                                                                      NSLog(@"action = %@", action);
+                                                                     //队伍
+                                                                     _owendteamPickerView = [[OwendTeamPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+                                                                     _owendteamPickerView.delegate = self;
+                                                                     UIWindow *win=[UIApplication sharedApplication].keyWindow;
+                                                                     [win addSubview:_owendteamPickerView];
                                                                  }];
             
             [alert addAction:defaultAction];
@@ -275,38 +286,48 @@
         }
     }
 }
+
+
+//#pragma mark SchoolPickerViewDelegate
+//-(void)OwendTeamPickerViewConfirmClickWith:(NSArray *)arr{
+//    if (arr.count!=2) {
+//
+//        return;
+//    }
+//
+//    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:1];
+//    LabelLabelArrowCell *cell = [_tableView cellForRowAtIndexPath:path];
+//    [cell setOnlyContent:arr[1]];
+//}
+
+
 //判断是否已报名
 - (void)judgeApplied{
-    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) success:^(id data, NSString *message) {
-        //        _commentmodel = [CommentModel mj_objectWithKeyValues:data];
-//        TeamModel *teamModel = [TeamModel mj_objectWithKeyValues:data];
-        UserModel *userModel = [[UserManager sharedManager] getCurrentUser];
-        NSString *currentUserId = [NSString stringWithFormat:@": %@,", userModel.user_id];
-        NSLog(@"size:%@",[data objectForKey:@"list"]);
-        NSLog(@"size1:%@",[data objectForKey:@"list"]);
-        for (int i = 0; i<[[data objectForKey:@"list"] getSize]; i++) {
-            NSString *participator = [[[data objectForKey:@"list"] objectAtIndex:i] objectForKey:@"id"];
-            NSLog(@"participator:%@",[[data objectForKey:@"list"] objectAtIndex:i]);
-            NSLog(@"participatorid:%@",[[[data objectForKey:@"list"] objectAtIndex:i] objectForKey:@"id"]);
-            [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_TEAM_MEMBERS(participator) success:^(id data, NSString *message) {
-                NSString *members = [[data objectForKey:@"list"] componentsJoinedByString:@" "];
-                //        NSLog(@"participators%@",participators);
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) success:^(id data, NSString *message) {
+//        //        _commentmodel = [CommentModel mj_objectWithKeyValues:data];
+////        TeamModel *teamModel = [TeamModel mj_objectWithKeyValues:data];
+////        UserModel *userModel = [[UserManager sharedManager] getCurrentUser];
+//        NSString *currentCompetitionId = [NSString stringWithFormat:@"id = %@;", _model.competition_id];
+//        NSLog(@"size:%@",[data objectForKey:@"list"]);
+        [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_COMPETITIONS success:^(id data, NSString *message) {
+            NSString *members = [[data objectForKey:@"list"] componentsJoinedByString:@" "];
+            NSString *currentCompetitionId = [NSString stringWithFormat:@"id = %@;", _model.competition_id];
+            NSLog(@"members%@",members);
                 //        NSLog(@"currentUserName%@",currentUserName);
-                if ([members containsString:currentUserId]) {
-                    _applied = YES;
-                    [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
-                    _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
+            if ([members containsString:currentCompetitionId]) {
+                _applied = YES;
+                [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
+                _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
                     //            NSLog(@"applied%@",_applied);
-                } else {
-                    _applied = NO;
-                }
-            }failed:^(id data, NSString *message) {
-                [SVProgressHUD showErrorWithStatus:message];
-            }];
-        }
-    } failed:^(id data, NSString *message) {
-        [SVProgressHUD showErrorWithStatus:message];
-    }];
+            } else {
+                _applied = NO;
+            }
+        }failed:^(id data, NSString *message) {
+            [SVProgressHUD showErrorWithStatus:message];
+        }];
+//    } failed:^(id data, NSString *message) {
+//        [SVProgressHUD showErrorWithStatus:message];
+//    }];
 }
 
 //获取评论详情

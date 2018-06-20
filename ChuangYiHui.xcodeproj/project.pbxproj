@@ -17,6 +17,7 @@
 		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
 		6C9E29E020A13F7900D4069F /* PersonActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DF20A13F7900D4069F /* PersonActionModel.m */; };
+		6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */; };
 		C2ACDAFB8929D823AD44EB18 /* libPods-ChuangYiHui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0012BC484D6454451AB7F336 /* libPods-ChuangYiHui.a */; };
 		E30D71C91F135F630009F59B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30D71C81F135F630009F59B /* UserGuideViewController.m */; };
 		E30EE5741EDE618E00B14A2D /* WBPopMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EE5691EDE618E00B14A2D /* WBPopMenuModel.m */; };
@@ -97,7 +98,7 @@
 		E398F96D1EC20FEA00CF83C1 /* TeamListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E398F96B1EC20FEA00CF83C1 /* TeamListCell.xib */; };
 		E398F9701EC214B900CF83C1 /* UserDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F96F1EC214B900CF83C1 /* UserDetailController.m */; };
 		E398F9741EC2F29600CF83C1 /* PersonalQRCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F9731EC2F29600CF83C1 /* PersonalQRCodeController.m */; };
-		E398F9781EC2FDD800CF83C1 /* LBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F9771EC2FDD800CF83C1 /* LBXScanViewController.m */; };
+		E398F9781EC2FDD800CF83C1 /* LBXScan1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F9771EC2FDD800CF83C1 /* LBXScan1ViewController.m */; };
 		E398F97B1EC2FDDF00CF83C1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F97A1EC2FDDF00CF83C1 /* Global.m */; };
 		E398F97F1EC2FDE800CF83C1 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E398F97D1EC2FDE800CF83C1 /* ScanResultViewController.m */; };
 		E398F9801EC2FDE800CF83C1 /* ScanResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E398F97E1EC2FDE800CF83C1 /* ScanResultViewController.xib */; };
@@ -263,6 +264,8 @@
 		6C9E29DC20A13F6000D4069F /* TeamActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamActionModel.m; sourceTree = "<group>"; };
 		6C9E29DE20A13F7900D4069F /* PersonActionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonActionModel.h; sourceTree = "<group>"; };
 		6C9E29DF20A13F7900D4069F /* PersonActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonActionModel.m; sourceTree = "<group>"; };
+		6CBF907E20D7D3C300E410CF /* OwendTeamPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwendTeamPickerView.h; sourceTree = "<group>"; };
+		6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwendTeamPickerView.m; sourceTree = "<group>"; };
 		8B5D44BD3C45E27E81046B47 /* Pods-ChuangYiHui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuangYiHui.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui.release.xcconfig"; sourceTree = "<group>"; };
 		E30D71C71F135F630009F59B /* UserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGuideViewController.h; sourceTree = "<group>"; };
 		E30D71C81F135F630009F59B /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
@@ -411,8 +414,8 @@
 		E398F96F1EC214B900CF83C1 /* UserDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailController.m; sourceTree = "<group>"; };
 		E398F9721EC2F29600CF83C1 /* PersonalQRCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalQRCodeController.h; sourceTree = "<group>"; };
 		E398F9731EC2F29600CF83C1 /* PersonalQRCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalQRCodeController.m; sourceTree = "<group>"; };
-		E398F9761EC2FDD800CF83C1 /* LBXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanViewController.h; sourceTree = "<group>"; };
-		E398F9771EC2FDD800CF83C1 /* LBXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXScanViewController.m; sourceTree = "<group>"; };
+		E398F9761EC2FDD800CF83C1 /* LBXScan1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScan1ViewController.h; sourceTree = "<group>"; };
+		E398F9771EC2FDD800CF83C1 /* LBXScan1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXScan1ViewController.m; sourceTree = "<group>"; };
 		E398F9791EC2FDDF00CF83C1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		E398F97A1EC2FDDF00CF83C1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		E398F97C1EC2FDE800CF83C1 /* ScanResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanResultViewController.h; sourceTree = "<group>"; };
@@ -724,6 +727,15 @@
 				6C9E29DC20A13F6000D4069F /* TeamActionModel.m */,
 			);
 			path = TeamActionModel;
+			sourceTree = "<group>";
+		};
+		6CBF907D20D7D37B00E410CF /* OwnedTeamPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				6CBF907E20D7D3C300E410CF /* OwendTeamPickerView.h */,
+				6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */,
+			);
+			name = OwnedTeamPickerView;
 			sourceTree = "<group>";
 		};
 		946C609F75D3AC2420F63B35 /* Frameworks */ = {
@@ -1150,6 +1162,7 @@
 		E398F91C1EC0A40D00CF83C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CBF907D20D7D37B00E410CF /* OwnedTeamPickerView */,
 				E32490F51F05245100BBC943 /* SchoolPickerView */,
 				E3CD1BF81EEBEB1F00D8FE32 /* LabelTextViewCell */,
 				E33A5B891EE6423D001E95FF /* TaskCells */,
@@ -1410,8 +1423,8 @@
 				E398F97E1EC2FDE800CF83C1 /* ScanResultViewController.xib */,
 				E398F9791EC2FDDF00CF83C1 /* Global.h */,
 				E398F97A1EC2FDDF00CF83C1 /* Global.m */,
-				E398F9761EC2FDD800CF83C1 /* LBXScanViewController.h */,
-				E398F9771EC2FDD800CF83C1 /* LBXScanViewController.m */,
+				E398F9761EC2FDD800CF83C1 /* LBXScan1ViewController.h */,
+				E398F9771EC2FDD800CF83C1 /* LBXScan1ViewController.m */,
 			);
 			path = ScanController;
 			sourceTree = "<group>";
@@ -1914,12 +1927,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E31936561EC03DCE00621CA4 /* Build configuration list for PBXNativeTarget "ChuangYiHui" */;
 			buildPhases = (
+				D880C55F9E97C25B6AF84D5C /* [CP] Check Pods Manifest.lock */,
 				EB77FDDBC58909472FAC6F24 /* 📦 Check Pods Manifest.lock */,
 				E31936221EC03DCE00621CA4 /* Sources */,
 				E31936231EC03DCE00621CA4 /* Frameworks */,
 				E31936241EC03DCE00621CA4 /* Resources */,
 				A0A3FBBCA1927845D58F4DE3 /* 📦 Embed Pods Frameworks */,
 				6F7DE773C17695AB1C30628D /* 📦 Copy Pods Resources */,
+				15EC41BF47A5B6FF20617AB5 /* [CP] Embed Pods Frameworks */,
+				5A3161A76BBBB1FE530BCE4F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2080,6 +2096,69 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15EC41BF47A5B6FF20617AB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A3161A76BBBB1FE530BCE4F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDateDay.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDatePickerViewController.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/Images.xcassets",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-help.html",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-helpicons.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CodeScan.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDateDay.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDatePickerViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Images.xcassets",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-back.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-help.html",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-helpicons.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-samples.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6F7DE773C17695AB1C30628D /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2108,6 +2187,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D880C55F9E97C25B6AF84D5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChuangYiHui-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB77FDDBC58909472FAC6F24 /* 📦 Check Pods Manifest.lock */ = {
@@ -2200,6 +2297,7 @@
 				6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */,
 				E398F93D1EC0A95B00CF83C1 /* UserManager.m in Sources */,
 				E398F9321EC0A55E00CF83C1 /* PersonalController.m in Sources */,
+				6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */,
 				E3CD67BC1ECC2FB8005C94BD /* CreateTeamController.m in Sources */,
 				E3E8D1D51ED6B01A007B293D /* UserCommentsController.m in Sources */,
 				E398F9941EC2FFC200CF83C1 /* UIActionSheet+LBXAlertAction.m in Sources */,
@@ -2234,7 +2332,7 @@
 				E3851E9C1EE2B0AF0005EE37 /* TaskCategoryController.m in Sources */,
 				E3B9D1E71ED2D35400F45201 /* FeedbackController.m in Sources */,
 				E3BFAE3E1F21DBD600CFB792 /* MemberNeedDetailController.m in Sources */,
-				E398F9781EC2FDD800CF83C1 /* LBXScanViewController.m in Sources */,
+				E398F9781EC2FDD800CF83C1 /* LBXScan1ViewController.m in Sources */,
 				E3B9D1DE1ED2C1E200F45201 /* SetUpController.m in Sources */,
 				F7FE4D9220AC4F230061D165 /* PublishRequireModel.m in Sources */,
 				E3E8D1E21ED80302007B293D /* UserInformationController.m in Sources */,

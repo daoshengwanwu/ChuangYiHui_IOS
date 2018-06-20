@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZBarSDK.h"
 
-
+#define LBXScan_Define_ZBar
 
 // enum zbar_symbol_type_t;
 
@@ -44,8 +44,7 @@
 
 
 /**
- ZBar封装,使用的ZBar库不支持bitcode,
- 另外需要添加libiconv库
+ ZBar封装
  */
 @interface LBXZBarWrapper : NSObject
 

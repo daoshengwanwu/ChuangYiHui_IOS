@@ -6,197 +6,101 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>CTCheckbox.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>KNSemiModalViewController_hons82.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>LBXScan.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-ChuangYiHui.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Reachability.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SCLAlertView-Objective-C.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDCycleScrollView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>16</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>THCalendarDatePicker.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>18</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>ZBarSDK.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0CA43B3B65DC0FA95218C53499189EC8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1BB337D13282095844D899B8CD475A6B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1EFF925F8DEE85831DA4D202CE7BAE04</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EAB4A56329FA0FA81CE969385FF2AF7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>55DBDD8B7D446F1D618F303A9FB53209</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6098C4FD77105B4070E40A23733B60EF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>671900EA8F2CF1606EFB633F2E4D2DD0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>70BC44266C6FFE30D2C57129458E070B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>89794236C3B28E6D03D842780A19EA11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8E3E37DFD7A823C2EDC6BA29868D60EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A855C786883BBA3DF1D45297894E4F4D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CBC37CE27BB3DBCE4913C2FB1767FC94</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F6DCD09E62E1D1E8E7FC93A1FA0F7553</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

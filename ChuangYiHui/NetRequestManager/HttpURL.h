@@ -29,6 +29,7 @@
 #define URL_GET_SELF_PROFILE URLFrame(@"users/current/profile/")
 #define URL_GET_FRIENDS URLFrame(@"users/current/friends/")
 #define URL_GET_FOLLOWERS URLFrame(@"users/current/followers/")
+#define URL_GET_COMPETITIONS URLFrame(@"users/current/competition/")
 #define URL_GET_SCORE_RECORDS URLFrame(@"users/current/score_records/")
 #define URL_GET_FRIEND_REQUESTS URLFrame(@"users/current/friend_requests/")
 #define URL_GET_TEAM_INVITATIONS URLFrame(@"users/current/invitations/")

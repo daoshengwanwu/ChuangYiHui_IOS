@@ -9,7 +9,7 @@
 #import "UserListController.h"
 #import "UserDetailController.h"
 #import "UserListCell.h"
-#import "LBXScanViewController.h"
+#import "LBXScan1ViewController.h"
 #import "StyleDIY.h"
 
 #define cellIdentifier @"userListCell"
@@ -77,7 +77,7 @@
 
 - (void)openScanVCWithStyle:(LBXScanViewStyle*)style
 {
-    LBXScanViewController *vc = [LBXScanViewController new];
+    LBXScan1ViewController *vc = [LBXScan1ViewController new];
     vc.style = style;
     vc.isOpenInterestRect = YES;
     vc.hidesBottomBarWhenPushed = YES;
