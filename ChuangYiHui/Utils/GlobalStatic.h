@@ -100,6 +100,7 @@ typedef NS_ENUM(NSInteger, DisplayType) {
     User_Followed_Team,
     User_Followed_User,
     User_Comments,
+    Competition_Rank,
     User_Event_Comments,
     Team_Event_Comments,
     Team_Visitors,

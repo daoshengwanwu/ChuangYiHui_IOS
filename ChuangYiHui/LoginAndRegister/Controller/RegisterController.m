@@ -136,6 +136,8 @@
                 [[SVHudManager sharedInstance] showErrorHudWithTitle:@"验证码错误" andTime:1.0f];
             }else if ([data isEqualToString:@"404"]) {
                 [[SVHudManager sharedInstance] showErrorHudWithTitle:@"邀请码错误" andTime:1.0f];
+            }else if ([data isEqualToString:@"403"]) {
+                [[SVHudManager sharedInstance] showErrorHudWithTitle:@"手机号已注册" andTime:1.0f];
             }else{
                 [[SVHudManager sharedInstance] showErrorHudWithTitle:@"创建用户失败" andTime:1.0f];
             }
@@ -220,7 +222,6 @@
         return completion(nil);
     }];
     return completion(nil);
-    
 }
 
 //获取个人的资料,设置融云的当前用户

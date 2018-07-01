@@ -13,7 +13,7 @@
 #import "OwendTeamPickerView.h"
 #import "LabelLabelArrowCell.h"
 
-@interface CompetitionDetailControllerViewController ()<OwendTeamPPickerViewDelegate>
+@interface CompetitionDetailControllerViewController ()<OwendTeamPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *competition_title;
 @property (weak, nonatomic) IBOutlet UILabel *competition_title_detail;
@@ -92,7 +92,7 @@
         else if ([_model.status isEqualToString:@"1"]){
             if (_applied){
 //                NSLog(@"22222");
-                _status.text = @"已报名";
+                _status.text = @"当前排名";
                 [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
                 
             }
@@ -147,6 +147,10 @@
         _comment_view.userInteractionEnabled = YES;  //这句话千万不能忘记了
         [_comment_view addGestureRecognizer:commentviewTap];
         
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClick:)];
+        [_status addGestureRecognizer:labelTapGestureRecognizer];
+        _status.userInteractionEnabled = YES; // 可以理解为设置label可被点击
+        
         [_join_in_button addTarget:self action:@selector(joinTap) forControlEvents:UIControlEventTouchUpInside];
         
     } failed:^(id data, NSString *message) {
@@ -160,6 +164,17 @@
         [self unLike:_model.competition_id];
     }else{
         [self like:_model.competition_id];
+    }
+}
+- (void)labelClick:(UITapGestureRecognizer *)recognizer
+{
+    if ([_status.text isEqualToString:@"当前排名"]) {
+        ObjectListController *vc = [ObjectListController new];
+        //    vc.object_id = [NSString stringWithFormat:@"%ld", recognizer.view.tag];
+        vc.object_id = _model.competition_id;
+        vc.displayType = Competition_Rank;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 //收藏、取消收藏
@@ -241,48 +256,53 @@
 //            [alert addAction:cancelAction];
 //            [alert addAction:deleteAction];
 //            [self presentViewController:alert animated:YES completion:nil];
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                           message:@"是否确认报名？"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
-                                                                      handler:^(UIAlertAction * action) {
-                                                                          //响应事件
-                                                                          [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
-                                                                              UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                                                                                              message:@"报名成功！"
-                                                                                                                                       preferredStyle:UIAlertControllerStyleAlert];
-                                                                              
-                                                                              UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
-                                                                                                                                    handler:^(UIAlertAction * action) {
-                                                                                                                                        //响应事件
-                                                                                                                                        NSLog(@"action = %@", action);
-                                                                                                                                    }];
-                                                                              
-                                                                              [alert1 addAction:defaultAction];
-                                                                              NSLog(@"competition_id=%@",_model.competition_id);
-                                                                              [self presentViewController:alert1 animated:YES completion:nil];
-                                                                              [self getCompetitionProfile];
-                                                                          } failed:^(id data, NSString *message) {
-                                                                              //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
-                                                                              //                                                                          NSLog(@"datais:%@",data);
-                                                                              //                                                                          NSLog(@"messageis:%@",message);
-                                                                              [SVProgressHUD showErrorWithStatus:message];
-                                                                          }];
-                                                                      }];
-            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
-                                                                 handler:^(UIAlertAction * action) {
-                                                                     //响应事件
-                                                                     NSLog(@"action = %@", action);
-                                                                     //队伍
-                                                                     _owendteamPickerView = [[OwendTeamPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-                                                                     _owendteamPickerView.delegate = self;
-                                                                     UIWindow *win=[UIApplication sharedApplication].keyWindow;
-                                                                     [win addSubview:_owendteamPickerView];
-                                                                 }];
-            
-            [alert addAction:defaultAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            //队伍
+            _owendteamPickerView = [[OwendTeamPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+            _owendteamPickerView.delegate = self;
+            UIWindow *win=[UIApplication sharedApplication].keyWindow;
+            [win addSubview:_owendteamPickerView];
+//            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
+//                                                                           message:@"是否确认报名？"
+//                                                                    preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
+//                                                                      handler:^(UIAlertAction * action) {
+//                                                                          //响应事件
+//                                                                          [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(_model.competition_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
+//                                                                              UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
+//                                                                                                                                              message:@"报名成功！"
+//                                                                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+//
+//                                                                              UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
+//                                                                                                                                    handler:^(UIAlertAction * action) {
+//                                                                                                                                        //响应事件
+//                                                                                                                                        NSLog(@"action = %@", action);
+//                                                                                                                                    }];
+//
+//                                                                              [alert1 addAction:defaultAction];
+//                                                                              NSLog(@"competition_id=%@",_model.competition_id);
+//                                                                              [self presentViewController:alert1 animated:YES completion:nil];
+//                                                                              [self getCompetitionProfile];
+//                                                                          } failed:^(id data, NSString *message) {
+//                                                                              //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
+//                                                                              //                                                                          NSLog(@"datais:%@",data);
+//                                                                              //                                                                          NSLog(@"messageis:%@",message);
+//                                                                              [SVProgressHUD showErrorWithStatus:message];
+//                                                                          }];
+//                                                                      }];
+//            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
+//                                                                 handler:^(UIAlertAction * action) {
+//                                                                     //响应事件
+//                                                                     NSLog(@"action = %@", action);
+//                                                                     //队伍
+//                                                                     _owendteamPickerView = [[OwendTeamPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//                                                                     _owendteamPickerView.delegate = self;
+//                                                                     UIWindow *win=[UIApplication sharedApplication].keyWindow;
+//                                                                     [win addSubview:_owendteamPickerView];
+//                                                                 }];
+//
+//            [alert addAction:defaultAction];
+//            [alert addAction:cancelAction];
+//            [self presentViewController:alert animated:YES completion:nil];
         }
     }
 }
@@ -316,6 +336,7 @@
                 //        NSLog(@"currentUserName%@",currentUserName);
             if ([members containsString:currentCompetitionId]) {
                 _applied = YES;
+                _status.text = @"当前排名";
                 [_join_in_button setTitle:@"已报名" forState:UIControlStateNormal];
                 _join_in_button.backgroundColor = [UIColor grayColor];//button的背景颜色
                     //            NSLog(@"applied%@",_applied);

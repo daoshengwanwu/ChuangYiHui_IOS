@@ -13,6 +13,9 @@
 		6C276FD720A082DE00B0E572 /* PersonActionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C276FD520A082DE00B0E572 /* PersonActionListCell.xib */; };
 		6C276FDB20A082F900B0E572 /* TeamActionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C276FD920A082F900B0E572 /* TeamActionListCell.m */; };
 		6C276FDC20A082F900B0E572 /* TeamActionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C276FDA20A082F900B0E572 /* TeamActionListCell.xib */; };
+		6C518BF520E90CF00044E6FC /* CompetitionRankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF320E90CF00044E6FC /* CompetitionRankList.m */; };
+		6C518BF620E90CF00044E6FC /* CompetitionRankList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */; };
+		6C518BF920E910090044E6FC /* CompetitionRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF820E910090044E6FC /* CompetitionRankModel.m */; };
 		6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */; };
 		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
@@ -256,6 +259,11 @@
 		6C276FD820A082F900B0E572 /* TeamActionListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamActionListCell.h; sourceTree = "<group>"; };
 		6C276FD920A082F900B0E572 /* TeamActionListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamActionListCell.m; sourceTree = "<group>"; };
 		6C276FDA20A082F900B0E572 /* TeamActionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamActionListCell.xib; sourceTree = "<group>"; };
+		6C518BF220E90CF00044E6FC /* CompetitionRankList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionRankList.h; sourceTree = "<group>"; };
+		6C518BF320E90CF00044E6FC /* CompetitionRankList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionRankList.m; sourceTree = "<group>"; };
+		6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionRankList.xib; sourceTree = "<group>"; };
+		6C518BF720E910090044E6FC /* CompetitionRankModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionRankModel.h; sourceTree = "<group>"; };
+		6C518BF820E910090044E6FC /* CompetitionRankModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionRankModel.m; sourceTree = "<group>"; };
 		6C9A869C20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailControllerViewController.h; sourceTree = "<group>"; };
 		6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailControllerViewController.m; sourceTree = "<group>"; };
 		6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJsonModel.h; sourceTree = "<group>"; };
@@ -266,6 +274,7 @@
 		6C9E29DF20A13F7900D4069F /* PersonActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonActionModel.m; sourceTree = "<group>"; };
 		6CBF907E20D7D3C300E410CF /* OwendTeamPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwendTeamPickerView.h; sourceTree = "<group>"; };
 		6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwendTeamPickerView.m; sourceTree = "<group>"; };
+		6CBF908120E0832900E410CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8B5D44BD3C45E27E81046B47 /* Pods-ChuangYiHui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuangYiHui.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui.release.xcconfig"; sourceTree = "<group>"; };
 		E30D71C71F135F630009F59B /* UserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGuideViewController.h; sourceTree = "<group>"; };
 		E30D71C81F135F630009F59B /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
@@ -709,6 +718,16 @@
 				6C276FDA20A082F900B0E572 /* TeamActionListCell.xib */,
 			);
 			path = TeamActionListCell;
+			sourceTree = "<group>";
+		};
+		6C518BF120E90C9E0044E6FC /* CompetitionRankListCell */ = {
+			isa = PBXGroup;
+			children = (
+				6C518BF220E90CF00044E6FC /* CompetitionRankList.h */,
+				6C518BF320E90CF00044E6FC /* CompetitionRankList.m */,
+				6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */,
+			);
+			path = CompetitionRankListCell;
 			sourceTree = "<group>";
 		};
 		6C9E29D920A13F0A00D4069F /* PersonActionModel */ = {
@@ -1590,6 +1609,7 @@
 		E3B9A9DA1F3FFDC800AB2823 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C518BF120E90C9E0044E6FC /* CompetitionRankListCell */,
 				E3B9AA011F41325600AB2823 /* CompetitionListCell */,
 			);
 			path = View;
@@ -1621,6 +1641,8 @@
 				E3B9A9F31F40556C00AB2823 /* CompetitionModel.m */,
 				6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */,
 				6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */,
+				6C518BF720E910090044E6FC /* CompetitionRankModel.h */,
+				6C518BF820E910090044E6FC /* CompetitionRankModel.m */,
 			);
 			path = CompetitionModel;
 			sourceTree = "<group>";
@@ -2074,6 +2096,7 @@
 				E39B2ED91EE99E5100C8DCAB /* AchievementCell.xib in Resources */,
 				6C276FD720A082DE00B0E572 /* PersonActionListCell.xib in Resources */,
 				F7FE4D9720AC4F230061D165 /* PublishPeopleRequireCell.xib in Resources */,
+				6C518BF620E90CF00044E6FC /* CompetitionRankList.xib in Resources */,
 				F7FE4D9920AC4F230061D165 /* UnderTakeRequireCell.xib in Resources */,
 				E3CD1C0C1EEC2EB200D8FE32 /* Login.storyboard in Resources */,
 			);
@@ -2244,6 +2267,7 @@
 				E30EE5781EDE618E00B14A2D /* WBTableViewDataSource.m in Sources */,
 				E3B9A9F01F40535100AB2823 /* ActivityModel.m in Sources */,
 				E398F9161EC0A0BB00CF83C1 /* CommonTool.m in Sources */,
+				6C518BF520E90CF00044E6FC /* CompetitionRankList.m in Sources */,
 				E33E95BB1ECDA49B002B10FB /* UIColor+expanded.m in Sources */,
 				E398F98A1EC2FF9400CF83C1 /* LBXAlertAction.m in Sources */,
 				E3D9B6611EE7AA7B004053D2 /* NeedModel.m in Sources */,
@@ -2265,6 +2289,7 @@
 				E33A5BA01EE6DF72001E95FF /* NeedListController.m in Sources */,
 				E3BC58181EC94C210068C971 /* ExperienceCell.m in Sources */,
 				F7C42D7120AD456C00AC2266 /* PeopleRequireDetailController.m in Sources */,
+				6C518BF920E910090044E6FC /* CompetitionRankModel.m in Sources */,
 				E3D1E9221EC412A800B1F552 /* XLSegmentedSlideSwitch.m in Sources */,
 				E398F9971EC2FFC200CF83C1 /* UIWindow+LBXHierarchy.m in Sources */,
 				E32490EE1F033EF300BBC943 /* BindPhoneController.m in Sources */,
@@ -2417,6 +2442,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E319363B1EC03DCE00621CA4 /* Base */,
+				6CBF908120E0832900E410CF /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2428,6 +2454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2475,6 +2502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

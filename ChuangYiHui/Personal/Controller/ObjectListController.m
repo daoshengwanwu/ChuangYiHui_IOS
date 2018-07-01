@@ -17,12 +17,15 @@
 #import "TeamListCell.h"
 #import "UserCommentCell.h"
 #import "AchievementCell.h"
+#import "CompetitionRankList.h"
+#import "CompetitionRankModel.h"
 
 #define cellIdentifier @"userListCell"
 #define scoreCellIdentifier @"scoreCell"
 #define agreeOrDisagreeCellIdentifier @"agreeOrDisagreeCell"
 #define teamListCellIdentifier @"teamListCell"
 #define commentCellIdentifier @"userCommentCell"
+#define competitionRankListIdentifier @"competitionRankList"
 #define achievementCellIdentifier @"achievementCell"
 
 
@@ -49,13 +52,14 @@
         tableView.dataSource = self;
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        if (_displayType == User_Comments||_displayType == User_Event_Comments||_displayType == Team_Event_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments) {
+        if (_displayType == User_Comments||_displayType == User_Event_Comments||_displayType == Team_Event_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments||_displayType == Competition_Rank) {
             tableView.estimatedRowHeight = [self getRowHeight];
             tableView.rowHeight = UITableViewAutomaticDimension;
         }else{
             tableView.rowHeight = [self getRowHeight];
         }
         [tableView registerNib:[UINib nibWithNibName:@"UserListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"CompetitionRankList" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:competitionRankListIdentifier];
         [tableView registerNib:[UINib nibWithNibName:@"ScoreCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:scoreCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:@"AgreeOrDisagreeCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:agreeOrDisagreeCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:@"TeamListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:teamListCellIdentifier];
@@ -115,6 +119,10 @@
             self.title = @"评价";
             break;
             
+            case Competition_Rank:
+            self.title = @"当前排名";
+            break;
+            
             case User_Event_Comments:
             self.title = @"评论";
             break;
@@ -166,6 +174,10 @@
             rowHeight = 75.0;
             break;
             
+            case Competition_Rank:
+            rowHeight = 86.0;
+            break;
+            
             case User_Event_Comments:
             rowHeight = 75.0;
             break;
@@ -214,6 +226,11 @@
             case User_Comments:
             baseUrl = URL_GET_USER_COMMENTS(_object_id);
             break;
+            
+            case Competition_Rank:
+            baseUrl = URL_GET_COMPETITION_RANK(_object_id);
+            break;
+            
             
             case User_Event_Comments:
             baseUrl = URL_GET_EVENT_COMMENTS(@"user",_object_id);
@@ -288,7 +305,10 @@
             _objectArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
         }else if(_displayType == User_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments){
             _objectArr = [CommentModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
-        }else if(_displayType == User_Event_Comments){
+        }else if(_displayType == Competition_Rank){
+            _objectArr = [CompetitionRankModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+        }
+        else if(_displayType == User_Event_Comments){
             _objectArr = [CommentModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
         }else if(_displayType == Team_Event_Comments){
             _objectArr = [CommentModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
@@ -432,6 +452,11 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setCellByCommentModel:[_objectArr objectAtIndex:indexPath.row]];
         return cell;
+    }else if(_displayType == Competition_Rank){
+        CompetitionRankList *cell = [tableView dequeueReusableCellWithIdentifier:competitionRankListIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setCellByCompetititonRankModel:[_objectArr objectAtIndex:indexPath.row]];
+        return cell;
     }else if(_displayType == User_Event_Comments){
         UserCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -469,6 +494,14 @@
         [userModel setUser_id:model.author_id];
         vc.model = userModel;
         [self.navigationController pushViewController:vc animated:YES];
+    }else if(_displayType == Competition_Rank){
+        //跳转到团队详情的页面
+        TeamDetailController *vc = [TeamDetailController new];
+        CompetitionRankModel *model = [_objectArr objectAtIndex:indexPath.row];
+        TeamModel *teamModel = [TeamModel new];
+        [teamModel setTeam_id:model.team_id];
+        vc.teamModel = teamModel;
+        [self.navigationController pushViewController:vc animated:YES];
     }else if(_displayType == User_Followed_Team){
         TeamDetailController *vc = [TeamDetailController new];
         vc.teamModel = [_objectArr objectAtIndex:indexPath.row];
@@ -489,9 +522,39 @@
 - (void)rightButtonAction{
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     alert.customViewColor = MAIN_COLOR;
-    UITextField *textField = [alert addTextField:@"输入评论内容"];
+    // 初始化输入框并设置位置和大小
+//    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 20, 180)];
+//    // 设置预设文本
+//    textView.text = @"输入评论内容";
+    // 初始化输入框并设置位置和大小
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 160, 180)];
+    // 设置预设文本
+    textView.text = @"输入评论内容";
+    // 设置文本字体
+    textView.font = [UIFont fontWithName:@"Arial" size:16.5f];
+    // 设置文本颜色
+    textView.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f];
+    // 设置文本框背景颜色
+    textView.backgroundColor = [UIColor whiteColor];
+    // 设置文本对齐方式
+    textView.textAlignment = NSTextAlignmentLeft;
+    // 设置自动纠错方式
+    textView.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    //外框
+    textView.layer.borderColor = [UIColor redColor].CGColor;
+    textView.layer.borderWidth = 1;
+    textView.layer.cornerRadius =5;
+    
+    // 设置是否可以拖动
+//    textView.scrollEnabled = YES;
+//    textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+
+//    UITextView *textField = [alert addTextField:@"输入评论内容"];
+    [alert addCustomView:textView];
+//    textField.scrollEnabled = YES; // 当文字宽度超过UITextView的宽度时，是否允许滑动
     [alert addButton:@"确定" actionBlock:^(void) {
-        [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textField.text} withToken:NO success:^(id data, NSString *message) {
+        [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textView.text} withToken:NO success:^(id data, NSString *message) {
             [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"评论成功" andTime:1.0f];
             [self getObjects];
         } failed:^(id data, NSString *message) {

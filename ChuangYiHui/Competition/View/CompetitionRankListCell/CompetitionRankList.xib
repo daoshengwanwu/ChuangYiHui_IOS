@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="competitionRankList" rowHeight="88" id="Yry-9Q-msY" customClass="CompetitionRankList">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Yry-9Q-msY" id="18H-zb-CDK">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2016中国青少年" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th3-tx-gpM">
+                        <rect key="frame" x="100" y="9" width="104" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Trophy" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-PX-rWv">
+                        <rect key="frame" x="243" y="33" width="16" height="20"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="default_team_head" translatesAutoresizingMaskIntoConstraints="NO" id="0e4-DF-Z2k">
+                        <rect key="frame" x="3" y="3" width="80" height="81.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="WrG-R5-3kT"/>
+                            <constraint firstAttribute="height" constant="80" id="kcb-qi-1Zo"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="40"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="第4名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laI-Wo-dVV">
+                        <rect key="frame" x="267" y="32" width="33" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="th3-tx-gpM" firstAttribute="leading" secondItem="0e4-DF-Z2k" secondAttribute="trailing" constant="17" id="9vF-og-svK"/>
+                    <constraint firstItem="laI-Wo-dVV" firstAttribute="leading" secondItem="TjE-PX-rWv" secondAttribute="trailing" constant="8" id="PdL-w8-ejf"/>
+                    <constraint firstItem="0e4-DF-Z2k" firstAttribute="top" secondItem="18H-zb-CDK" secondAttribute="top" constant="3" id="ahu-L8-mjj"/>
+                    <constraint firstItem="th3-tx-gpM" firstAttribute="top" secondItem="18H-zb-CDK" secondAttribute="topMargin" constant="3" id="emx-kl-xNI"/>
+                    <constraint firstItem="laI-Wo-dVV" firstAttribute="centerY" secondItem="TjE-PX-rWv" secondAttribute="centerY" id="iB1-1G-Gdj"/>
+                    <constraint firstAttribute="bottom" secondItem="0e4-DF-Z2k" secondAttribute="bottom" constant="3" id="mrs-EA-zqE"/>
+                    <constraint firstItem="laI-Wo-dVV" firstAttribute="leading" secondItem="TjE-PX-rWv" secondAttribute="trailing" constant="8" id="nNF-LS-hSt"/>
+                    <constraint firstItem="laI-Wo-dVV" firstAttribute="centerY" secondItem="0e4-DF-Z2k" secondAttribute="centerY" id="pua-dc-uR5"/>
+                    <constraint firstItem="0e4-DF-Z2k" firstAttribute="leading" secondItem="18H-zb-CDK" secondAttribute="leading" constant="3" id="rGw-Bf-jIb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="laI-Wo-dVV" secondAttribute="trailing" constant="12" id="u3Q-wK-KXp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="head_icon" destination="0e4-DF-Z2k" id="kyb-ae-yTX"/>
+                <outlet property="number" destination="laI-Wo-dVV" id="1hR-Ny-YNb"/>
+                <outlet property="title" destination="th3-tx-gpM" id="QxJ-zs-5lj"/>
+            </connections>
+            <point key="canvasLocation" x="-317" y="93"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Trophy" width="16" height="16"/>
+        <image name="default_team_head" width="234" height="234"/>
+    </resources>
+</document>

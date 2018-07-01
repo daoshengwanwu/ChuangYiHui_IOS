@@ -187,7 +187,7 @@
                                 <rect key="frame" x="0.0" y="622" width="189" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论(100)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZK-5n-uXr">
-                                        <rect key="frame" x="67" y="12" width="62" height="21"/>
+                                        <rect key="frame" x="66.5" y="12" width="62" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="lzH-yc-JL4"/>
                                             <constraint firstAttribute="height" constant="21" id="oAV-TO-hVm"/>
@@ -197,7 +197,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_comment_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tJT-lG-Igg">
-                                        <rect key="frame" x="34" y="9.5" width="26" height="26"/>
+                                        <rect key="frame" x="33.5" y="9.5" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="2xh-nU-VFY"/>
                                             <constraint firstAttribute="height" constant="26" id="IAf-0z-hfJ"/>

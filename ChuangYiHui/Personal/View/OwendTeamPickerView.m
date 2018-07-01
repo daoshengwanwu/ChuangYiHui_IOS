@@ -9,17 +9,18 @@
 #import "OwendTeamPickerView.h"
 
 static const NSInteger OwendTeamComponent = 0;
+
 #define KFont14 [UIFont systemFontOfSize:18]
 
 @interface OwendTeamPickerView ()<UIPickerViewDelegate,UIPickerViewDataSource>
 {
     UIPickerView    *_owendteampicker;
-//    NSArray         *_owendteamArr;
+    NSArray         *_owendteamArr;
 }
 
 //@property(nonatomic,strong)FMDatabase *db;
-
-@property (nonatomic, strong)NSArray *owendteamArr;
+//@property (nonatomic, strong) NSArray *teamArr;
+//@property (nonatomic, strong)NSArray *owendteamArr;
 //@property (nonatomic, strong)NSMutableDictionary *owendteamDic;
 
 @end
@@ -59,19 +60,58 @@ static const NSInteger OwendTeamComponent = 0;
 }
 
 - (void)initArr{
-    _owendteamArr = [NSMutableArray array];
+    _owendteamArr = @[];
+//    [self setFieldDict];
 //    _owendteamDic = [NSMutableDictionary dictionary];
 //    _schoolArr = @[];
 }
 
+
+//#pragma mark 设置领域-类型-技能的数据字典
+//- (void)setFieldDict
+//{
+//    [self selectedfieldIndex:0 typeIndex:0];
+//    [_owendteampicker reloadAllComponents];
+//}
+
+//#pragma mark 获取对应的领域-类型-技能数据
+//- (void)selectedfieldIndex:(NSInteger)fieldIndex typeIndex:(NSInteger)typeIndex
+//{
+////    NSString *selectedField = [_provinceArr objectAtIndex:fieldIndex];
+////    _owendteamArr = [_schoolDic objectForKey:selectedField];
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_OWNED_TEAMS success:^(id data, NSString *message) {
+//        _owendteamArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+//        TeamModel *kkk = [_owendteamArr objectAtIndex:3];
+//        NSLog(@"ssssss%@...%@",kkk,kkk.name);
+//        TeamModel *lll = [_owendteamArr objectAtIndex:4];
+//        NSLog(@"bbbbbb%@...%@",lll,lll.name);
+//    } failed:^(id data, NSString *message) {
+//        NSLog(@"eeeeee%@",message);
+//        //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+//
+//    }];
+//    //    NSLog(@"select type arr:%@  %@",selectedField,  _typeArr);
+//}
 
 - (void)initDatabase{
     [self queryOwendTeam];
 }
 
 - (void)queryOwendTeam{
-    _owendteamArr = @[@"大专以下", @"大专", @"本科", @"硕士", @"博士", @"博士后"];
+//    _owendteamArr = @[@"大专以下", @"大专", @"本科", @"硕士", @"博士", @"博士后"];
+//    NSString *url = [NSString stringWithFormat:@"%@/",URL_GET_OWNED_TEAMS];
 //    [self selectedfieldIndex:0 typeIndex:0];
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_OWNED_TEAMS success:^(id data, NSString *message) {
+        _owendteamArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+//        TeamModel *kkk = [_owendteamArr objectAtIndex:1];
+//        NSLog(@"ssssss%@...%@",kkk,kkk.name);
+//        TeamModel *lll = [_owendteamArr objectAtIndex:2];
+//        NSLog(@"bbbbbb%@...%@",lll,lll.name);
+    } failed:^(id data, NSString *message) {
+        NSLog(@"eeeeee%@",message);
+//        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+
+    }];
 }
 
 
@@ -117,16 +157,27 @@ static const NSInteger OwendTeamComponent = 0;
     [cancleBtn addTarget:self action:@selector(cancle) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:cancleBtn];
     
-    UILabel *title =  [[UILabel alloc]init];
-    title.font = KFont14;
-    CGFloat TitleH = title.frame.size.height;
-//    CGFloat TitleW = BtnH*3;
-    title.text = @"请选择报名队伍：";
-    [title setTextColor:kUIColorFromRGB(0x0174FE)];
-    CGFloat TitleW = title.frame.size.width;
+    UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
+    title.titleLabel.font = KFont14;
+    [title setTitleColor:kUIColorFromRGB(0xBDBDBD) forState:UIControlStateNormal];
+    [title setTitle:@"请选择报名队伍" forState:UIControlStateNormal];
+    CGFloat TitleH = topView.frame.size.height;
+    CGFloat TitleW = TitleH*4;
     CGFloat confirmTitleX = (self.frame.size.width - TitleW)/2;
     title.frame = CGRectMake(confirmTitleX, 0, TitleW, TitleH);
+//    [cancleBtn addTarget:self action:@selector(cancle) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:title];
+    
+//    UILabel *title =  [[UILabel alloc]init];
+//    title.font = KFont14;
+//    CGFloat TitleH = title.frame.size.height;
+////    CGFloat TitleW = BtnH*3;
+//    title.text = @"请选择报名队伍：";
+//    [title setTextColor:kUIColorFromRGB(0x0174FE)];
+//    CGFloat TitleW = title.frame.size.width;
+//    CGFloat confirmTitleX = (self.frame.size.width - TitleW)/2;
+//    title.frame = CGRectMake(confirmTitleX, 0, TitleW, TitleH);
+//    [topView addSubview:title];
     
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     confirmBtn.titleLabel.font = cancleBtn.titleLabel.font;
@@ -159,6 +210,7 @@ static const NSInteger OwendTeamComponent = 0;
     _owendteampicker = picker;
 }
 
+
 #pragma mark 取消
 - (void)cancle
 {
@@ -172,9 +224,57 @@ static const NSInteger OwendTeamComponent = 0;
     NSInteger typeIndex = [_owendteampicker selectedRowInComponent: OwendTeamComponent];
     
 //    NSString *provinceStr = [_provinceArr objectAtIndex: fieldIndex];
-    NSString *schoolStr = [_owendteamArr objectAtIndex: typeIndex];
+    TeamModel *tmpmodel = [_owendteamArr objectAtIndex: typeIndex];
+    NSString *schoolStr = tmpmodel.name;
     
-    NSMutableArray *arr=[NSMutableArray arrayWithCapacity:2];
+//    NSString *schoolStr = @"adad";
+    NSLog(@"dianjile%@%@",schoolStr,tmpmodel.team_id);
+    NSMutableArray *arr=[NSMutableArray arrayWithCapacity:1];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                   message:[NSString stringWithFormat:@"请核对报名要求，将来领奖时要核实身份！确定以团队 %@ 报名?", tmpmodel.name]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              //响应事件
+                                                              [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(tmpmodel.team_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
+                                                                  UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                                                                                  message:@"报名成功！"
+                                                                                                                           preferredStyle:UIAlertControllerStyleAlert];
+                                                                  
+                                                                  UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
+                                                                                                                        handler:^(UIAlertAction * action) {
+                                                                                                                            //响应事件
+                                                                                                                            NSLog(@"action = %@", action);
+                                                                                                                        }];
+                                                                  
+                                                                  [alert1 addAction:defaultAction];
+                                                                  //                                                                  [self presentViewController:alert1 animated:YES completion:nil];
+                                                              } failed:^(id data, NSString *message) {
+                                                                  //                                                                          NSString *ss = [UserManager dealError:[data valueForKey:@"statusCode"] andParam2:message];
+                                                                  //                                                                          NSLog(@"datais:%@",data);
+                                                                  //                                                                          NSLog(@"messageis:%@",message);
+                                                                  [SVProgressHUD showErrorWithStatus:message];
+                                                              }];
+                                                          }];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             //响应事件
+                                                             NSLog(@"action = %@", action);
+                                                         }];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    
+//    OwendTeamPickerView *testView = [[OwendTeamPickerView alloc] initWithFrame:self.bounds];
+    //关键就在这里,把这里的view赋值给一个vc的view,就是一个思路的变通
+    UIViewController *vc = [[UIViewController alloc] init];
+    //[vc.view addSubview:testView];//有兴趣的同学可以看看这里view赋值替换和增加子视图的区别
+    vc.view = self;
+    
+    // 最终用这个vc显示alertController:presentViewController
+    [vc presentViewController:alert animated:YES completion:nil];
+
+//    [self presentViewController:alert animated:YES completion:nil];
     
 //    [arr addObject:provinceStr];
     [arr addObject:schoolStr];
@@ -186,6 +286,7 @@ static const NSInteger OwendTeamComponent = 0;
     
     [self removeFromSuperview];
     
+//    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
@@ -198,13 +299,43 @@ static const NSInteger OwendTeamComponent = 0;
 #pragma mark 行数
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return _owendteamArr.count;
+//    NSLog(@"count:%lu",(unsigned long)[_owendteamArr count]);
+//    return (unsigned long)[_owendteamArr count];
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_OWNED_TEAMS success:^(id data, NSString *message) {
+//        _owendteamArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+//        TeamModel *kkk = [_owendteamArr objectAtIndex:1];
+//        NSLog(@"1ssssss%@...%@",kkk,kkk.name);
+//        TeamModel *lll = [_owendteamArr objectAtIndex:2];
+//        NSLog(@"1bbbbbb%@...%@,%lu",lll,lll.name,_owendteamArr.count);
+//    } failed:^(id data, NSString *message) {
+//        NSLog(@"eeeeee%@",message);
+//        //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+//
+//    }];
+//    return (unsigned int)[_owendteamArr count];
+    return 6;
+//    return _owendteamArr.count;
 }
 
 #pragma mark 每一行的标题
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [_owendteamArr objectAtIndex:row];
+//    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_OWNED_TEAMS success:^(id data, NSString *message) {
+//        _owendteamArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+//        TeamModel *kkk = [_owendteamArr objectAtIndex:1];
+//        NSLog(@"2ssssss%@...%@",kkk,kkk.name);
+//        TeamModel *lll = [_owendteamArr objectAtIndex:2];
+//        NSLog(@"2bbbbbb%@...%@,%lu",lll,lll.name,_owendteamArr.count);
+//    } failed:^(id data, NSString *message) {
+//        NSLog(@"eeeeee%@",message);
+//        //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+//
+//    }];
+//    TeamModel *teammodel = [_owendteamArr objectAtIndex:row];
+//    NSLog(@"teammodel_name%@",teammodel.name);
+//    NSLog(@"teammodel_name11%lu",(unsigned long)_owendteamArr.count);
+//    return teammodel.name;
+    return @"aaaa";
 }
 
 //- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -227,8 +358,26 @@ static const NSInteger OwendTeamComponent = 0;
     myView.font = [UIFont systemFontOfSize:16];
     myView.backgroundColor = [UIColor clearColor];
     myView.textAlignment = NSTextAlignmentCenter;
+    
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_OWNED_TEAMS success:^(id data, NSString *message) {
+        _owendteamArr = [TeamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+        TeamModel *kkk = [_owendteamArr objectAtIndex:1];
+        NSLog(@"3ssssss%@...%@",kkk,kkk.name);
+        TeamModel *lll = [_owendteamArr objectAtIndex:2];
+        NSLog(@"3bbbbbb%@...%@,%lu",lll,lll.name,_owendteamArr.count);
+        TeamModel *smodel = [_owendteamArr objectAtIndex:row];
+        NSLog(@"te%lu",(unsigned long)_owendteamArr.count);
+        myView.text = smodel.name;
+    } failed:^(id data, NSString *message) {
+        NSLog(@"eeeeee%@",message);
+        //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
 
-    myView.text = [_owendteamArr objectAtIndex:row];
+    }];
+    
+//    TeamModel *smodel = [_owendteamArr objectAtIndex:row];
+//    NSLog(@"te%lu",(unsigned long)_owendteamArr.count);
+//    myView.text = smodel.name;
+//    myView.text = @"aaaaa";
     
     return myView;
 }

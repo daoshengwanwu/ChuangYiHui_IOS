@@ -224,6 +224,8 @@
 
 #pragma mark 竞赛模块
 #define URL_GET_ALL_COMPETITIONS  URLFrame(@"competition/")
+//获取竞赛排名
+#define URL_GET_COMPETITION_RANK(competitionId) [NSString stringWithFormat: @"%@competition/%@/awards/", BASE_URL, competitionId]
 //获取竞赛的详情
 #define URL_GET_COMPETITION_DETAIL(competitionId) [NSString stringWithFormat: @"%@competition/%@/", BASE_URL, competitionId]
 //获取竞赛的团队参与列表

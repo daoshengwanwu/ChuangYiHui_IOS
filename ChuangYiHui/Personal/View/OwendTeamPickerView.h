@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class OwendTeamPPickerView;
+@class OwendTeamPickerView;
 
-@protocol OwendTeamPPickerViewDelegate<NSObject>
+@protocol OwendTeamPickerViewDelegate<NSObject>
 
 -(void)OwendTeamPickerViewConfirmClickWith:(NSArray *)arr;
 
@@ -18,7 +18,7 @@
 
 @interface OwendTeamPickerView : UIView
 
-@property(nonatomic,weak)id<OwendTeamPPickerViewDelegate>delegate;
+@property(nonatomic,weak)id<OwendTeamPickerViewDelegate>delegate;
 
 @end
 
