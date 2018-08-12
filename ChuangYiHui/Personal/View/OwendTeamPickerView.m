@@ -236,7 +236,7 @@ static const NSInteger OwendTeamComponent = 0;
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               //响应事件
-                                                              [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(tmpmodel.team_id) parameters:nil withToken:YES success:^(id data, NSString *message) {
+                                                              [[NetRequest sharedInstance] httpRequestWithPost:URL_GET_COMPETITION_PARTICIPATE_TEAMS(tmpmodel.team_id) parameters:@{@"team_id": tmpmodel.team_id} withToken:YES success:^(id data, NSString *message) {
                                                                   UIAlertController* alert1 = [UIAlertController alertControllerWithTitle:@"提示"
                                                                                                                                   message:@"报名成功！"
                                                                                                                            preferredStyle:UIAlertControllerStyleAlert];
