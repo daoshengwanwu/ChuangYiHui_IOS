@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray *titles = @[@"发布", @"竞赛", @"活动"];
+    NSArray *titles = @[@"发布", @"竞赛", @"活动", @"资源"];
     NSMutableArray *viewControllers = [NSMutableArray new];
     
     [viewControllers addObject:[PublishViewController new]];

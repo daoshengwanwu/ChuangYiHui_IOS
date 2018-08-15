@@ -245,7 +245,11 @@
 //获取竞赛的粉丝列表
 #define URL_GET_COMPETITION_FANS(competitionId) [NSString stringWithFormat: @"%@competition/%@/followers/", BASE_URL, competitionId]
 
-
+#define URL_51CTO_BASE = @"http://openedu.51cto.com/api/"
+#define URL_51CTO_BASE_TEST = @"http://test.openedu.51cto.com/api/"
+#define URL_COURSE_LIST = @"course/course_list"
+#define URL_COURSE_DETAIL = @"course/course_detail"
+#define URL_COURSE_LESSON = @"course/course_lesson"
 
 
 #endif /* HttpURL_h */

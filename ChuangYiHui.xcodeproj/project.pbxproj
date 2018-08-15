@@ -217,6 +217,8 @@
 		E3E8D1E71ED80445007B293D /* LabelLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E8D1E51ED80445007B293D /* LabelLabelCell.m */; };
 		E3E8D1E81ED80445007B293D /* LabelLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E8D1E61ED80445007B293D /* LabelLabelCell.xib */; };
 		F7C42D7120AD456C00AC2266 /* PeopleRequireDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */; };
+		F7DE34C6212123B000421D01 /* CY51CTOCourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DE34C4212123B000421D01 /* CY51CTOCourseListController.m */; };
+		F7E7BC202121AD3E0020B428 /* CY51CTOCourseListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E7BC1F2121AD3E0020B428 /* CY51CTOCourseListItem.m */; };
 		F7FE4D8D20AC4F230061D165 /* UnderTakeListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7420AC4F230061D165 /* UnderTakeListAdapter.m */; };
 		F7FE4D8E20AC4F230061D165 /* OutSourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7520AC4F230061D165 /* OutSourceAdapter.m */; };
 		F7FE4D8F20AC4F230061D165 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4D7620AC4F230061D165 /* PublishViewController.m */; };
@@ -613,6 +615,10 @@
 		E3E8D1E61ED80445007B293D /* LabelLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelLabelCell.xib; sourceTree = "<group>"; };
 		F7C42D6F20AD456C00AC2266 /* PeopleRequireDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleRequireDetailController.h; sourceTree = "<group>"; };
 		F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleRequireDetailController.m; sourceTree = "<group>"; };
+		F7DE34C3212123B000421D01 /* CY51CTOCourseListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CY51CTOCourseListController.h; sourceTree = "<group>"; };
+		F7DE34C4212123B000421D01 /* CY51CTOCourseListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CY51CTOCourseListController.m; sourceTree = "<group>"; };
+		F7E7BC1E2121AD3E0020B428 /* CY51CTOCourseListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CY51CTOCourseListItem.h; path = ChuangYiHui/HotSpot/Controller/CY51CTOCourseListItem.h; sourceTree = SOURCE_ROOT; };
+		F7E7BC1F2121AD3E0020B428 /* CY51CTOCourseListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CY51CTOCourseListItem.m; path = ChuangYiHui/HotSpot/Controller/CY51CTOCourseListItem.m; sourceTree = SOURCE_ROOT; };
 		F7FE4D7420AC4F230061D165 /* UnderTakeListAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderTakeListAdapter.m; sourceTree = "<group>"; };
 		F7FE4D7520AC4F230061D165 /* OutSourceAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutSourceAdapter.m; sourceTree = "<group>"; };
 		F7FE4D7620AC4F230061D165 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
@@ -1328,6 +1334,8 @@
 			children = (
 				E398F94A1EC0B1AD00CF83C1 /* HotSpotController.h */,
 				E398F94B1EC0B1AD00CF83C1 /* HotSpotController.m */,
+				F7DE34C3212123B000421D01 /* CY51CTOCourseListController.h */,
+				F7DE34C4212123B000421D01 /* CY51CTOCourseListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1335,6 +1343,8 @@
 		E398F9411EC0B13F00CF83C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F7E7BC1E2121AD3E0020B428 /* CY51CTOCourseListItem.h */,
+				F7E7BC1F2121AD3E0020B428 /* CY51CTOCourseListItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2294,6 +2304,7 @@
 				E398F9971EC2FFC200CF83C1 /* UIWindow+LBXHierarchy.m in Sources */,
 				E32490EE1F033EF300BBC943 /* BindPhoneController.m in Sources */,
 				E31936371EC03DCE00621CA4 /* ChuangYiHui.xcdatamodeld in Sources */,
+				F7E7BC202121AD3E0020B428 /* CY51CTOCourseListItem.m in Sources */,
 				6C276FD620A082DE00B0E572 /* PersonActionListCell.m in Sources */,
 				E30D71C91F135F630009F59B /* UserGuideViewController.m in Sources */,
 				E3CD67C11ECC3B7D005C94BD /* ImageTextfieldCell.m in Sources */,
@@ -2357,6 +2368,7 @@
 				E3851E9C1EE2B0AF0005EE37 /* TaskCategoryController.m in Sources */,
 				E3B9D1E71ED2D35400F45201 /* FeedbackController.m in Sources */,
 				E3BFAE3E1F21DBD600CFB792 /* MemberNeedDetailController.m in Sources */,
+				F7DE34C6212123B000421D01 /* CY51CTOCourseListController.m in Sources */,
 				E398F9781EC2FDD800CF83C1 /* LBXScan1ViewController.m in Sources */,
 				E3B9D1DE1ED2C1E200F45201 /* SetUpController.m in Sources */,
 				F7FE4D9220AC4F230061D165 /* PublishRequireModel.m in Sources */,
