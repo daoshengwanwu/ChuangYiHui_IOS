@@ -209,4 +209,10 @@ static NetRequest *_instance;
         });
     }
 }
+
+- (void)postTo51CTO: (NSString*) methodName Params:(NSArray*)params
+            success:(requestSuccess)success failed:(requestFailure)failed   {
+    
+    NSArray * sortedArray = [params sortedArrayUsingSelector:@selector(compare:)];
+}
 @end
