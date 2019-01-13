@@ -16,6 +16,8 @@
 		6C518BF520E90CF00044E6FC /* CompetitionRankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF320E90CF00044E6FC /* CompetitionRankList.m */; };
 		6C518BF620E90CF00044E6FC /* CompetitionRankList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */; };
 		6C518BF920E910090044E6FC /* CompetitionRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF820E910090044E6FC /* CompetitionRankModel.m */; };
+		6C59C917212B0A9D00461EA3 /* ExpertActionControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59C916212B0A9D00461EA3 /* ExpertActionControllerViewController.m */; };
+		6C59C91A212B0ABA00461EA3 /* LabActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59C919212B0ABA00461EA3 /* LabActionController.m */; };
 		6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */; };
 		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
@@ -266,6 +268,10 @@
 		6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionRankList.xib; sourceTree = "<group>"; };
 		6C518BF720E910090044E6FC /* CompetitionRankModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionRankModel.h; sourceTree = "<group>"; };
 		6C518BF820E910090044E6FC /* CompetitionRankModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionRankModel.m; sourceTree = "<group>"; };
+		6C59C915212B0A9D00461EA3 /* ExpertActionControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpertActionControllerViewController.h; sourceTree = "<group>"; };
+		6C59C916212B0A9D00461EA3 /* ExpertActionControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpertActionControllerViewController.m; sourceTree = "<group>"; };
+		6C59C918212B0ABA00461EA3 /* LabActionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabActionController.h; sourceTree = "<group>"; };
+		6C59C919212B0ABA00461EA3 /* LabActionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabActionController.m; sourceTree = "<group>"; };
 		6C9A869C20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailControllerViewController.h; sourceTree = "<group>"; };
 		6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailControllerViewController.m; sourceTree = "<group>"; };
 		6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJsonModel.h; sourceTree = "<group>"; };
@@ -734,6 +740,24 @@
 				6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */,
 			);
 			path = CompetitionRankListCell;
+			sourceTree = "<group>";
+		};
+		6C59C913212B0A2A00461EA3 /* ExpertActionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C59C915212B0A9D00461EA3 /* ExpertActionControllerViewController.h */,
+				6C59C916212B0A9D00461EA3 /* ExpertActionControllerViewController.m */,
+			);
+			path = ExpertActionControllers;
+			sourceTree = "<group>";
+		};
+		6C59C914212B0A3D00461EA3 /* LabActionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C59C918212B0ABA00461EA3 /* LabActionController.h */,
+				6C59C919212B0ABA00461EA3 /* LabActionController.m */,
+			);
+			path = LabActionControllers;
 			sourceTree = "<group>";
 		};
 		6C9E29D920A13F0A00D4069F /* PersonActionModel */ = {
@@ -1360,6 +1384,8 @@
 		E398F9431EC0B16000CF83C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6C59C914212B0A3D00461EA3 /* LabActionControllers */,
+				6C59C913212B0A2A00461EA3 /* ExpertActionControllers */,
 				6C276FC920A0811400B0E572 /* PersonActionControllers */,
 				6C276FCD20A081A400B0E572 /* TeamActionControllers */,
 				E3B9A9F51F407D2600AB2823 /* ActionControllers */,
@@ -2322,6 +2348,7 @@
 				E3D1E9171EC3FD3400B1F552 /* SVHudManager.m in Sources */,
 				E398F9091EC09F4D00CF83C1 /* UIButton+Create.m in Sources */,
 				E398F9701EC214B900CF83C1 /* UserDetailController.m in Sources */,
+				6C59C917212B0A9D00461EA3 /* ExpertActionControllerViewController.m in Sources */,
 				E398F95B1EC16FD200CF83C1 /* PersonalHeaderView.m in Sources */,
 				E3A60B151F3716EC004BCBAF /* TaskExternalReleaseViewController.m in Sources */,
 				E398F94F1EC0B1C000CF83C1 /* SocietyController.m in Sources */,
@@ -2355,6 +2382,7 @@
 				E3A1AC5E1EE549800037ED9A /* TaskStatusController.m in Sources */,
 				E3B9D1EA1ED2D40C00F45201 /* AboutAppController.m in Sources */,
 				E398F9A31EC3178F00CF83C1 /* ScoreCell.m in Sources */,
+				6C59C91A212B0ABA00461EA3 /* LabActionController.m in Sources */,
 				E3C0366D1ECDDF51002EF585 /* FieldPickerView.m in Sources */,
 				E3C036A31ECEE0C6002EF585 /* PersonalConversationListViewController.m in Sources */,
 				E3E8D1E71ED80445007B293D /* LabelLabelCell.m in Sources */,

@@ -178,6 +178,11 @@
 //获取所有的团队动态
 #define URL_GET_ALL_TEAM_EVENT URLFrame(@"users/current/team_actions/")
 
+//获取所有的专家动态
+#define URL_GET_ALL_EXPERT_EVENT URLFrame(@"users/current/expert_actions/")
+//获取所有的实验室动态
+#define URL_GET_ALL_LAB_EVENT URLFrame(@"users/current/lab_actions/")
+
 //获取某个团队的人员需求
 #define URL_GET_TEAM_MEMBER_NEEDS(teamId) [NSString stringWithFormat: @"%@teams/%@/needs/member/", BASE_URL, teamId]
 //获取某个团队的外包需求
