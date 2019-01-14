@@ -17,7 +17,7 @@
 @property (nonatomic, strong)NSString * members; //JSONString
 @property (nonatomic, strong)NSString * title;
 @property (nonatomic, strong)NSString * deadline;
-@property (nonatomic, strong)NSString * description;
+@property (nonatomic, strong)NSString * Description;
 @property (nonatomic, strong)NSString * number;
 @property (nonatomic, strong)NSString * age_min;
 @property (nonatomic, strong)NSString * age_max;
@@ -37,5 +37,12 @@
 @property (nonatomic, strong)NSString * cost_unit;
 @property (nonatomic, strong)NSString * time_started;
 @property (nonatomic, strong)NSString * time_ended;
+
+//专家成果
+@property (nonatomic, strong)NSString * user_name;
+@property (nonatomic, strong)NSString * is_yes;
+@property (nonatomic, strong)NSString * yes_count;
+@property (nonatomic, strong)NSString * picture;
+@property (nonatomic, strong)NSString * user_id;
 
 @end

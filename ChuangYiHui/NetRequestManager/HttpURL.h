@@ -168,6 +168,11 @@
 //获取所有的承接需求
 #define URL_GET_ALL_UNDERTAKE_NEEDS URLFrame(@"teams/needs/undertake/")
 
+//获取所有的专家成果
+#define URL_GET_ALL_ZJCG URLFrame(@"users/achievements/")
+//获取所有的实验室成果
+#define URL_GET_ALL_SYSCG URLFrame(@"labs/achievements/")
+
 //获取关注的人员动态
 #define URL_GET_FOLLOWED_USER_EVENT URLFrame(@"users/current/followed_user/actions/")
 //获取关注的团队动态

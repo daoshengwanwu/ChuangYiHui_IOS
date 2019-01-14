@@ -22,6 +22,12 @@
 		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
 		6C9E29E020A13F7900D4069F /* PersonActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DF20A13F7900D4069F /* PersonActionModel.m */; };
+		6CA9D67421EC7FA000A63E37 /* ZjcgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67221EC7FA000A63E37 /* ZjcgTableViewCell.m */; };
+		6CA9D67521EC7FA000A63E37 /* ZjcgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA9D67321EC7FA000A63E37 /* ZjcgTableViewCell.xib */; };
+		6CA9D67921EC7FC300A63E37 /* SyscgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67721EC7FC300A63E37 /* SyscgTableViewCell.m */; };
+		6CA9D67A21EC7FC300A63E37 /* SyscgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA9D67821EC7FC300A63E37 /* SyscgTableViewCell.xib */; };
+		6CA9D67D21ECAE5B00A63E37 /* ZjcgAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67C21ECAE5B00A63E37 /* ZjcgAdapter.m */; };
+		6CA9D68021ECBC4B00A63E37 /* SyscgAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67F21ECBC4B00A63E37 /* SyscgAdapter.m */; };
 		6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */; };
 		C2ACDAFB8929D823AD44EB18 /* libPods-ChuangYiHui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0012BC484D6454451AB7F336 /* libPods-ChuangYiHui.a */; };
 		E30D71C91F135F630009F59B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30D71C81F135F630009F59B /* UserGuideViewController.m */; };
@@ -280,6 +286,16 @@
 		6C9E29DC20A13F6000D4069F /* TeamActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamActionModel.m; sourceTree = "<group>"; };
 		6C9E29DE20A13F7900D4069F /* PersonActionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonActionModel.h; sourceTree = "<group>"; };
 		6C9E29DF20A13F7900D4069F /* PersonActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonActionModel.m; sourceTree = "<group>"; };
+		6CA9D67121EC7FA000A63E37 /* ZjcgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZjcgTableViewCell.h; sourceTree = "<group>"; };
+		6CA9D67221EC7FA000A63E37 /* ZjcgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZjcgTableViewCell.m; sourceTree = "<group>"; };
+		6CA9D67321EC7FA000A63E37 /* ZjcgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZjcgTableViewCell.xib; sourceTree = "<group>"; };
+		6CA9D67621EC7FC300A63E37 /* SyscgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyscgTableViewCell.h; sourceTree = "<group>"; };
+		6CA9D67721EC7FC300A63E37 /* SyscgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SyscgTableViewCell.m; sourceTree = "<group>"; };
+		6CA9D67821EC7FC300A63E37 /* SyscgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyscgTableViewCell.xib; sourceTree = "<group>"; };
+		6CA9D67B21ECAE1B00A63E37 /* ZjcgAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZjcgAdapter.h; sourceTree = "<group>"; };
+		6CA9D67C21ECAE5B00A63E37 /* ZjcgAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZjcgAdapter.m; sourceTree = "<group>"; };
+		6CA9D67E21ECBC3800A63E37 /* SyscgAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyscgAdapter.h; sourceTree = "<group>"; };
+		6CA9D67F21ECBC4B00A63E37 /* SyscgAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SyscgAdapter.m; sourceTree = "<group>"; };
 		6CBF907E20D7D3C300E410CF /* OwendTeamPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwendTeamPickerView.h; sourceTree = "<group>"; };
 		6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwendTeamPickerView.m; sourceTree = "<group>"; };
 		6CBF908120E0832900E410CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -1949,6 +1965,10 @@
 				F7FE4D7920AC4F230061D165 /* PublishViewController.h */,
 				F7C42D6F20AD456C00AC2266 /* PeopleRequireDetailController.h */,
 				F7C42D7020AD456C00AC2266 /* PeopleRequireDetailController.m */,
+				6CA9D67B21ECAE1B00A63E37 /* ZjcgAdapter.h */,
+				6CA9D67C21ECAE5B00A63E37 /* ZjcgAdapter.m */,
+				6CA9D67E21ECBC3800A63E37 /* SyscgAdapter.h */,
+				6CA9D67F21ECBC4B00A63E37 /* SyscgAdapter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1974,6 +1994,12 @@
 				F7FE4D8A20AC4F230061D165 /* OutSourceRequireCell.h */,
 				F7FE4D8B20AC4F230061D165 /* UnderTakeRequireCell.m */,
 				F7FE4D8C20AC4F230061D165 /* UnderTakeRequireCell.xib */,
+				6CA9D67121EC7FA000A63E37 /* ZjcgTableViewCell.h */,
+				6CA9D67221EC7FA000A63E37 /* ZjcgTableViewCell.m */,
+				6CA9D67321EC7FA000A63E37 /* ZjcgTableViewCell.xib */,
+				6CA9D67621EC7FC300A63E37 /* SyscgTableViewCell.h */,
+				6CA9D67721EC7FC300A63E37 /* SyscgTableViewCell.m */,
+				6CA9D67821EC7FC300A63E37 /* SyscgTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2100,6 +2126,7 @@
 				E3BC58281EC97CA80068C971 /* LabelLabelArrowCell.xib in Resources */,
 				E319363C1EC03DCE00621CA4 /* LaunchScreen.storyboard in Resources */,
 				E3CD1BFD1EEBEB3200D8FE32 /* LabelTextViewCell.xib in Resources */,
+				6CA9D67A21EC7FC300A63E37 /* SyscgTableViewCell.xib in Resources */,
 				E3CD67B91ECC2BAE005C94BD /* ImageLabelLabelArrowCell.xib in Resources */,
 				E3B9AA061F41327000AB2823 /* CompetitionListCell.xib in Resources */,
 				E398F9491EC0B19600CF83C1 /* Society.storyboard in Resources */,
@@ -2123,6 +2150,7 @@
 				6C276FDC20A082F900B0E572 /* TeamActionListCell.xib in Resources */,
 				E3BC58191EC94C210068C971 /* ExperienceCell.xib in Resources */,
 				E398F92C1EC0A4C600CF83C1 /* User.storyboard in Resources */,
+				6CA9D67521EC7FA000A63E37 /* ZjcgTableViewCell.xib in Resources */,
 				E3BC582E1ECAA7390068C971 /* TeamHeaderView.xib in Resources */,
 				E3E8D1DB1ED6B0A5007B293D /* UserCommentCell.xib in Resources */,
 				E398F9AA1EC33E2700CF83C1 /* AgreeOrDisagreeCell.xib in Resources */,
@@ -2359,6 +2387,7 @@
 				E30EE5791EDE618E00B14A2D /* WBTableViewDelegate.m in Sources */,
 				6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */,
 				E398F93D1EC0A95B00CF83C1 /* UserManager.m in Sources */,
+				6CA9D67D21ECAE5B00A63E37 /* ZjcgAdapter.m in Sources */,
 				E398F9321EC0A55E00CF83C1 /* PersonalController.m in Sources */,
 				6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */,
 				E3CD67BC1ECC2FB8005C94BD /* CreateTeamController.m in Sources */,
@@ -2393,6 +2422,7 @@
 				E30EE5741EDE618E00B14A2D /* WBPopMenuModel.m in Sources */,
 				E3CD1C0A1EEC2CDD00D8FE32 /* ForgetPasswordController.m in Sources */,
 				E3B9A9E31F404A7D00AB2823 /* ActivityListController.m in Sources */,
+				6CA9D67921EC7FC300A63E37 /* SyscgTableViewCell.m in Sources */,
 				E3851E9C1EE2B0AF0005EE37 /* TaskCategoryController.m in Sources */,
 				E3B9D1E71ED2D35400F45201 /* FeedbackController.m in Sources */,
 				E3BFAE3E1F21DBD600CFB792 /* MemberNeedDetailController.m in Sources */,
@@ -2411,6 +2441,7 @@
 				E398F9961EC2FFC200CF83C1 /* UIAlertView+LBXAlertAction.m in Sources */,
 				E3BC58101EC94A210068C971 /* ExperienceModel.m in Sources */,
 				E3B9A9FA1F407D7B00AB2823 /* ActionController.m in Sources */,
+				6CA9D67421EC7FA000A63E37 /* ZjcgTableViewCell.m in Sources */,
 				E33A5B921EE64900001E95FF /* TaskModel.m in Sources */,
 				E398F9741EC2F29600CF83C1 /* PersonalQRCodeController.m in Sources */,
 				E398F90A1EC09F4D00CF83C1 /* UILabel+Common.m in Sources */,
@@ -2442,6 +2473,7 @@
 				E3CD1BFC1EEBEB3200D8FE32 /* LabelTextViewCell.m in Sources */,
 				E398F9061EC09F4D00CF83C1 /* NSString+MD5.m in Sources */,
 				E3CD67B81ECC2BAE005C94BD /* ImageLabelLabelArrowCell.m in Sources */,
+				6CA9D68021ECBC4B00A63E37 /* SyscgAdapter.m in Sources */,
 				E32EAF0F1F2ECC9D000E9D09 /* MemberApplyListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

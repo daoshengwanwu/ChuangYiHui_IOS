@@ -12,7 +12,7 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{@"require_id":@"id"};
+    return @{@"require_id":@"id",@"Description":@"description"};
 }
 
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property

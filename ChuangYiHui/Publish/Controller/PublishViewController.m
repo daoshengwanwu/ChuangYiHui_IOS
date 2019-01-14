@@ -3,6 +3,10 @@
 #import "UnderTakeListAdapter.h"
 #import "OutSourceAdapter.h"
 #import "PeopleRequireDetailController.h"
+#import "ZjcgTableViewCell.h"
+#import "SyscgTableViewCell.h"
+#import "ZjcgAdapter.h"
+#import "SyscgAdapter.h"
 
 #define PeopleRequireCellIdentifier @"publishPeopleRequireCell"
 
@@ -27,6 +31,18 @@
 @property (nonatomic, assign) NSInteger isPeopleHide;
 @property (nonatomic, assign) NSInteger isUnderTakeHide;
 @property (nonatomic, assign) NSInteger isOutSourceHide;
+@property (nonatomic, assign) NSInteger iszjcgHide;
+@property (nonatomic, assign) NSInteger issyscgHide;
+
+@property (nonatomic, strong) UITableView * zjcgTableView;
+@property (nonatomic, strong) NSArray * zjcgRequires;
+@property (nonatomic, assign) NSInteger zjcgListLimit;
+@property (nonatomic, strong) UIView * zjcgHeaderView;
+
+@property (nonatomic, strong) UITableView * syscgTableView;
+@property (nonatomic, strong) NSArray * syscgRequires;
+@property (nonatomic, assign) NSInteger syscgListLimit;
+@property (nonatomic, strong) UIView * syscgHeaderView;
 
 @end
 
@@ -127,7 +143,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(headerView.mas_bottom);
-        make.bottom.mas_equalTo(-TAB_HEIGHT - 90);
+        make.bottom.mas_equalTo(-TAB_HEIGHT - 180);
     }];
 
     //初始化承接需求headerView及TableView
@@ -302,9 +318,186 @@
         make.height.mas_equalTo(0);
     }];
     
+    //初始化专家成果headerView
+    UIView * zjcgView = [UIView new];
+    [self.view addSubview:zjcgView];
+    [zjcgView mas_makeConstraints:^(MASConstraintMaker * make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(45);
+        make.top.mas_equalTo(_outSourceRequireTableView.mas_bottom);
+    }];
+    
+    arrowImageView = [UIImageView new];
+    [zjcgView addSubview:arrowImageView];
+    [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(16);
+        make.width.mas_equalTo(10);
+        make.centerY.equalTo(zjcgView.mas_centerY).with.offset(-2);
+    }];
+    arrowImageView.image = [UIImage imageNamed:@"arrow"];
+    
+    imageView = [UIImageView new];
+    [zjcgView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker * make) {
+        make.centerY.equalTo(zjcgView.mas_centerY).with.offset(-2);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(24);
+        make.width.mas_equalTo(24);
+    }];
+    imageView.image = [UIImage imageNamed:@"zjcg_icon"];
+    
+    headerTextLabel = [UILabel new];
+    [zjcgView addSubview:headerTextLabel];
+    [headerTextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(24);
+        make.left.equalTo(imageView.mas_right).with.offset(10);
+        make.right.mas_equalTo(arrowImageView.mas_left);;
+        make.centerY.equalTo(zjcgView.mas_centerY).with.offset(-2);
+    }];
+    headerTextLabel.text = @"专家成果";
+    headerTextLabel.textColor = [UIColor darkGrayColor];
+    
+    bottomLineView = [UIView new];
+    [zjcgView addSubview:bottomLineView];
+    [bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(3);
+        make.bottom.equalTo(zjcgView.mas_bottom);
+    }];
+    bottomLineView.backgroundColor = LINE_COLOR;
+    
+    
+    _zjcgHeaderView = zjcgView;
+
+    //初始化TableView
+    _zjcgListLimit = 10;
+    _zjcgRequires = @[];
+    ZjcgAdapter * zjcgadapter = [ZjcgAdapter new];
+    _zjcgTableView = [UITableView new];
+    _zjcgTableView.delegate = zjcgadapter;
+    _zjcgTableView.dataSource = zjcgadapter;
+    _zjcgTableView.emptyDataSetSource = zjcgadapter;
+    _zjcgTableView.emptyDataSetDelegate = zjcgadapter;
+    _zjcgTableView.rowHeight = 88.0f;
+    [_zjcgTableView registerNib:[UINib nibWithNibName:@"ZjcgTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ZjcgCellIdentifier];
+    _zjcgTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [zjcgadapter setLimit:10];
+        //在此获取数据并刷新
+        [zjcgadapter getDataFromServer];
+    }];
+    _zjcgTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [zjcgadapter setLimit:[adapter getLimit] + 10];
+        //在此刷新数据
+        [zjcgadapter getDataFromServer];
+    }];
+    [zjcgadapter setTableView:_zjcgTableView];
+    [zjcgadapter setZjcgList:_zjcgRequires];
+    [zjcgadapter setLimit:10];
+    [zjcgadapter setViewController:self];
+    
+    
+    [self.view addSubview:_zjcgTableView];
+    [_zjcgTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(zjcgView.mas_bottom);
+        make.height.mas_equalTo(0);
+    }];
+    
+    //初始化实验室成果headerView及TableView
+    UIView * syscgHeaderView = [UIView new];
+    [self.view addSubview:syscgHeaderView];
+    [syscgHeaderView mas_makeConstraints:^(MASConstraintMaker * make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(45);
+        make.top.equalTo(_zjcgTableView.mas_bottom);
+    }];
+    
+    arrowImageView = [UIImageView new];
+    [syscgHeaderView addSubview:arrowImageView];
+    [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(16);
+        make.width.mas_equalTo(10);
+        make.centerY.equalTo(syscgHeaderView.mas_centerY).with.offset(-2);
+    }];
+    arrowImageView.image = [UIImage imageNamed:@"arrow"];
+    
+    imageView = [UIImageView new];
+    [syscgHeaderView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker * make) {
+        make.centerY.equalTo(syscgHeaderView.mas_centerY).with.offset(-2);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(24);
+        make.width.mas_equalTo(24);
+    }];
+    imageView.image = [UIImage imageNamed:@"syscg_icon"];
+    
+    headerTextLabel = [UILabel new];
+    [syscgHeaderView addSubview:headerTextLabel];
+    [headerTextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(24);
+        make.left.equalTo(imageView.mas_right).with.offset(10);
+        make.right.mas_equalTo(arrowImageView.mas_left);;
+        make.centerY.equalTo(syscgHeaderView.mas_centerY).with.offset(-2);
+    }];
+    headerTextLabel.text = @"实验室成果";
+    headerTextLabel.textColor = [UIColor darkGrayColor];
+    
+    bottomLineView = [UIView new];
+    [syscgHeaderView addSubview:bottomLineView];
+    [bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(3);
+        make.bottom.equalTo(syscgHeaderView.mas_bottom);
+    }];
+    bottomLineView.backgroundColor = LINE_COLOR;
+    _syscgHeaderView = syscgHeaderView;
+    
+    //初始化TableView
+    _syscgListLimit = 10;
+    _syscgRequires = @[];
+    SyscgAdapter * syscgadapter = [SyscgAdapter new];
+    _syscgTableView = [UITableView new];
+    _syscgTableView.delegate = syscgadapter;
+    _syscgTableView.dataSource = syscgadapter;
+    _syscgTableView.emptyDataSetSource = syscgadapter;
+    _syscgTableView.emptyDataSetDelegate = syscgadapter;
+    _syscgTableView.rowHeight = 88.0f;
+    [_syscgTableView registerNib:[UINib nibWithNibName:@"SyscgTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:SyscgCellIdentifier];
+    _syscgTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [syscgadapter setLimit:10];
+        //在此获取数据并刷新
+        [syscgadapter getDataFromServer];
+    }];
+    _syscgTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [syscgadapter setLimit:[adapter getLimit] + 10];
+        //在此刷新数据
+        [syscgadapter getDataFromServer];
+    }];
+    [syscgadapter setTableView:_syscgTableView];
+    [syscgadapter setSyscgList:_syscgRequires];
+    [syscgadapter setLimit:10];
+    [syscgadapter setViewController:self];
+    
+    
+    [self.view addSubview:_syscgTableView];
+    [_syscgTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(syscgHeaderView.mas_bottom);
+        make.height.mas_equalTo(0);
+    }];
+    
     [self getPeopleRequires];
     [adapter getDataFromServer];
     [outSourceAdapter getDataFromServer];
+    [zjcgadapter getDataFromServer];
+    [syscgadapter getDataFromServer];
+    
     
     UITapGestureRecognizer * peopleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(peopleTaped:)];
     [headerView addGestureRecognizer:peopleTap];
@@ -315,9 +508,17 @@
     UITapGestureRecognizer * outSourceTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(outSourceTaped:)];
     [outSourceHeaderView addGestureRecognizer:outSourceTap];
     
+    UITapGestureRecognizer * zjcgTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zjcgTaped:)];
+    [zjcgView addGestureRecognizer:zjcgTap];
+    
+    UITapGestureRecognizer * syscgTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(syscgTaped:)];
+    [syscgHeaderView addGestureRecognizer:syscgTap];
+    
     _isPeopleHide = 0;
     _isUnderTakeHide = 1;
     _isOutSourceHide = 1;
+    _iszjcgHide = 1;
+    _issyscgHide = 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -380,6 +581,8 @@
     } else {
         [self hideUnderTakeTableView];
         [self hideOutSourceTableView];
+        [self hidezjcgTableView];
+        [self hidesyscgTableView];
         [self showPeopleTableView];
         _isPeopleHide = 0;
     }
@@ -392,6 +595,8 @@
     } else {
         [self hidePeopleTableView];
         [self hideOutSourceTableView];
+        [self hidezjcgTableView];
+        [self hidesyscgTableView];
         [self showUnderTakeTableView];
         _isUnderTakeHide = 0;
     }
@@ -404,8 +609,38 @@
     } else {
         [self hideUnderTakeTableView];
         [self hidePeopleTableView];
+        [self hidezjcgTableView];
+        [self hidesyscgTableView];
         [self showOutSourceTableView];
         _isOutSourceHide = 0;
+    }
+}
+
+- (void)zjcgTaped:(UITapGestureRecognizer *)gr {
+    if (!_iszjcgHide) {
+        [self hidezjcgTableView];
+        _iszjcgHide = 1;
+    } else {
+        [self hidePeopleTableView];
+        [self hideOutSourceTableView];
+        [self hideUnderTakeTableView];
+        [self hidesyscgTableView];
+        [self showzjcgTableView];
+        _iszjcgHide = 0;
+    }
+}
+
+- (void)syscgTaped:(UITapGestureRecognizer *)gr {
+    if (!_issyscgHide) {
+        [self hidesyscgTableView];
+        _issyscgHide = 1;
+    } else {
+        [self hideUnderTakeTableView];
+        [self hidePeopleTableView];
+        [self hidezjcgTableView];
+        [self hideOutSourceTableView];
+        [self showsyscgTableView];
+        _issyscgHide = 0;
     }
 }
 
@@ -423,7 +658,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_peopleHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 90);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 180);
     }];
 }
 
@@ -441,7 +676,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_underTakeHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 45);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 135);
     }];
 }
 
@@ -459,6 +694,40 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_outSourceHeaderView.mas_bottom);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-90);
+    }];
+}
+- (void)hidezjcgTableView {
+    [_zjcgTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(_zjcgHeaderView.mas_bottom);
+        make.height.mas_equalTo(0);
+    }];
+}
+
+- (void)showzjcgTableView {
+    [_zjcgTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(_zjcgHeaderView.mas_bottom);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-45);
+    }];
+}
+- (void)hidesyscgTableView {
+    [_syscgTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(_syscgHeaderView.mas_bottom);
+        make.height.mas_equalTo(0);
+    }];
+}
+
+- (void)showsyscgTableView {
+    [_syscgTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.top.equalTo(_syscgHeaderView.mas_bottom);
         make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT);
     }];
 }
