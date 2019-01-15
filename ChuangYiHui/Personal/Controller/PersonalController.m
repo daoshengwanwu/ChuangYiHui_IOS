@@ -20,6 +20,7 @@
 #import <RongIMKit/RongIMKit.h>
 #import "IdentityVerifyController.h"
 #import "IdentityVerifyStatusController.h"
+#import "CreateZjcgController.h"
 
 #define cellIdentifier @"imageTitleArrowCell"
 #define cellHeight 48
@@ -42,9 +43,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _rowCountArr = @[@"1", @"4", @"2", @"3", @"2", @"2", @"1"];
-    _titleArr = @[@[@"邀请码"], @[@"个人信息",@"创建团队", @"个人动态",  @"经历背景"], @[@"身份认证", @"实名认证"],@[@"团队列表", @"邀请列表", @"好友申请"], @[@"我的活动", @"我的竞赛"], @[@"我的任务", @"我关注的动态"], @[@"设置"]];
-    _imageNameArr = @[@[@"invite_code_icon"], @[@"information_icon", @"create_team_icon", @"event_icon", @"exp_background_icon"], @[@"exp_background_icon", @"exp_background_icon"], @[@"team_list_icon", @"invitation_icon", @"friend_request_icon"], @[@"activity_icon", @"competition_icon"], @[@"task_icon", @"focus_event_icon"], @[@"setup_icon"]];
+    _rowCountArr = @[@"1", @"5", @"2", @"3", @"2", @"2", @"1"];
+    _titleArr = @[@[@"邀请码"], @[@"个人信息",@"创建团队", @"个人动态",@"发布专家成果",  @"经历背景"], @[@"身份认证", @"实名认证"],@[@"团队列表", @"邀请列表", @"好友申请"], @[@"我的活动", @"我的竞赛"], @[@"我的任务", @"我关注的动态"], @[@"设置"]];
+    _imageNameArr = @[@[@"invite_code_icon"], @[@"information_icon", @"create_team_icon", @"event_icon",@"event_icon", @"exp_background_icon"], @[@"exp_background_icon", @"exp_background_icon"], @[@"team_list_icon", @"invitation_icon", @"friend_request_icon"], @[@"activity_icon", @"competition_icon"], @[@"task_icon", @"focus_event_icon"], @[@"setup_icon"]];
     
     _tableView = [UITableView new];
     [self.view addSubview:_tableView];
@@ -212,6 +213,11 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }else if(indexPath.row == 2){
                 //个人动态
+            }else if(indexPath.row == 3){
+                //发布专家成果
+                CreateZjcgController *vc = [CreateZjcgController new];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }else{
                 //经历背景
                 TeamCategoryController *vc = [[TeamCategoryController alloc] init];

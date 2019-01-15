@@ -214,6 +214,9 @@
 //获取所有的成果
 #define URL_GET_ALL_ACHIEVEMENTS URLFrame(@"teams/achievements/")
 
+//获取某个专家的成果
+#define URL_GET_ZJ_ACHIEVEMENTS(userId) [NSString stringWithFormat: @"%@users/%@/achievements/", BASE_URL, userId]
+
 
 #pragma mark 活动模块
 #define URL_GET_ALL_ACTIVITIES URLFrame(@"activity/")

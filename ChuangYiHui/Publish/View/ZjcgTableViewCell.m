@@ -29,7 +29,18 @@
     if([data.is_yes isEqualToString:@"true"]){
         [_zan setImage:[UIImage imageNamed:@"zan_on"]];
     }
-    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.picture)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
+    NSString *tmp = data.picture;
+    if([data.picture containsString:@"["]){
+        NSLog(@"包含【");
+        NSRange startRange = [data.picture rangeOfString:@"['"];
+        NSRange endRange = [data.picture rangeOfString:@"', "];
+        NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
+        tmp = [data.picture substringWithRange:range];
+//        tmp = [data.picture stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\'\'"]];
+        NSLog(@"tmp=%@",tmp);
+    }
+    NSLog(@"tmp1=%@",tmp);
+    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(tmp)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
 //    [_head_pic setImage:[UIImage imageNamed:@"zan_on"]]
     _date.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
 }

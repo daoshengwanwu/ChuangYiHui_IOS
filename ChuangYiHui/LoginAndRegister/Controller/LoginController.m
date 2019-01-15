@@ -95,6 +95,17 @@
     }
 }
 
+- (IBAction)youkeAction:(id)sender {
+    
+    [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"游客登录" andTime:1.0f DoneBlock:^{
+        TabViewController *tabVC = [[TabViewController alloc] initWithNibName:nil bundle:nil];
+        [self presentViewController:tabVC animated:YES completion:^{
+                    
+        }];
+                
+    }];
+}
+
 //- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
 //    
 //    //设置导航栏的颜色

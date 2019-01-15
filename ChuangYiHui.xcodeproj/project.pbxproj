@@ -28,6 +28,7 @@
 		6CA9D67A21EC7FC300A63E37 /* SyscgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA9D67821EC7FC300A63E37 /* SyscgTableViewCell.xib */; };
 		6CA9D67D21ECAE5B00A63E37 /* ZjcgAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67C21ECAE5B00A63E37 /* ZjcgAdapter.m */; };
 		6CA9D68021ECBC4B00A63E37 /* SyscgAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D67F21ECBC4B00A63E37 /* SyscgAdapter.m */; };
+		6CA9D68321EDC16A00A63E37 /* CreateZjcgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9D68221EDC16900A63E37 /* CreateZjcgController.m */; };
 		6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */; };
 		C2ACDAFB8929D823AD44EB18 /* libPods-ChuangYiHui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0012BC484D6454451AB7F336 /* libPods-ChuangYiHui.a */; };
 		E30D71C91F135F630009F59B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30D71C81F135F630009F59B /* UserGuideViewController.m */; };
@@ -296,6 +297,8 @@
 		6CA9D67C21ECAE5B00A63E37 /* ZjcgAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZjcgAdapter.m; sourceTree = "<group>"; };
 		6CA9D67E21ECBC3800A63E37 /* SyscgAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyscgAdapter.h; sourceTree = "<group>"; };
 		6CA9D67F21ECBC4B00A63E37 /* SyscgAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SyscgAdapter.m; sourceTree = "<group>"; };
+		6CA9D68121EDC16900A63E37 /* CreateZjcgController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateZjcgController.h; sourceTree = "<group>"; };
+		6CA9D68221EDC16900A63E37 /* CreateZjcgController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateZjcgController.m; sourceTree = "<group>"; };
 		6CBF907E20D7D3C300E410CF /* OwendTeamPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwendTeamPickerView.h; sourceTree = "<group>"; };
 		6CBF907F20D7D3C300E410CF /* OwendTeamPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwendTeamPickerView.m; sourceTree = "<group>"; };
 		6CBF908120E0832900E410CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -1211,6 +1214,8 @@
 				E32490F31F04D3DE00BBC943 /* IdentityVerifyController.m */,
 				E32490F91F05F78700BBC943 /* IdentityVerifyStatusController.h */,
 				E32490FA1F05F78700BBC943 /* IdentityVerifyStatusController.m */,
+				6CA9D68121EDC16900A63E37 /* CreateZjcgController.h */,
+				6CA9D68221EDC16900A63E37 /* CreateZjcgController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2339,6 +2344,7 @@
 				F7FE4D8E20AC4F230061D165 /* OutSourceAdapter.m in Sources */,
 				E3B9D1ED1ED2FFD600F45201 /* TeamIntroductionController.m in Sources */,
 				E39B2ED31EE9952000C8DCAB /* AchievementModel.m in Sources */,
+				6CA9D68321EDC16A00A63E37 /* CreateZjcgController.m in Sources */,
 				E3CD1C041EEC2CB800D8FE32 /* LoginController.m in Sources */,
 				E3D9B65D1EE7A58F004053D2 /* NeedCell.m in Sources */,
 				E319362E1EC03DCE00621CA4 /* AppDelegate.m in Sources */,
