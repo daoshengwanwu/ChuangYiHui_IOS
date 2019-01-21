@@ -30,19 +30,24 @@
         [_zan setImage:[UIImage imageNamed:@"zan_on"]];
     }
     NSString *tmp = data.picture;
-    if([data.picture containsString:@"["]){
-        NSLog(@"包含【");
+    if([data.picture containsString:@"', '"]){
+//        NSLog(@"包含【%@",data.picture);
         NSRange startRange = [data.picture rangeOfString:@"['"];
-        NSRange endRange = [data.picture rangeOfString:@"', "];
+        NSRange endRange = [data.picture rangeOfString:@"', '"];
         NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
         tmp = [data.picture substringWithRange:range];
 //        tmp = [data.picture stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\'\'"]];
-        NSLog(@"tmp=%@",tmp);
+//        NSLog(@"tmp=%@",tmp);
+    }else{
+        NSRange startRange = [data.picture rangeOfString:@"['"];
+        NSRange endRange = [data.picture rangeOfString:@"']"];
+        NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
+        tmp = [data.picture substringWithRange:range];
     }
-    NSLog(@"tmp1=%@",tmp);
-    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(tmp)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
+//    NSLog(@"tmp1=%@",tmp);
+    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(tmp)] placeholderImage:[UIImage imageNamed:@"no_record_icon"]];
 //    [_head_pic setImage:[UIImage imageNamed:@"zan_on"]]
-    _date.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
+    _date.text = [NSString stringWithFormat:@"%@%@", @"发布于:", data.time_created];
 }
 
 @end

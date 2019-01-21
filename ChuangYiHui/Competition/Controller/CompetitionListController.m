@@ -152,6 +152,20 @@
     return cell;
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    //在设置高度的回调中获取当前indexpath的cell 然后返回给他的frame的高度即可。在创建cell的时候记得最后把cell.frame.size.height 等于你内容的高。
+//
+//    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+//
+//    /*此写法会导致循环引用。引起崩溃
+//     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//     */
+//
+//    return cell.frame.size.height;
+//}
+
+
 
 #pragma mark UITableViewDelegate
 //点击每个cell执行的操作

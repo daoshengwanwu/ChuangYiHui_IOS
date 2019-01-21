@@ -1,14 +1,15 @@
 //
-//  PeopleRequireDetailController.m
+//  ZjcgDetailController.m
 //  ChuangYiHui
 //
-//  Created by BaiHaoran on 2018/5/17.
-//  Copyright © 2018年 litingdong. All rights reserved.
+//  Created by p1p1us on 2019/1/16.
+//  Copyright © 2019年 litingdong. All rights reserved.
 //
 
-#import "PeopleRequireDetailController.h"
+#import "ZjcgDetailController.h"
+#import "PublishRequireModel.h"
 
-@interface PeopleRequireDetailController ()
+@interface ZjcgDetailController ()
 
 @property(nonatomic, strong) PublishRequireModel * model;
 
@@ -29,14 +30,14 @@
 
 @end
 
-@implementation PeopleRequireDetailController
+@implementation ZjcgDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //状态栏size
     CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
-                         
+    
     [self.view setBackgroundColor:COLOR(255, 255, 255)];
     
     UIColor * blueTextColor = COLOR(50, 177, 230);
@@ -64,6 +65,7 @@
         make.width.mas_equalTo(10);
     }];
     [imageView setImage:[UIImage imageNamed:@"back"]];
+    NSLog(@"buddleid:%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]);
     [imageView setUserInteractionEnabled:YES];
     UITapGestureRecognizer * backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTapped:)];
     [imageView addGestureRecognizer:backTap];
@@ -77,23 +79,23 @@
     }];
     label.font = [UIFont systemFontOfSize:21];
     if (_type == 0) {
-    label.text = @"人员需求详情";
+        label.text = @"专家成果详情";
     } else if (_type == 1) {
-        label.text = @"承接需求详情";
+        label.text = @"实验室成果详情";
     } else if (_type == 2) {
-        label.text = @"外包需求详情";
+        label.text = @"暂无";
     }
     label.textColor = blueTextColor;
     
-    //标题栏举报
-    label = [UILabel new];
-    [header addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(header.mas_centerY);
-        make.right.mas_equalTo(0).with.offset(-16);
-    }];
-    label.text = @"举报";
-    label.textColor = blueTextColor;
+//    //标题栏举报
+//    label = [UILabel new];
+//    [header addSubview:label];
+//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(header.mas_centerY);
+//        make.right.mas_equalTo(0).with.offset(-16);
+//    }];
+//    label.text = @"举报";
+//    label.textColor = blueTextColor;
     
     //需求发布方Label
     label  = [UILabel new];
@@ -103,7 +105,7 @@
         make.right.mas_equalTo(10);
         make.top.mas_equalTo(header.mas_bottom).with.offset(10);
     }];
-    label.text = @"需求发布方";
+    label.text = @"成果展示";
     label.textColor = grayTextColor;
     label.font = [UIFont systemFontOfSize:14];
     
@@ -119,25 +121,61 @@
     line.backgroundColor = lineColor;
     
     //头像
-    imageView = [UIImageView new];
-    [self.view addSubview:imageView];
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0).offset(15);
-        make.top.equalTo(line.mas_bottom).offset(8);
-        make.height.mas_equalTo(46);
-        make.width.mas_equalTo(46);
-    }];
-    imageView.image = [UIImage imageNamed:@"default_team_head"];
+    NSString *tmp = _model.picture;
     
-    //团队名称
-    label = [UILabel new];
-    [self.view addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(imageView.mas_right).offset(10);
-        make.centerY.equalTo(imageView.mas_centerY);
-    }];
-    label.text = _model.team_name;
-    _teamName = label;
+    
+    NSRange startRange = [_model.picture rangeOfString:@"["];
+    NSRange endRange = [_model.picture rangeOfString:@"]"];
+    NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
+    tmp = [_model.picture substringWithRange:range];
+    NSArray *array = [tmp componentsSeparatedByString:@", "]; //从字符A中分隔成数组
+    NSLog(@"array:%@",array);
+    for(int i = 0;i< [array count];i++){
+        if(i==0){
+            imageView = [UIImageView new];
+            [self.view addSubview:imageView];
+            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(0).offset(15);
+                make.top.equalTo(line.mas_bottom).offset(8);
+                //        make.right.mas_equalTo(-15);
+                //        make.height.mas_equalTo(label.mas_width);
+                make.height.mas_equalTo(50);
+                make.width.mas_equalTo(50);
+                NSString *cur = array[i];
+                //        NSRange startRange = [_model.picture rangeOfString:@"'"];
+                //        NSRange endRange = [_model.picture rangeOfString:@"'"];
+                NSRange subRange= NSMakeRange(1, cur.length-2);
+                NSString *newtmp = [cur substringWithRange:subRange];
+                NSLog(@"newtmp:%@",newtmp);
+                NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:URLFrame(newtmp)]];
+                //    UIImage *image = [UIImage imageWithData:imgData];
+                imageView.image = [UIImage imageWithData:imgData];
+            }];
+            //    imageView.image = [UIImage imageNamed:@"no_record_icon"];
+        }else{
+            imageView = [UIImageView new];
+            [self.view addSubview:imageView];
+            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(15+i*65);
+                make.top.equalTo(line.mas_bottom).offset(8);
+                //        make.right.mas_equalTo(-15);
+                //        make.height.mas_equalTo(label.mas_width);
+                make.height.mas_equalTo(50);
+                make.width.mas_equalTo(50);
+                NSString *cur = array[i];
+                //        NSRange startRange = [_model.picture rangeOfString:@"'"];
+                //        NSRange endRange = [_model.picture rangeOfString:@"'"];
+                NSRange subRange= NSMakeRange(1, cur.length-2);
+                NSString *newtmp = [cur substringWithRange:subRange];
+                NSLog(@"newtmp:%@",newtmp);
+                NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:URLFrame(newtmp)]];
+                //    UIImage *image = [UIImage imageWithData:imgData];
+                imageView.image = [UIImage imageWithData:imgData];
+            }];
+        }
+
+    }
+
     
     //粗线
     line = [UIView new];
@@ -158,7 +196,7 @@
         make.right.mas_equalTo(10);
         make.top.equalTo(line.mas_bottom).offset(5);
     }];
-    label.text = @"需求详情";
+    label.text = @"成果详情";
     label.textColor = grayTextColor;
     label.font = [UIFont systemFontOfSize:14];
     
@@ -182,7 +220,7 @@
         make.top.equalTo(line.mas_bottom).offset(10);
     }];
     
-    //标题
+//    标题
     label = [UILabel new];
     [container addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,10 +235,12 @@
     [container addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).offset(20);
+//        make.top.equalTo(0).offset(20);
+//        make.top.equalTo(0);
         make.left.mas_equalTo(0);
     }];
     if (_type == 0) {
-    label2.text = @"领域：";
+        label2.text = @"描述：";
     } else if (_type == 1) {
         label2.text = @"描述：";
     } else if (_type == 2) {
@@ -215,7 +255,7 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = _model.field;
+    label.text = _model.Description;
     label.textColor = blueTextColor;
     _field = label;
     
@@ -227,11 +267,11 @@
         make.left.mas_equalTo(0);
     }];
     if (_type == 0) {
-        label2.text = @"技能：";
+        label2.text = @"发布时间：";
     } else if (_type == 1) {
-        label2.text = @"擅长领域：";
+        label2.text = @"发布时间：";
     } else if (_type == 2) {
-        label2.text = @"领域：";
+        label2.text = @"发布时间：";
     }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
@@ -242,7 +282,7 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = _model.skill;
+    label.text = [NSString stringWithFormat:@"%@", _model.time_created];
     label.textColor = blueTextColor;
     _skill = label;
     
@@ -254,11 +294,11 @@
         make.left.mas_equalTo(0);
     }];
     if (_type == 0) {
-        label2.text = @"学历：";
+        label2.text = @"发布人：";
     } else if (_type == 1) {
-        label2.text = @"擅长技能：";
+        label2.text = @"发布人：";
     } else if (_type == 2) {
-        label2.text = @"技能：";
+        label2.text = @"发布人：";
     }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
@@ -269,7 +309,7 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = _model.degree;
+    label.text = _model.user_name;
     label.textColor = blueTextColor;
     _degree = label;
     
@@ -281,11 +321,11 @@
         make.left.mas_equalTo(0);
     }];
     if (_type == 0) {
-        label2.text = @"性别：";
+        label2.text = @"被点赞数：";
     } else if (_type == 1) {
-        label2.text = @"服务地区：";
+        label2.text = @"被点赞数：";
     } else if (_type == 2) {
-        label2.text = @"学历：";
+        label2.text = @"被点赞数：";
     }
     label2.textColor = grayTextColor;
     label2.font = [UIFont systemFontOfSize:14];
@@ -296,162 +336,11 @@
         make.left.equalTo(label2.mas_right).offset(35);
         make.centerY.equalTo(label2.mas_centerY);
     }];
-    label.text = _model.gender;
+    label.text = _model.yes_count;
     label.textColor = blueTextColor;
     _gender = label;
     
-    //地区，酬劳，人数
-    label2 = [UILabel new];
-    [container addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label.mas_bottom).offset(10);
-        make.left.mas_equalTo(0);
-    }];
-    if (_type == 0) {
-        label2.text = @"地区：";
-    } else if (_type == 1) {
-        label2.text = @"酬劳：";
-    } else if (_type == 2) {
-        label2.text = @"人数：";
-    }
-    label2.textColor = grayTextColor;
-    label2.font = [UIFont systemFontOfSize:14];
-    
-    label = [UILabel new];
-    [container addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(label2.mas_right).offset(35);
-        make.centerY.equalTo(label2.mas_centerY);
-    }];
-    label.text = _model.province;
-    label.textColor = blueTextColor;
-    _area = label;
-    
-    //年龄，截止日期，地区
-    label2 = [UILabel new];
-    [container addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label.mas_bottom).offset(10);
-        make.left.mas_equalTo(0);
-    }];
-    if (_type == 0) {
-        label2.text = @"年龄：";
-    } else if (_type == 1) {
-        label2.text = @"截止日期：";
-    } else if (_type == 2) {
-        label2.text = @"地区：";
-    }
-    label2.textColor = grayTextColor;
-    label2.font = [UIFont systemFontOfSize:14];
-    
-    label = [UILabel new];
-    [container addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(label2.mas_right).offset(35);
-        make.centerY.equalTo(label2.mas_centerY);
-    }];
-    label.text = @"不限";
-    label.textColor = blueTextColor;
-    _age = label;
-    
-    //名额，开始时间，费用
-    label2 = [UILabel new];
-    [container addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label.mas_bottom).offset(10);
-        make.left.mas_equalTo(0);
-    }];
-    if (_type == 0) {
-        label2.text = @"名额：";
-    } else if (_type == 1) {
-        label2.text = @"开始时间：";
-    } else if (_type == 2) {
-        label2.text = @"费用：";
-    }
-    label2.textColor = grayTextColor;
-    label2.font = [UIFont systemFontOfSize:14];
-    
-    label = [UILabel new];
-    [container addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(label2.mas_right).offset(35);
-        make.centerY.equalTo(label2.mas_centerY);
-    }];
-    label.text = @"人力资源";
-    label.textColor = blueTextColor;
-    _number = label;
-    
-    //截止日期，结束时间，截止日期
-    label2 = [UILabel new];
-    [container addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label.mas_bottom).offset(10);
-        make.left.mas_equalTo(0);
-    }];
-    if (_type == 0) {
-        label2.text = @"截止日期：";
-    } else if (_type == 1) {
-        label2.text = @"结束时间：";
-    } else if (_type == 2) {
-        label2.text = @"截止日期：";
-    }
-    label2.textColor = grayTextColor;
-    label2.font = [UIFont systemFontOfSize:14];
-    
-    label = [UILabel new];
-    [container addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(label2.mas_right).offset(5);
-        make.centerY.equalTo(label2.mas_centerY);
-    }];
-    label.text = _model.deadline;
-    label.textColor = blueTextColor;
-    _deadline = label;
-    
-    if (_type == 2) {
-        //开始时间
-        label2 = [UILabel new];
-        [container addSubview:label2];
-        [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(label.mas_bottom).offset(10);
-            make.left.mas_equalTo(0);
-        }];
-        label2.text = @"开始时间：";
-        label2.textColor = grayTextColor;
-        label2.font = [UIFont systemFontOfSize:14];
-        
-        label = [UILabel new];
-        [container addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(label2.mas_right).offset(5);
-            make.centerY.equalTo(label2.mas_centerY);
-        }];
-        label.text = _model.deadline;
-        label.textColor = blueTextColor;
-        _startTime = label;
-        
-        //结束时间
-        label2 = [UILabel new];
-        [container addSubview:label2];
-        [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(label.mas_bottom).offset(10);
-            make.left.mas_equalTo(0);
-        }];
-        label2.text = @"结束时间：";
-        label2.textColor = grayTextColor;
-        label2.font = [UIFont systemFontOfSize:14];
-        
-        label = [UILabel new];
-        [container addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(label2.mas_right).offset(5);
-            make.centerY.equalTo(label2.mas_centerY);
-        }];
-        label.text = _model.deadline;
-        label.textColor = blueTextColor;
-        _endTime = label;
-    }
-    
+
     //底部灰色
     line = [UIView new];
     [self.view addSubview:line];
@@ -462,22 +351,29 @@
         make.bottom.mas_equalTo(0);
     }];
     line.backgroundColor = lightGray;
-    
+
     //底部按钮
-    UIButton * btn = [UIButton new];
-    [line addSubview:btn];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton * btn_zan = [UIButton new];
+    [line addSubview:btn_zan];
+    [btn_zan mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.top.mas_equalTo(20);
         make.height.mas_equalTo(38);
     }];
-    [btn setTitle:@"申请加入" forState:UIControlStateNormal];
-    btn.backgroundColor = blueTextColor;
+    if([_model.is_yes isEqualToString:@"true"]){
+        [btn_zan setTitle:@"取 消 点 赞" forState:UIControlStateNormal];
+        
+        btn_zan.backgroundColor = grayTextColor;
+    }else{
+        [btn_zan setTitle:@"点 赞" forState:UIControlStateNormal];
+        btn_zan.backgroundColor = blueTextColor;
+    }
     
-    [btn addTarget:self action:@selector(onJoinClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [self getNeedDetail];
+    [btn_zan addTarget:self action:@selector(onJoinClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    [self getCGDetail];
 }
 
 - (void)backTapped:(UITapGestureRecognizer *)gr {
@@ -493,6 +389,14 @@
     }
     
     [[NetRequest sharedInstance] httpRequestWithPost:url parameters:nil withToken:YES success:^(id data, NSString *message) {
+        if([_model.is_yes isEqualToString:@"true"]){
+//            [self.btn setTitle:@"取 消 点 赞" forState:UIControlStateNormal];
+            
+//            btn.backgroundColor = grayTextColor;
+        }else{
+//            [btn setTitle:@"点 赞" forState:UIControlStateNormal];
+//            btn.backgroundColor = blueTextColor;
+        }
         UIAlertController * dialog = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
         [dialog addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil]];
         [self presentViewController:dialog animated:YES completion:nil];
@@ -508,14 +412,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (PeopleRequireDetailController*)initWithPublishRequireModel:(PublishRequireModel *)model Type:(NSInteger)type {
+- (ZjcgDetailController*)initWithPublishRequireModel:(PublishRequireModel *)model Type:(NSInteger)type {
     _model = model;
     _type = type;
     
     return self;
 }
 
-- (void)getNeedDetail {
+- (void)getCGDetail {
     NSString * needId = _model.id;
     NSString * url = [NSString stringWithFormat:@"%@teams/needs/%@/", BASE_URL, needId];
     [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
@@ -565,13 +469,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

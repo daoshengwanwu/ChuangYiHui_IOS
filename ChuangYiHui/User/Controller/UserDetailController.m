@@ -54,13 +54,13 @@
     _isFocused = NO;
     
     
-    [self checkIfFriend:^{
-        if (_isFriend) {
-            //已经是好友
-        }else{
-            //非好友
-        }
-    }];
+//    [self checkIfFriend:^{
+//        if (_isFriend) {
+//            //已经是好友
+//        }else{
+//            //非好友
+//        }
+//    }];
     
     //设置导航栏的左边按钮
     UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
@@ -221,13 +221,30 @@
     middleViewLabel.font = [UIFont systemFontOfSize:15.0];
 
     
-    if (_isFriend) {
-        middleViewLabel.text = @"评价";
-        middleViewImage.image = [UIImage imageNamed:@"comment_icon"];
-    }else{
-        middleViewLabel.text = @"加好友";
-        middleViewImage.image = [UIImage imageNamed:@"add_friend_icon"];
-    }
+    [self checkIfFriend:^{
+        if (_isFriend) {
+            //已经是好友
+            NSLog(@"评价");
+            middleViewLabel.text = @"评价";
+            middleViewImage.image = [UIImage imageNamed:@"comment_icon"];
+        }else{
+            //非好友
+            NSLog(@"加好友");
+            //        NSLog(@"加好友%@",_isFriend);
+            middleViewLabel.text = @"加好友";
+            middleViewImage.image = [UIImage imageNamed:@"add_friend_icon"];
+        }
+    }];
+//    if (_isFriend) {
+//        NSLog(@"评价");
+//        middleViewLabel.text = @"评价";
+//        middleViewImage.image = [UIImage imageNamed:@"comment_icon"];
+//    }else{
+//         NSLog(@"加好友");
+////        NSLog(@"加好友%@",_isFriend);
+//        middleViewLabel.text = @"加好友";
+//        middleViewImage.image = [UIImage imageNamed:@"add_friend_icon"];
+//    }
     
     UIView *rightView = [UIView new];
     [_bottomView addSubview:rightView];
@@ -268,16 +285,149 @@
 
 - (void)middleViewTapAction{
     if (_isFriend) {
-        [self comment];
+//        NSLog(@"专家%@",_isFriend);
+        if([_model.role isEqualToString:@"专家"]){
+            [self use2];
+        }else{
+            [self comment];
+        }
     }else{
-        [self addFriendRequest];
+//        NSLog(@"专家2%@",_isFriend);
+        UserModel *userModel1 = [[UserManager sharedManager] getCurrentUser];
+        if(![userModel1.role isEqualToString:@"专家"] && [_model.role isEqualToString:@"专家"]){
+            [self use1];
+        }else{
+            [self addFriendRequest];
+        }
     }
 }
 
-- (void)rightViewTapAction{
-    [self sendMessage];
+- (void)use1
+
+{
+    
+    // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:@"暂不可添加专家好友" preferredStyle:UIAlertControllerStyleAlert];
+    
+    // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了取消按钮");
+        
+    }];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了确定按钮");
+        
+    }];
+    
+    // 3.将“取消”和“确定”按钮加入到弹框控制器中
+    
+    [alertVc addAction:cancle];
+    
+    [alertVc addAction:confirm];
+    
+    // 4.控制器 展示弹框控件，完成时不做操作
+    
+    [self presentViewController:alertVc animated:YES completion:^{
+        
+        nil;
+        
+    }];
+    
 }
 
+- (void)use2
+
+{
+    
+    // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:@"暂不可评论专家" preferredStyle:UIAlertControllerStyleAlert];
+    
+    // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了取消按钮");
+        
+    }];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了确定按钮");
+        
+    }];
+    
+    // 3.将“取消”和“确定”按钮加入到弹框控制器中
+    
+    [alertVc addAction:cancle];
+    
+    [alertVc addAction:confirm];
+    
+    // 4.控制器 展示弹框控件，完成时不做操作
+    
+    [self presentViewController:alertVc animated:YES completion:^{
+        
+        nil;
+        
+    }];
+    
+}
+- (void)use3
+
+{
+    
+    // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:@"仅可给好友发消息..." preferredStyle:UIAlertControllerStyleAlert];
+    
+    // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了取消按钮");
+        
+    }];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        NSLog(@"点击了确定按钮");
+        
+    }];
+    
+    // 3.将“取消”和“确定”按钮加入到弹框控制器中
+    
+    [alertVc addAction:cancle];
+    
+    [alertVc addAction:confirm];
+    
+    // 4.控制器 展示弹框控件，完成时不做操作
+    
+    [self presentViewController:alertVc animated:YES completion:^{
+        
+        nil;
+        
+    }];
+    
+}
+
+
+- (void)rightViewTapAction{
+    if (_isFriend) {
+        //已经是好友
+        [self sendMessage];
+    }else{
+        //非好友
+        [self use3];
+    }
+    
+}
+
+                                
 
 
 //获取个人资料
@@ -376,11 +526,14 @@
     UserModel *userModel = [[UserManager sharedManager] getCurrentUser];
     [[NetRequest sharedInstance] httpRequestWithGET:URL_CHECK_IF_FRIEND(userModel.user_id, _model.user_id) success:^(id data, NSString *message) {
         _isFriend = YES;
+        NSLog(@"是好友");
+        
         if (doneBlock) {
             doneBlock();
         }
     } failed:^(id data, NSString *message) {
         _isFriend = NO;
+        NSLog(@"不是好友");
         if (doneBlock) {
             doneBlock();
         }
@@ -448,7 +601,29 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.title.text = _titleArr[indexPath.section][indexPath.row];
     cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
+    NSLog(@"name:%@,role:%@",_model.name,_model.role);
+    if([cell.title.text isEqualToString:@"朋友评价"] && [_model.role isEqualToString:@"专家"])
+    {
+        cell.hidden = YES;//重点
+    }
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //在设置高度的回调中获取当前indexpath的cell 然后返回给他的frame的高度即可。在创建cell的时候记得最后把cell.frame.size.height 等于你内容的高。
+    
+    //    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    /*此写法会导致循环引用。引起崩溃
+     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+     */
+    if(indexPath.section == 3 && indexPath.row == 1 && [_model.role isEqualToString:@"专家"])
+    {
+        return 0;//重点
+    }
+    
+    return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

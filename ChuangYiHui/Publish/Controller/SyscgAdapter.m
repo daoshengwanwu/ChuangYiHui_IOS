@@ -9,6 +9,7 @@
 #import "SyscgAdapter.h"
 #import "SyscgTableViewCell.h"
 #import "PeopleRequireDetailController.h"
+#import "ZjcgDetailController.h"
 
 @interface SyscgAdapter()
 
@@ -37,7 +38,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"GoToActivityDetail" object: nil];
     //do nothing
-    [_controller presentViewController:[[PeopleRequireDetailController alloc] initWithPublishRequireModel:[_SyscgRequires objectAtIndex:indexPath.row] Type:2] animated:true completion:^{
+    [_controller presentViewController:[[ZjcgDetailController alloc] initWithPublishRequireModel:[_SyscgRequires objectAtIndex:indexPath.row] Type:1] animated:true completion:^{
         //跳转完成后需要执行的事件；
     }];
 }
@@ -46,8 +47,21 @@
     return [UIImage imageNamed:@"no_record_icon"];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //在设置高度的回调中获取当前indexpath的cell 然后返回给他的frame的高度即可。在创建cell的时候记得最后把cell.frame.size.height 等于你内容的高。
+    
+    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    /*此写法会导致循环引用。引起崩溃
+     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+     */
+    
+    return cell.frame.size.height;
+}
+
 - (NSAttributedString *)titleForEmptyDataSet: (UIScrollView *)scrollView {
-    NSString *text = @"没有需求~";
+    NSString *text = @"暂无成果~";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};

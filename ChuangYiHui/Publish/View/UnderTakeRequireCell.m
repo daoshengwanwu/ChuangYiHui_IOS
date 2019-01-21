@@ -26,6 +26,7 @@
     [_status setText:data.status == 0 ? @"停止" : @"进行中"];
     [_status setTextColor:COLOR(116, 200, 237)];
     _date.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
+    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.icon_url)] placeholderImage:[UIImage imageNamed:@"default_team_head"]];
 }
 
 @end

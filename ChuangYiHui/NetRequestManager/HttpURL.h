@@ -169,7 +169,9 @@
 #define URL_GET_ALL_UNDERTAKE_NEEDS URLFrame(@"teams/needs/undertake/")
 
 //获取所有的专家成果
-#define URL_GET_ALL_ZJCG URLFrame(@"users/achievements/")
+//#define URL_GET_ALL_ZJCG URLFrame(@"users/achievements/")
+#define URL_GET_ALL_ZJCG URLFrame(@"achievement/")
+
 //获取所有的实验室成果
 #define URL_GET_ALL_SYSCG URLFrame(@"labs/achievements/")
 

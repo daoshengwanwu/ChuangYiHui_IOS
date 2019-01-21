@@ -29,6 +29,7 @@
     _number_membersLabel.text = [NSString stringWithFormat:@"%d/%@", 0, data.number];
     _number_membersLabel.textColor = COLOR(116, 200, 237);
     _dateLabel.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.icon_url)] placeholderImage:[UIImage imageNamed:@"default_team_head"]];
 }
 
 @end

@@ -28,7 +28,7 @@
     if([data.is_yes isEqualToString:@"true"]){
         [_zan setImage:[UIImage imageNamed:@"zan_on"]];
     }
-    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.picture)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
+    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.picture)] placeholderImage:[UIImage imageNamed:@"no_record_icon"]];
     //    [_head_pic setImage:[UIImage imageNamed:@"zan_on"]]
     _date.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
 }

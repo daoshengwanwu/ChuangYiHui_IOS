@@ -2,16 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "about_app_icon.png",
       "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "about_chuangyihui_logo.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {

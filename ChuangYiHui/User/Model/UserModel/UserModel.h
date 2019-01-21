@@ -49,6 +49,8 @@
 @property (nonatomic, copy) NSString *county;
 @property (nonatomic, copy) NSString *birthday;
 
+//用户角色
+@property (nonatomic, copy) NSString *role;
 
 
 

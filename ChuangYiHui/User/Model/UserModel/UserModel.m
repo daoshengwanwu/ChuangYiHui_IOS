@@ -42,6 +42,7 @@
         _user_description = [aDecoder decodeObjectForKey:@"description"];
         _qq = [aDecoder decodeObjectForKey:@"qq"];
         _profession = [aDecoder decodeObjectForKey:@"profession"];
+        _role = [aDecoder decodeObjectForKey:@"role"];
 
     }
     return self;
@@ -70,6 +71,7 @@
     [aCoder encodeObject:_user_description forKey:@"description"];
     [aCoder encodeObject:_qq forKey:@"qq"];
     [aCoder encodeObject:_profession forKey:@"profession"];
+    [aCoder encodeObject:_role forKey:@"role"];
 
 }
 

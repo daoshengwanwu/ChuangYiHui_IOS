@@ -188,7 +188,28 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.title.text = _titleArr[indexPath.section][indexPath.row];
     cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
+    if([cell.title.text isEqualToString:@"发布专家成果"] && ![_userModel.role isEqualToString:@"专家"])
+    {
+        cell.hidden = YES;//重点
+    }
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //在设置高度的回调中获取当前indexpath的cell 然后返回给他的frame的高度即可。在创建cell的时候记得最后把cell.frame.size.height 等于你内容的高。
+
+//    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    /*此写法会导致循环引用。引起崩溃
+     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+     */
+    if(indexPath.section == 1 && indexPath.row == 3 && ![_userModel.role isEqualToString:@"专家"])
+    {
+        return 0;//重点
+    }
+
+    return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

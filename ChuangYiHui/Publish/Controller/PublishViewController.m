@@ -64,7 +64,7 @@
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
         make.top.mas_equalTo(0);
     }];
     
@@ -143,7 +143,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(headerView.mas_bottom);
-        make.bottom.mas_equalTo(-TAB_HEIGHT - 180);
+        make.bottom.mas_equalTo(-TAB_HEIGHT - 160);
     }];
 
     //初始化承接需求headerView及TableView
@@ -152,7 +152,7 @@
     [self.view addSubview:underTakeHeaderView];
     [underTakeHeaderView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
         make.top.equalTo(_peopleRequireTableView.mas_bottom);
     }];
     
@@ -239,7 +239,7 @@
     [self.view addSubview:outSourceHeaderView];
     [outSourceHeaderView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
         make.top.equalTo(_underTakeRequireTableView.mas_bottom);
     }];
     
@@ -323,7 +323,7 @@
     [self.view addSubview:zjcgView];
     [zjcgView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
         make.top.mas_equalTo(_outSourceRequireTableView.mas_bottom);
     }];
     
@@ -411,7 +411,7 @@
     [self.view addSubview:syscgHeaderView];
     [syscgHeaderView mas_makeConstraints:^(MASConstraintMaker * make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
         make.top.equalTo(_zjcgTableView.mas_bottom);
     }];
     
@@ -540,6 +540,19 @@
     }];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //在设置高度的回调中获取当前indexpath的cell 然后返回给他的frame的高度即可。在创建cell的时候记得最后把cell.frame.size.height 等于你内容的高。
+    
+    UITableViewCell *cell=[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    /*此写法会导致循环引用。引起崩溃
+     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+     */
+    
+    return cell.frame.size.height;
+}
+
 - (UIImage *)imageForEmptyDataSet: (UIScrollView *)scrollView {
     return [UIImage imageNamed:@"no_record_icon"];
 }
@@ -658,7 +671,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_peopleHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 180);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 160);
     }];
 }
 
@@ -676,7 +689,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_underTakeHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 135);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT - 120);
     }];
 }
 
@@ -694,7 +707,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_outSourceHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-90);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-80);
     }];
 }
 - (void)hidezjcgTableView {
@@ -711,7 +724,7 @@
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.equalTo(_zjcgHeaderView.mas_bottom);
-        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-45);
+        make.bottom.mas_equalTo(0).with.offset(-TAB_HEIGHT-40);
     }];
 }
 - (void)hidesyscgTableView {

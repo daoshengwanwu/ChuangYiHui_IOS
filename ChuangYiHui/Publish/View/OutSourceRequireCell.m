@@ -29,6 +29,7 @@
     _num_mem.text = [NSString stringWithFormat:@"%d/%@", 0, data.number];
     _num_mem.textColor = COLOR(116, 200, 237);
     _date.text = [NSString stringWithFormat:@"%@%@", @"发布于：", data.time_created];
+    [_head_pic sd_setImageWithURL:[NSURL URLWithString:URLFrame(data.icon_url)] placeholderImage:[UIImage imageNamed:@"default_team_head"]];
 }
 
 @end
