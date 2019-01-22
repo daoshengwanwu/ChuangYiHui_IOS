@@ -271,7 +271,7 @@
         make.right.mas_equalTo(arrowImageView.mas_left);;
         make.centerY.equalTo(outSourceHeaderView.mas_centerY).with.offset(-2);
     }];
-    headerTextLabel.text = @"外包需求";
+    headerTextLabel.text = @"课题需求";
     headerTextLabel.textColor = [UIColor darkGrayColor];
     
     bottomLineView = [UIView new];

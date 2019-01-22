@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,10 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="47"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBu-Fa-RpQ">
+                        <rect key="frame" x="10" y="13.5" width="126" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="126" id="CXG-fC-PKV"/>
                             <constraint firstAttribute="height" constant="21" id="wc4-L2-kdh"/>
@@ -26,15 +30,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoS-7b-hYw">
+                        <rect key="frame" x="136" y="12.5" width="157" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="NbF-Tw-EXE"/>
-                            <constraint firstAttribute="width" constant="120" id="tDX-7t-GFR"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mB-f4-7g2">
+                        <rect key="frame" x="0.0" y="45" width="320" height="2.5"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2.5" id="bwI-ok-gBm"/>
@@ -46,9 +51,9 @@
                     <constraint firstAttribute="trailingMargin" secondItem="EoS-7b-hYw" secondAttribute="trailing" constant="19" id="HIe-os-4dw"/>
                     <constraint firstAttribute="bottom" secondItem="8mB-f4-7g2" secondAttribute="bottom" id="Izz-99-j4G"/>
                     <constraint firstItem="8mB-f4-7g2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O6s-lZ-hN7"/>
-                    <constraint firstItem="nBu-Fa-RpQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="PV4-uc-jvU"/>
                     <constraint firstItem="EoS-7b-hYw" firstAttribute="centerY" secondItem="nBu-Fa-RpQ" secondAttribute="centerY" id="QHl-eR-tb6"/>
                     <constraint firstAttribute="trailing" secondItem="8mB-f4-7g2" secondAttribute="trailing" id="Ub4-rT-jfb"/>
+                    <constraint firstItem="EoS-7b-hYw" firstAttribute="leading" secondItem="nBu-Fa-RpQ" secondAttribute="trailing" id="uQr-ER-xXX"/>
                     <constraint firstItem="nBu-Fa-RpQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xVO-CL-l6v"/>
                 </constraints>
             </tableViewCellContentView>

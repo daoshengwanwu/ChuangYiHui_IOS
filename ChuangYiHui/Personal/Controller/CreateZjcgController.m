@@ -19,13 +19,20 @@
 
 @property (nonatomic, strong)UIView *headerView;
 @property (nonatomic, strong)UIImageView *headImgView;
-@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)UIImageView *headImgView2;
+@property (nonatomic, strong)UIImageView *headImgView3;
+//@property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSArray *titleArr;
 @property (nonatomic, strong)NSArray *paramsArr;
 @property (nonatomic, strong)UIButton *enterButton;
 @property (nonatomic, strong)UIImagePickerController *PickerVC;
 @property (nonatomic, strong)NSDictionary *userDic;
 @property (nonatomic, strong)UIImage *EditedImage;
+@property (nonatomic, strong)UIImage *EditedImage2;
+@property (nonatomic, strong)UIImage *EditedImage3;
+@property (nonatomic, strong)UITextView *textView;
+
+@property(nonatomic, assign) NSInteger tag;
 
 
 @end
@@ -37,24 +44,24 @@
     self.title = @"发布专家成果";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setArr];
+//    [self setArr];
     [self addHeaderView];
     [self setupView];
     [self addEnterButton];
     // Do any additional setup after loading the view.
 }
 
-- (void)setArr{
-    _titleArr = @[@"描述"];
-    _paramsArr = @[@"description"];
-}
+//- (void)setArr{
+//    _titleArr = @[@"描述"];
+//    _paramsArr = @[@"description"];
+//}
 
 - (void)addHeaderView{
     _headerView = [UIView new];
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(240);
+        make.height.mas_equalTo(332);
         make.top.mas_equalTo(NAV_HEIGHT);
     }];
     //    _headerView.backgroundColor = [UIColor greenColor];
@@ -62,9 +69,11 @@
     _headImgView = [UIImageView new];
     [_headerView addSubview:_headImgView];
     [_headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.mas_equalTo(200);
+        make.height.width.mas_equalTo(100);
+//        make.top.mas_equalTo(_headImgView.mas_top);
+        make.top.mas_equalTo(_headerView.mas_top).offset(5);
         make.centerX.equalTo(_headerView.mas_centerX);
-        make.centerY.equalTo(_headerView.mas_centerY);
+//        make.centerY.equalTo(_headerView.mas_centerY);
     }];
     
     _headImgView.layer.cornerRadius = 0;
@@ -77,6 +86,65 @@
     UITapGestureRecognizer *headerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IconViewClick)];
     [_headImgView addGestureRecognizer:headerTap];
     
+    UIView *lineView = [UIView new];
+    [_headerView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(1);
+        make.top.equalTo(_headImgView.mas_bottom).offset(5);
+    }];
+    lineView.backgroundColor = LINE_COLOR;
+    
+    
+    _headImgView2 = [UIImageView new];
+    [_headerView addSubview:_headImgView2];
+    [_headImgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.mas_equalTo(100);
+        make.top.mas_equalTo(lineView.mas_bottom).offset(5);
+        make.centerX.equalTo(_headerView.mas_centerX);
+//        make.centerY.equalTo(_headerView.mas_centerY);
+    }];
+
+    _headImgView2.layer.cornerRadius = 0;
+    _headImgView2.layer.masksToBounds = YES;
+
+    //    [_headImgView sd_setImageWithURL:[NSURL URLWithString:URLFrame(_userModel.icon_url)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
+    [_headImgView2 setImage:[UIImage imageNamed:@"add_zjcg"]];
+    _headImgView2.userInteractionEnabled = YES;
+
+    UITapGestureRecognizer *headerTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IconViewClick2)];
+    [_headImgView2 addGestureRecognizer:headerTap2];
+
+    
+    UIView *lineView2 = [UIView new];
+    [_headerView addSubview:lineView2];
+    [lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(1);
+        make.top.equalTo(_headImgView2.mas_bottom).offset(5);
+    }];
+    lineView2.backgroundColor = LINE_COLOR;
+    
+    
+    _headImgView3 = [UIImageView new];
+    [_headerView addSubview:_headImgView3];
+    [_headImgView3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.mas_equalTo(100);
+        make.top.mas_equalTo(lineView2.mas_bottom).offset(5);
+        make.centerX.equalTo(_headerView.mas_centerX);
+//        make.centerY.equalTo(_headerView.mas_centerY);
+    }];
+
+    _headImgView3.layer.cornerRadius = 0;
+    _headImgView3.layer.masksToBounds = YES;
+
+    //    [_headImgView sd_setImageWithURL:[NSURL URLWithString:URLFrame(_userModel.icon_url)] placeholderImage:[UIImage imageNamed:@"default_user_head"]];
+    [_headImgView3 setImage:[UIImage imageNamed:@"add_zjcg"]];
+    _headImgView3.userInteractionEnabled = YES;
+
+    UITapGestureRecognizer *headerTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IconViewClick3)];
+    [_headImgView3 addGestureRecognizer:headerTap3];
+    
 }
 
 - (void)setupView{
@@ -84,29 +152,38 @@
     [self.view addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(10);
         make.top.equalTo(_headerView.mas_bottom);
     }];
     lineView.backgroundColor = LINE_COLOR;
     
-    _tableView = ({
-        UITableView *tableView = [UITableView new];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.rowHeight = RowHeight;
-        tableView.scrollEnabled = NO;
-        tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-        [tableView registerNib:[UINib nibWithNibName:@"LabelFieldCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
-        [tableView registerNib:[UINib nibWithNibName:@"LabelLabelArrowCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:labelCellIdentifier];
-        tableView.tableFooterView = [UIView new];
-        tableView;
-    });
-    [self.view addSubview:_tableView];
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.top.equalTo(lineView.mas_bottom);
-        make.height.mas_equalTo(_titleArr.count * RowHeight);
+    _textView = [UITextView new];
+    [self.view addSubview:_textView];
+    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(100);
+        make.top.equalTo(lineView.mas_bottom).offset(20);
     }];
+    
+    // 设置它显示的内容
+    _textView.text=@"请填写描述...";
+    // 设置字体名字和字体大小
+    _textView.font = [UIFont fontWithName:@"Arial" size:18.0];
+    // 设置textview里面的字体颜色
+    _textView.textColor = [UIColor blackColor];
+    // textView中的文本排列，默认靠左
+//    _textView.textAlignment = NSTextAlignmentCenter;
+    // 设置浅灰色的背景色，默认为白色
+    _textView.backgroundColor = [UIColor whiteColor];
+    // 设置代理
+    _textView.delegate=self;
+    _textView.clearsOnInsertion = YES;
+    _textView.layer.borderColor = [[UIColor colorWithRed:0.0/255.0 green:139.0/255.0 blue:230.0/255.0 alpha:1.0]CGColor];
+    _textView.layer.borderWidth = 1.0;
+    _textView.layer.cornerRadius = 8.0f;
+    [_textView.layer setMasksToBounds:YES];
+
 }
 
 
@@ -117,31 +194,67 @@
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(45);
-        make.top.equalTo(_tableView.mas_bottom).offset(20);
+        make.top.equalTo(_textView.mas_bottom).offset(20);
     }];
     _enterButton.backgroundColor = MAIN_COLOR;
     [_enterButton setTitle:@"提 交" forState:UIControlStateNormal];
     [_enterButton addTarget:self action:@selector(enterButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+   if (textView.text.length > 200)
+   {
+       textView.text = [textView.text substringToIndex:200];
+       NSString *title = NSLocalizedString(@"字数限制", nil);
+       NSString *message = NSLocalizedString(@"字数限定长度为200。", nil);
+       NSString *OKButtonTitle = NSLocalizedString(@"确定", nil);
+       UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+       
+       UIAlertAction *OKAction = [UIAlertAction actionWithTitle:OKButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+           
+       }];
+       [alertVC addAction:OKAction];
+       [self presentViewController:alertVC animated:YES completion:nil];
+//       [[[UIAlertView alloc] initWithTitle:@"提示" message:@"限定长度为30" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];}
+       textView.text = [textView.text substringToIndex:200];
+    }
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+	}
+	return YES;
+}
+
 //提交
 - (void)enterButtonAction{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    for (NSInteger i = 0; i < _titleArr.count; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        if (i == 1 || i == 2 || i == 3) {
-            
-        }else{
-            LabelFieldCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-            [params setObject:[cell getOnlyContent] forKey:_paramsArr[i]];
+//    for (NSInteger i = 0; i < _titleArr.count; i++) {
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//        if (i == 1 || i == 2 || i == 3) {
+//            
+//        }else{
+//            LabelFieldCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+//            [params setObject:[cell getOnlyContent] forKey:_paramsArr[i]];
+//        }
+//    }
+
+    if ((_EditedImage || _EditedImage2 || _EditedImage3) && !([_textView.text isEqualToString:@""]  || _textView.text == nil)) {
+        [params setObject:_textView.text forKey:@"description"];
+        if(_EditedImage){
+            [params setObject:_EditedImage forKey:@"image"];
         }
-    }
-//    [params setObject:@"测试" forKey:@"description"];
-    [params setObject:_EditedImage forKey:@"image"];
-    
-    NSLog(@"profile :%@", params);
-    
-    if (_EditedImage) {
+        if(_EditedImage2){
+            [params setObject:_EditedImage2 forKey:@"image2"];
+        }
+        if(_EditedImage3){
+            [params setObject:_EditedImage3 forKey:@"image3"];
+        }
+        NSLog(@"profile :%@", params);
         [SVProgressHUD showWithStatus:@"提交中"];
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
         
@@ -156,6 +269,18 @@
             [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
         }];
     }
+    else{
+        NSString *title = NSLocalizedString(@"请先完善信息", nil);
+        NSString *message = NSLocalizedString(@"请您选择图片或填写描述后再点击提交。", nil);
+        NSString *OKButtonTitle = NSLocalizedString(@"确定", nil);
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *OKAction = [UIAlertAction actionWithTitle:OKButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        [alertVC addAction:OKAction];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }
 }
 
 - (BOOL)checkInput{
@@ -165,6 +290,23 @@
 //弹出图片选择器
 -(void)IconViewClick{
     NSLog(@"click");
+    _tag = 1;
+    //弹出列表
+    UIActionSheet *actionSheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取一张",@"拍照", nil];
+    [actionSheet showInView:self.view];
+}
+//弹出图片选择器
+-(void)IconViewClick2{
+    NSLog(@"click2");
+    _tag = 2;
+    //弹出列表
+    UIActionSheet *actionSheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取一张",@"拍照", nil];
+    [actionSheet showInView:self.view];
+}
+//弹出图片选择器
+-(void)IconViewClick3{
+    NSLog(@"click3");
+    _tag = 3;
     //弹出列表
     UIActionSheet *actionSheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"从相册选取一张",@"拍照", nil];
     [actionSheet showInView:self.view];
@@ -271,9 +413,19 @@
     
     [picker dismissViewControllerAnimated:YES completion:^{}];
     [UIApplication sharedApplication].statusBarHidden=NO;
+    if(_tag == 1){
+        _EditedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        [_headImgView setImage:_EditedImage];
+    }
+    if(_tag == 2){
+        _EditedImage2 = [info objectForKey:UIImagePickerControllerEditedImage];
+        [_headImgView2 setImage:_EditedImage2];
+    }
+    if(_tag == 3){
+        _EditedImage3 = [info objectForKey:UIImagePickerControllerEditedImage];
+        [_headImgView3 setImage:_EditedImage3];
+    }
     
-    _EditedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    [_headImgView setImage:_EditedImage];
     
 //    if (_EditedImage) {
 //        [SVProgressHUD showWithStatus:@"上传中"];

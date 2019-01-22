@@ -188,10 +188,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.title.text = _titleArr[indexPath.section][indexPath.row];
     cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
-    if([cell.title.text isEqualToString:@"发布专家成果"] && ![_userModel.role isEqualToString:@"专家"])
-    {
-        cell.hidden = YES;//重点
-    }
+//    if([cell.title.text isEqualToString:@"发布专家成果"] && ![_userModel.role isEqualToString:@"专家"])
+//    {
+//        cell.hidden = YES;//重点
+//    }
     return cell;
 }
 
@@ -204,10 +204,10 @@
     /*此写法会导致循环引用。引起崩溃
      UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
      */
-    if(indexPath.section == 1 && indexPath.row == 3 && ![_userModel.role isEqualToString:@"专家"])
-    {
-        return 0;//重点
-    }
+//    if(indexPath.section == 1 && indexPath.row == 3 && ![_userModel.role isEqualToString:@"专家"])
+//    {
+//        return 0;//重点
+//    }
 
     return 40;
 }

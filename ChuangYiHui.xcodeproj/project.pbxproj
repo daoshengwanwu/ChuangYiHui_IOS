@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C1F0EAA21F5E7FD00EB82DC /* Place.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C1F0EA621F5E7FC00EB82DC /* Place.plist */; };
+		6C1F0EAC21F5E7FD00EB82DC /* SHPlacePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F0EA921F5E7FD00EB82DC /* SHPlacePickerView.m */; };
 		6C276FCC20A0818E00B0E572 /* PersonnelActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C276FCB20A0818E00B0E572 /* PersonnelActionController.m */; };
 		6C276FD020A081C300B0E572 /* TeamActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C276FCF20A081C300B0E572 /* TeamActionController.m */; };
 		6C276FD620A082DE00B0E572 /* PersonActionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C276FD420A082DE00B0E572 /* PersonActionListCell.m */; };
@@ -16,8 +18,10 @@
 		6C518BF520E90CF00044E6FC /* CompetitionRankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF320E90CF00044E6FC /* CompetitionRankList.m */; };
 		6C518BF620E90CF00044E6FC /* CompetitionRankList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */; };
 		6C518BF920E910090044E6FC /* CompetitionRankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C518BF820E910090044E6FC /* CompetitionRankModel.m */; };
+		6C57683F21F5E9E3006B7BB9 /* PlaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C57683E21F5E9E3006B7BB9 /* PlaceModel.m */; };
 		6C59C917212B0A9D00461EA3 /* ExpertActionControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59C916212B0A9D00461EA3 /* ExpertActionControllerViewController.m */; };
 		6C59C91A212B0ABA00461EA3 /* LabActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59C919212B0ABA00461EA3 /* LabActionController.m */; };
+		6C97902921F6F9B000C780ED /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C97902821F6F9B000C780ED /* XWScanImage.m */; };
 		6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */; };
 		6C9A86A120CE3197007D5DA0 /* MyJsonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A86A020CE3197007D5DA0 /* MyJsonModel.m */; };
 		6C9E29DD20A13F6000D4069F /* TeamActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E29DC20A13F6000D4069F /* TeamActionModel.m */; };
@@ -261,6 +265,9 @@
 /* Begin PBXFileReference section */
 		0012BC484D6454451AB7F336 /* libPods-ChuangYiHui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChuangYiHui.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B814D07F2E2C45468BBAE86 /* Pods-ChuangYiHui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuangYiHui.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChuangYiHui/Pods-ChuangYiHui.debug.xcconfig"; sourceTree = "<group>"; };
+		6C1F0EA621F5E7FC00EB82DC /* Place.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Place.plist; sourceTree = "<group>"; };
+		6C1F0EA821F5E7FD00EB82DC /* SHPlacePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlacePickerView.h; sourceTree = "<group>"; };
+		6C1F0EA921F5E7FD00EB82DC /* SHPlacePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlacePickerView.m; sourceTree = "<group>"; };
 		6C276FCA20A0818E00B0E572 /* PersonnelActionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonnelActionController.h; sourceTree = "<group>"; };
 		6C276FCB20A0818E00B0E572 /* PersonnelActionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonnelActionController.m; sourceTree = "<group>"; };
 		6C276FCE20A081C300B0E572 /* TeamActionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamActionController.h; sourceTree = "<group>"; };
@@ -276,10 +283,14 @@
 		6C518BF420E90CF00044E6FC /* CompetitionRankList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionRankList.xib; sourceTree = "<group>"; };
 		6C518BF720E910090044E6FC /* CompetitionRankModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionRankModel.h; sourceTree = "<group>"; };
 		6C518BF820E910090044E6FC /* CompetitionRankModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionRankModel.m; sourceTree = "<group>"; };
+		6C57683D21F5E9E3006B7BB9 /* PlaceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceModel.h; sourceTree = "<group>"; };
+		6C57683E21F5E9E3006B7BB9 /* PlaceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceModel.m; sourceTree = "<group>"; };
 		6C59C915212B0A9D00461EA3 /* ExpertActionControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpertActionControllerViewController.h; sourceTree = "<group>"; };
 		6C59C916212B0A9D00461EA3 /* ExpertActionControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpertActionControllerViewController.m; sourceTree = "<group>"; };
 		6C59C918212B0ABA00461EA3 /* LabActionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabActionController.h; sourceTree = "<group>"; };
 		6C59C919212B0ABA00461EA3 /* LabActionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabActionController.m; sourceTree = "<group>"; };
+		6C97902721F6F9B000C780ED /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
+		6C97902821F6F9B000C780ED /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
 		6C9A869C20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailControllerViewController.h; sourceTree = "<group>"; };
 		6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailControllerViewController.m; sourceTree = "<group>"; };
 		6C9A869F20CE3197007D5DA0 /* MyJsonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJsonModel.h; sourceTree = "<group>"; };
@@ -716,6 +727,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C1F0EA521F5E7C700EB82DC /* SHPlacePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				6C57683C21F5E9C3006B7BB9 /* Model */,
+				6C1F0EA621F5E7FC00EB82DC /* Place.plist */,
+				6C1F0EA821F5E7FD00EB82DC /* SHPlacePickerView.h */,
+				6C1F0EA921F5E7FD00EB82DC /* SHPlacePickerView.m */,
+			);
+			name = SHPlacePickerView;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		6C276FC920A0811400B0E572 /* PersonActionControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,6 +787,16 @@
 			path = CompetitionRankListCell;
 			sourceTree = "<group>";
 		};
+		6C57683C21F5E9C3006B7BB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C57683D21F5E9E3006B7BB9 /* PlaceModel.h */,
+				6C57683E21F5E9E3006B7BB9 /* PlaceModel.m */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		6C59C913212B0A2A00461EA3 /* ExpertActionControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +813,15 @@
 				6C59C919212B0ABA00461EA3 /* LabActionController.m */,
 			);
 			path = LabActionControllers;
+			sourceTree = "<group>";
+		};
+		6C97902621F6F98B00C780ED /* XWScanImage */ = {
+			isa = PBXGroup;
+			children = (
+				6C97902721F6F9B000C780ED /* XWScanImage.h */,
+				6C97902821F6F9B000C780ED /* XWScanImage.m */,
+			);
+			path = XWScanImage;
 			sourceTree = "<group>";
 		};
 		6C9E29D920A13F0A00D4069F /* PersonActionModel */ = {
@@ -903,6 +945,8 @@
 		E31936281EC03DCE00621CA4 /* ChuangYiHui */ = {
 			isa = PBXGroup;
 			children = (
+				6C97902621F6F98B00C780ED /* XWScanImage */,
+				6C1F0EA521F5E7C700EB82DC /* SHPlacePickerView */,
 				F7FE4D7220AC4F230061D165 /* Publish */,
 				E3B9A9D31F3FFD8200AB2823 /* Competition */,
 				E3B9A9D41F3FFD8200AB2823 /* Activity */,
@@ -2168,6 +2212,7 @@
 				E398F95D1EC16FEC00CF83C1 /* PersonalHeaderView.xib in Resources */,
 				E3BC58231EC97C960068C971 /* LabelFieldCell.xib in Resources */,
 				E39B2ED91EE99E5100C8DCAB /* AchievementCell.xib in Resources */,
+				6C1F0EAA21F5E7FD00EB82DC /* Place.plist in Resources */,
 				6C276FD720A082DE00B0E572 /* PersonActionListCell.xib in Resources */,
 				F7FE4D9720AC4F230061D165 /* PublishPeopleRequireCell.xib in Resources */,
 				6C518BF620E90CF00044E6FC /* CompetitionRankList.xib in Resources */,
@@ -2393,6 +2438,7 @@
 				E398F94F1EC0B1C000CF83C1 /* SocietyController.m in Sources */,
 				E319362B1EC03DCE00621CA4 /* main.m in Sources */,
 				E3B9A9EC1F404DF800AB2823 /* ActivityDetailController.m in Sources */,
+				6C97902921F6F9B000C780ED /* XWScanImage.m in Sources */,
 				E3CD1C071EEC2CCD00D8FE32 /* RegisterController.m in Sources */,
 				6C276FCC20A0818E00B0E572 /* PersonnelActionController.m in Sources */,
 				E30EE5791EDE618E00B14A2D /* WBTableViewDelegate.m in Sources */,
@@ -2420,6 +2466,7 @@
 				E3E8D1DA1ED6B0A5007B293D /* UserCommentCell.m in Sources */,
 				E398F9831EC2FDF500CF83C1 /* StyleDIY.m in Sources */,
 				E398F9861EC2FE8B00CF83C1 /* LBXScanPermissions.m in Sources */,
+				6C57683F21F5E9E3006B7BB9 /* PlaceModel.m in Sources */,
 				E3A1AC5E1EE549800037ED9A /* TaskStatusController.m in Sources */,
 				E3B9D1EA1ED2D40C00F45201 /* AboutAppController.m in Sources */,
 				E398F9A31EC3178F00CF83C1 /* ScoreCell.m in Sources */,
@@ -2437,6 +2484,7 @@
 				6CA9D67921EC7FC300A63E37 /* SyscgTableViewCell.m in Sources */,
 				E3851E9C1EE2B0AF0005EE37 /* TaskCategoryController.m in Sources */,
 				E3B9D1E71ED2D35400F45201 /* FeedbackController.m in Sources */,
+				6C1F0EAC21F5E7FD00EB82DC /* SHPlacePickerView.m in Sources */,
 				E3BFAE3E1F21DBD600CFB792 /* MemberNeedDetailController.m in Sources */,
 				F7DE34C6212123B000421D01 /* CY51CTOCourseListController.m in Sources */,
 				E398F9781EC2FDD800CF83C1 /* LBXScan1ViewController.m in Sources */,

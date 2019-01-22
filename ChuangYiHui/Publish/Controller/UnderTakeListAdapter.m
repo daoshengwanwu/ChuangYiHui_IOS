@@ -10,6 +10,7 @@
 #import "UnderTakeRequireCell.h"
 #import "PeopleRequireDetailController.h"
 
+
 @interface UnderTakeListAdapter()
 
 @property (nonatomic, strong) UITableView * underTakeRequireTableView;

@@ -14,11 +14,21 @@
 #import "ActivityDetailController.h"
 #import "PublishViewController.h"
 #import "CompetitionDetailControllerViewController.h"
+#import "SHPlacePickerView.h"
+#import "CY51CTOCourseListItem.h"
+#import "PlaceModel.h"
 
 
 @interface HotSpotController ()<XLSlideSwitchDelegate>
 
 @property (nonatomic, strong) XLSlideSwitch *slideSwitch;
+
+@property (nonatomic, strong) NSMutableArray *dataArray;                // 存放model的数据数组
+
+@property (nonatomic, strong) UIButton *selectButton;
+
+@property (nonatomic, strong) SHPlacePickerView *shplacePicker;
+
 
 @end
 
@@ -32,7 +42,7 @@
     [viewControllers addObject:[PublishViewController new]];
     [viewControllers addObject:[CompetitionListController new]];
     [viewControllers addObject:[ActivityListController new]];
-
+    [viewControllers addObject:[CY51CTOCourseListItem new]];
     
     _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
     //设置代理
@@ -43,7 +53,76 @@
     [_slideSwitch showInViewController:self];
     // Do any additional setup after loading the view.
     
+    
+    // 选择/显示选中地区按钮
+    UIButton *selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    selectButton.frame = CGRectMake(0, 64, 25, 45);
+    selectButton.backgroundColor = [UIColor clearColor];
+    selectButton.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+//    selectButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"saveArray"]) {
+        
+        self.dataArray = [NSMutableArray arrayWithCapacity:34];
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Place" ofType:@"plist"]];
+        
+        NSArray *provinceArray = [dict allKeys];
+        //    self.selectedProvinceArray = provinceArray;
+        
+        for (int i = 0; i < provinceArray.count; i ++) {
+            
+            PlaceModel *placeModel = [[PlaceModel alloc] init];
+            placeModel.provinceName = provinceArray[i];
+            NSDictionary *cityDict = [[dict objectForKey:provinceArray[i]] firstObject];
+            [cityDict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                
+                [placeModel.cityArray addObject:key];
+                [placeModel.districtArray addObject:obj];
+            }];
+            [self.dataArray addObject:placeModel];
+        }
+        
+        
+        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveArray"];
+        
+//        PlaceModel *placeModel = self.dataArray[[array[0] integerValue]];
+        
+        
+//        NSArray *array1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveArray"];
+//        self.shplacePicker = [[SHPlacePickerView alloc] initWithIsRecordLocation:YES SendPlaceArray:^(NSArray *placeArray) {
+        [selectButton setTitle:[NSString stringWithFormat:@"%@",[[self.dataArray[[array[0] integerValue]] cityArray][[array[1] integerValue]] substringToIndex:2]] forState:UIControlStateNormal];
+//        }];
+    }else{
+        [selectButton setTitle:@"不限" forState:UIControlStateNormal];
+    }
+    
+    [selectButton setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+    [selectButton addTarget:self action:@selector(selectAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:selectButton];
+    self.selectButton = selectButton;
+    
+    UIImageView *arrowview = [UIImageView new];
+    [self.view addSubview:arrowview];
+    [arrowview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(5);
+        make.width.mas_equalTo(8);
+        make.left.mas_equalTo(selectButton.mas_right);
+//        make.top.mas_equalTo(selectButton.mas_top);
+        make.centerY.equalTo(selectButton.mas_centerY);
+        //        make.centerY.equalTo(_headerView.mas_centerY);
+    }];
+    [arrowview setImage:[UIImage imageNamed:@"down_arrow"]];
+    
     [self registerNotificationCenter];
+}
+
+-(void)selectAction{
+    __weak __typeof(self)weakSelf = self;
+    self.shplacePicker = [[SHPlacePickerView alloc] initWithIsRecordLocation:YES SendPlaceArray:^(NSArray *placeArray) {
+        NSLog(@"省:%@ 市:%@ 区:%@",placeArray[0],placeArray[1],placeArray[2]);
+        [weakSelf.selectButton setTitle:[NSString stringWithFormat:@"%@",[placeArray[1] substringToIndex:2]] forState:UIControlStateNormal];
+    }];
+    [self.view addSubview:self.shplacePicker];
 }
 
 - (void)registerNotificationCenter{

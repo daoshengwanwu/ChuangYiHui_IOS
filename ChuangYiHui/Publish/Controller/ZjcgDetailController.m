@@ -8,6 +8,7 @@
 
 #import "ZjcgDetailController.h"
 #import "PublishRequireModel.h"
+#import "XWScanImage.h"
 
 @interface ZjcgDetailController ()
 
@@ -134,6 +135,12 @@
         if(i==0){
             imageView = [UIImageView new];
             [self.view addSubview:imageView];
+            // - 浏览大图点击事件
+            //为UIImageView1添加点击事件
+            UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scanBigImageClick1:)];
+            [imageView addGestureRecognizer:tapGestureRecognizer1];
+            //让UIImageView和它的父类开启用户交互属性
+            [imageView setUserInteractionEnabled:YES];
             [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(0).offset(15);
                 make.top.equalTo(line.mas_bottom).offset(8);
@@ -155,6 +162,12 @@
         }else{
             imageView = [UIImageView new];
             [self.view addSubview:imageView];
+            // - 浏览大图点击事件
+            //为UIImageView1添加点击事件
+            UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scanBigImageClick1:)];
+            [imageView addGestureRecognizer:tapGestureRecognizer1];
+            //让UIImageView和它的父类开启用户交互属性
+            [imageView setUserInteractionEnabled:YES];
             [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(15+i*65);
                 make.top.equalTo(line.mas_bottom).offset(8);
@@ -375,6 +388,14 @@
     
 //    [self getCGDetail];
 }
+
+// - 浏览大图点击事件
+-(void)scanBigImageClick1:(UITapGestureRecognizer *)tap{
+    NSLog(@"点击图片");
+    UIImageView *clickedImageView = (UIImageView *)tap.view;
+    [XWScanImage scanBigImageWithImageView:clickedImageView];
+}
+
 
 - (void)backTapped:(UITapGestureRecognizer *)gr {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -81,7 +81,7 @@
     } else if (_type == 1) {
         label.text = @"承接需求详情";
     } else if (_type == 2) {
-        label.text = @"外包需求详情";
+        label.text = @"课题需求详情";
     }
     label.textColor = blueTextColor;
     
