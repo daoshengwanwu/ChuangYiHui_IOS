@@ -13,6 +13,9 @@
 #import "HelperController.h"
 #import "ForumController.h"
 #import "XLSlideSwitch.h"
+#import "ExpertActionControllerViewController.h"
+#import "LBXScan1ViewController.h"
+#import "StyleDIY.h"
 
 @interface SocietyController ()<XLSlideSwitchDelegate>
 
@@ -24,8 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpRightButton];
 //    NSArray *titles = @[@"创友", @"团队", @"论坛", @"助手"];
-    NSArray *titles = @[@"创友", @"团队"];
+    NSArray *titles = @[@"创友", @"专家",@"团队"];
     NSMutableArray *viewControllers = [NSMutableArray new];
 //    for (int i = 0 ; i< titles.count; i++) {
 //        if (i == 0) {
@@ -48,6 +52,9 @@
             PersonnelActionController *vc = [PersonnelActionController new];
             [viewControllers addObject:vc];
         }else if(i == 1){
+            ExpertActionControllerViewController *vc = [ExpertActionControllerViewController new];
+            [viewControllers addObject:vc];
+        }else if(i == 2){
             TeamActionController *vc = [TeamActionController new];
             [viewControllers addObject:vc];
         }
@@ -61,6 +68,33 @@
     _slideSwitch.itemNormalColor = DARK_FONT_COLOR;
     [_slideSwitch showInViewController:self];
     // Do any additional setup after loading the view.
+}
+
+- (void)setUpRightButton{
+    //设置导航栏的右边按钮
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [rightButton setImage:[UIImage imageNamed:@"scan_icon"] forState:UIControlStateNormal];
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
+    [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+
+- (void)rightButtonAction{
+    [self openScanVCWithStyle:[StyleDIY weixinStyle]];
+}
+
+
+#pragma mark ---自定义界面
+
+- (void)openScanVCWithStyle:(LBXScanViewStyle*)style
+{
+    LBXScan1ViewController *vc = [LBXScan1ViewController new];
+    vc.style = style;
+    vc.isOpenInterestRect = YES;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

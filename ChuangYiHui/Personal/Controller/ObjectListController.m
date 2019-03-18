@@ -20,6 +20,8 @@
 #import "CompetitionRankList.h"
 #import "CompetitionRankModel.h"
 
+#import "CreatesyscgController.h"
+
 #define cellIdentifier @"userListCell"
 #define scoreCellIdentifier @"scoreCell"
 #define agreeOrDisagreeCellIdentifier @"agreeOrDisagreeCell"
@@ -516,53 +518,65 @@
     [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    if (!(_displayType == User_Comments||_displayType == User_Event_Comments||_displayType == Team_Event_Comments||_displayType == Activity_Comments||_displayType==Competition_Comments||_displayType == Competition_Rank||_displayType ==Team_Achievements)) {
+        rightButton.hidden = YES;
+    }
 }
 
 //评论
 - (void)rightButtonAction{
-    SCLAlertView *alert = [[SCLAlertView alloc] init];
-    alert.customViewColor = MAIN_COLOR;
-    // 初始化输入框并设置位置和大小
-//    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 20, 180)];
-//    // 设置预设文本
-//    textView.text = @"输入评论内容";
-    // 初始化输入框并设置位置和大小
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 160, 180)];
-    // 设置预设文本
-    textView.text = @"输入评论内容";
-    // 设置文本字体
-    textView.font = [UIFont fontWithName:@"Arial" size:16.5f];
-    // 设置文本颜色
-    textView.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f];
-    // 设置文本框背景颜色
-    textView.backgroundColor = [UIColor whiteColor];
-    // 设置文本对齐方式
-    textView.textAlignment = NSTextAlignmentLeft;
-    // 设置自动纠错方式
-    textView.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    //外框
-    textView.layer.borderColor = [UIColor redColor].CGColor;
-    textView.layer.borderWidth = 1;
-    textView.layer.cornerRadius =5;
-    
-    // 设置是否可以拖动
-//    textView.scrollEnabled = YES;
-//    textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-
-//    UITextView *textField = [alert addTextField:@"输入评论内容"];
-    [alert addCustomView:textView];
-//    textField.scrollEnabled = YES; // 当文字宽度超过UITextView的宽度时，是否允许滑动
-    [alert addButton:@"确定" actionBlock:^(void) {
-        [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textView.text} withToken:NO success:^(id data, NSString *message) {
-            [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"评论成功" andTime:1.0f];
-            [self getObjects];
-        } failed:^(id data, NSString *message) {
-            [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+    if(_displayType ==Team_Achievements){
+        //发布实验室成果
+        CreatesyscgController *vc = [CreatesyscgController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        SCLAlertView *alert = [[SCLAlertView alloc] init];
+        alert.customViewColor = MAIN_COLOR;
+        // 初始化输入框并设置位置和大小
+        //    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 20, 180)];
+        //    // 设置预设文本
+        //    textView.text = @"输入评论内容";
+        // 初始化输入框并设置位置和大小
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width - 160, 180)];
+        // 设置预设文本
+        textView.text = @"输入评论内容";
+        // 设置文本字体
+        textView.font = [UIFont fontWithName:@"Arial" size:16.5f];
+        // 设置文本颜色
+        textView.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f];
+        // 设置文本框背景颜色
+        textView.backgroundColor = [UIColor whiteColor];
+        // 设置文本对齐方式
+        textView.textAlignment = NSTextAlignmentLeft;
+        // 设置自动纠错方式
+        textView.autocorrectionType = UITextAutocorrectionTypeNo;
+        
+        //外框
+        textView.layer.borderColor = [UIColor redColor].CGColor;
+        textView.layer.borderWidth = 1;
+        textView.layer.cornerRadius =5;
+        
+        // 设置是否可以拖动
+        //    textView.scrollEnabled = YES;
+        //    textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        
+        //    UITextView *textField = [alert addTextField:@"输入评论内容"];
+        [alert addCustomView:textView];
+        //    textField.scrollEnabled = YES; // 当文字宽度超过UITextView的宽度时，是否允许滑动
+        [alert addButton:@"确定" actionBlock:^(void) {
+            [[NetRequest sharedInstance] httpRequestWithPost:[self getBaseUrl] parameters:@{@"content": textView.text} withToken:NO success:^(id data, NSString *message) {
+                [[SVHudManager sharedInstance] showSuccessHudWithTitle:@"评论成功" andTime:1.0f];
+                [self getObjects];
+            } failed:^(id data, NSString *message) {
+                [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+            }];
         }];
-    }];
-    
-    [alert showEdit:self title:@"评论" subTitle:@"" closeButtonTitle:@"取消" duration:0.0f];
+        
+        [alert showEdit:self title:@"评论" subTitle:@"" closeButtonTitle:@"取消" duration:0.0f];
+    }
+
 }
 
 #pragma mark DZNEmptyDelegate

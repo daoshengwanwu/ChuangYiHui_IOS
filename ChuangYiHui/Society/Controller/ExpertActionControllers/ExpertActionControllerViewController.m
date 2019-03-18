@@ -71,7 +71,7 @@
 }
 
 - (void)getPersonActions{
-    NSString *url = [NSString stringWithFormat:@"%@?limit=%ld",URL_GET_ALL_USER_EVENT, _limit];
+    NSString *url = [NSString stringWithFormat:@"%@?limit=%ld&is_expert=true",URL_GET_ALL_USER_EVENT, _limit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {

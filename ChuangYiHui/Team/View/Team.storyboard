@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ooh-jq-9Me">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ooh-jq-9Me">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--团队列表-->
+        <!--群体-->
         <scene sceneID="eiJ-hg-Fa1">
             <objects>
                 <viewController id="vRg-kT-Bm3" customClass="TeamListController" sceneMemberID="viewController">
@@ -20,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="团队列表" id="eAm-Lc-Wp0"/>
+                    <navigationItem key="navigationItem" title="群体" id="eAm-Lc-Wp0"/>
                     <connections>
                         <segue destination="bl8-QL-rlU" kind="show" id="SzP-Sc-6si"/>
                         <segue destination="a4N-sy-U7f" kind="show" id="qzU-mx-UEu"/>
@@ -40,19 +43,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="9dz-zH-PXh">
-                            <rect key="frame" x="0.0" y="64" width="375" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jny-nb-2if">
+                                    <rect key="frame" x="0.0" y="35" width="375" height="60"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qhb-qn-nhu">
+                                            <rect key="frame" x="8" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="ITR-R6-GVg"/>
                                                 <constraint firstAttribute="width" constant="40" id="TJc-zZ-PoF"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="团队1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvA-ym-Aa3">
-                                            <frame key="frameInset" minX="58" minY="20" width="134" height="21"/>
+                                            <rect key="frame" x="58" y="20" width="134" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="zGX-0N-wYR"/>
                                             </constraints>
@@ -70,8 +75,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1q2-I8-Faj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求发布方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vo-nG-tJN">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="C2f-iE-4fT"/>
                                                 <constraint firstAttribute="width" constant="81" id="CHZ-vg-a9n"/>
@@ -89,8 +96,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INm-Vb-Qwr">
+                                    <rect key="frame" x="0.0" y="95" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-PR-CJZ">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="RTa-52-4v6"/>
                                                 <constraint firstAttribute="width" constant="81" id="ml2-gN-9uc"/>
@@ -108,8 +117,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hh3-i3-boQ">
+                                    <rect key="frame" x="0.0" y="130" width="375" height="350"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb2-bp-G8k">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="1o9-Rd-vNF"/>
                                             </constraints>
@@ -118,6 +129,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领域：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg8-Ga-2f6">
+                                            <rect key="frame" x="8" y="37" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="KXZ-GA-bbw"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="Srd-Xt-0mT"/>
@@ -126,7 +138,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IO9-b2-mCx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IO9-b2-mCx">
+                                            <rect key="frame" x="74.5" y="37" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="OK7-A3-5RA"/>
                                             </constraints>
@@ -135,6 +148,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技能：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rc-qh-7hb">
+                                            <rect key="frame" x="8" y="60" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="EVz-DJ-It6"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="OOy-iy-0ym"/>
@@ -143,7 +157,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fru-kS-AOQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fru-kS-AOQ">
+                                            <rect key="frame" x="74.5" y="60" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="fD1-TL-Hey"/>
                                             </constraints>
@@ -152,6 +167,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsH-vb-LBu">
+                                            <rect key="frame" x="8" y="129" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="7gi-17-b3P"/>
                                                 <constraint firstAttribute="height" constant="21" id="ZT2-Hh-0N9"/>
@@ -160,7 +176,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-RQ-oJi">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-RQ-oJi">
+                                            <rect key="frame" x="74.5" y="129" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="sB5-X7-zj6"/>
                                             </constraints>
@@ -169,6 +186,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学历：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPf-cD-eEV">
+                                            <rect key="frame" x="8" y="83" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="M7L-ys-XbW"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="peN-QX-NsU"/>
@@ -177,7 +195,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-aX-4cI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-aX-4cI">
+                                            <rect key="frame" x="74.5" y="83" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6i8-JQ-dTD"/>
                                             </constraints>
@@ -186,6 +205,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rM-UG-gpj">
+                                            <rect key="frame" x="8" y="152" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="FcG-wt-ASy"/>
                                                 <constraint firstAttribute="height" constant="21" id="WY3-EF-Ho7"/>
@@ -195,6 +215,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名额：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMk-He-2M9">
+                                            <rect key="frame" x="8" y="175" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="KMU-pq-mYM"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="acO-Fj-bJD"/>
@@ -203,7 +224,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fY4-5y-4ji">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fY4-5y-4ji">
+                                            <rect key="frame" x="74.5" y="175" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="old-n0-w0X"/>
                                             </constraints>
@@ -212,6 +234,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="截止日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2d-Mc-xF7">
+                                            <rect key="frame" x="8" y="198" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="dpU-RI-zfD"/>
                                                 <constraint firstAttribute="height" constant="21" id="gbq-hS-qSv"/>
@@ -220,7 +243,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCZ-lC-bQT">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCZ-lC-bQT">
+                                            <rect key="frame" x="74.5" y="198" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="L4Q-nu-yS2"/>
                                             </constraints>
@@ -228,7 +252,8 @@
                                             <color key="textColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsP-ng-9Yx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsP-ng-9Yx">
+                                            <rect key="frame" x="74.5" y="152" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="PIk-AC-fv9"/>
                                             </constraints>
@@ -237,6 +262,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求说明：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2D-6V-RyN">
+                                            <rect key="frame" x="8" y="221" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="7MW-rg-Mul"/>
                                                 <constraint firstAttribute="height" constant="21" id="ibn-jx-7xt"/>
@@ -246,6 +272,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1.完成" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ws9-M3-yUJ">
+                                            <rect key="frame" x="17" y="250" width="341" height="99"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="99" id="YSA-zb-PyP"/>
@@ -255,6 +282,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deI-2W-Sqi">
+                                            <rect key="frame" x="8" y="106" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="0nX-3g-vnT"/>
                                                 <constraint firstAttribute="height" constant="21" id="Y02-pX-4Wk"/>
@@ -263,7 +291,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBV-ke-gQL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBV-ke-gQL">
+                                            <rect key="frame" x="74.5" y="106" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="shc-4e-FaA"/>
                                             </constraints>
@@ -320,6 +349,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgo-rp-Ppv">
+                                    <rect key="frame" x="8" y="515" width="359" height="40"/>
                                     <color key="backgroundColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="bUk-T0-r7f"/>
@@ -380,19 +410,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="REJ-Uz-koL">
-                            <rect key="frame" x="0.0" y="64" width="375" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vs2-PI-Vr9">
+                                    <rect key="frame" x="0.0" y="35" width="375" height="60"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="233-k8-Bmh">
+                                            <rect key="frame" x="8" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="HKR-G6-YCl"/>
                                                 <constraint firstAttribute="height" constant="40" id="bL1-lx-id2"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="团队1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymn-9S-3ug">
-                                            <frame key="frameInset" minX="58" minY="20" width="134" height="21"/>
+                                            <rect key="frame" x="58" y="20" width="134" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="rBW-Xq-z37"/>
                                             </constraints>
@@ -410,8 +442,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmO-ci-efN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求发布方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiN-5R-Okw">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="81" id="Eai-Lo-Cai"/>
                                                 <constraint firstAttribute="height" constant="21" id="e40-Hu-dfD"/>
@@ -429,8 +463,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zen-Hh-zqQ">
+                                    <rect key="frame" x="0.0" y="95" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-uR-k29">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Gax-0g-lVb"/>
                                                 <constraint firstAttribute="width" constant="81" id="eOo-cm-98l"/>
@@ -448,8 +484,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-kJ-8aN">
+                                    <rect key="frame" x="0.0" y="130" width="375" height="350"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3G-vp-ZGx">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="arR-gd-BGf"/>
                                             </constraints>
@@ -458,6 +496,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="擅长领域：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-IO-p1k">
+                                            <rect key="frame" x="8" y="37" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Xqb-XC-FHT"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="c4p-kv-Lqa"/>
@@ -466,7 +505,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmd-qM-EhA">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmd-qM-EhA">
+                                            <rect key="frame" x="74.5" y="37" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="441-8v-vns"/>
                                             </constraints>
@@ -475,6 +515,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="擅长技能：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyo-tA-ZQe">
+                                            <rect key="frame" x="8" y="60" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="1B5-xc-I5b"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="Cm9-2g-e3f"/>
@@ -483,7 +524,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYY-pc-dLd">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYY-pc-dLd">
+                                            <rect key="frame" x="74.5" y="60" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="b5W-dj-D8C"/>
                                             </constraints>
@@ -492,6 +534,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="截止日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hy-aR-ZzN">
+                                            <rect key="frame" x="8" y="129" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="Dpe-2Z-0OC"/>
                                                 <constraint firstAttribute="height" constant="21" id="mU3-2O-SPS"/>
@@ -500,7 +543,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4W-LT-Zx1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4W-LT-Zx1">
+                                            <rect key="frame" x="74.5" y="129" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="gmq-75-eC9"/>
                                             </constraints>
@@ -509,6 +553,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务地区：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ra-QK-8JL">
+                                            <rect key="frame" x="8" y="83" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="IuM-7o-pA5"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="f32-D5-iSb"/>
@@ -517,7 +562,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxN-5j-8el">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxN-5j-8el">
+                                            <rect key="frame" x="74.5" y="83" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="n07-fz-Ozc"/>
                                             </constraints>
@@ -526,6 +572,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5S-h4-gwt">
+                                            <rect key="frame" x="8" y="152" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="19A-Po-aR7"/>
                                                 <constraint firstAttribute="height" constant="21" id="hFj-lI-wNC"/>
@@ -535,6 +582,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结束时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUq-ec-RIN">
+                                            <rect key="frame" x="8" y="175" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="Dhg-yZ-XyV"/>
                                                 <constraint firstAttribute="height" constant="21" id="ZJT-yd-hHp"/>
@@ -543,7 +591,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-ws-CPI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-ws-CPI">
+                                            <rect key="frame" x="74.5" y="175" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="M5D-oZ-beg"/>
                                             </constraints>
@@ -551,7 +600,8 @@
                                             <color key="textColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="934-7Z-Qtt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="934-7Z-Qtt">
+                                            <rect key="frame" x="74.5" y="152" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="7RI-fs-ETT"/>
                                             </constraints>
@@ -560,6 +610,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求详情：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reT-bH-Xmx">
+                                            <rect key="frame" x="8" y="198" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="cZU-Qc-bfr"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="rMY-yN-QPc"/>
@@ -569,6 +620,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1.完成" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0OI-Tz-gID">
+                                            <rect key="frame" x="17" y="227" width="341" height="99"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="99" id="igA-kU-cxG"/>
@@ -578,6 +630,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="酬    劳：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-qz-TEt">
+                                            <rect key="frame" x="8" y="106" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="JFO-Ka-sAv"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="TtW-a3-Zqg"/>
@@ -586,7 +639,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQp-Eg-MUf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQp-Eg-MUf">
+                                            <rect key="frame" x="74.5" y="106" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="XV7-WV-Fta"/>
                                             </constraints>
@@ -638,6 +692,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-Md-zBa">
+                                    <rect key="frame" x="8" y="515" width="359" height="40"/>
                                     <color key="backgroundColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="0PU-1e-i2j"/>
@@ -694,19 +749,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="WcL-pg-m2R">
-                            <rect key="frame" x="0.0" y="64" width="375" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CM4-EN-CXg">
+                                    <rect key="frame" x="0.0" y="35" width="375" height="60"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JGj-An-az6">
+                                            <rect key="frame" x="8" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="MLC-rS-XqA"/>
                                                 <constraint firstAttribute="width" constant="40" id="jam-76-0jO"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="团队1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohe-4n-yg8">
-                                            <frame key="frameInset" minX="58" minY="20" width="134" height="21"/>
+                                            <rect key="frame" x="58" y="20" width="134" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Ur5-xA-eiV"/>
                                             </constraints>
@@ -724,8 +781,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-tu-Yg6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求发布方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e5-nh-vPo">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="X8s-hm-eSN"/>
                                                 <constraint firstAttribute="width" constant="81" id="grv-ev-Mud"/>
@@ -743,8 +802,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCw-TE-KvU">
+                                    <rect key="frame" x="0.0" y="95" width="375" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPs-xe-xht">
+                                            <rect key="frame" x="8" y="7" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="81" id="U3G-DF-SEd"/>
                                                 <constraint firstAttribute="height" constant="21" id="pPc-aC-I37"/>
@@ -762,8 +823,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fc2-Zi-Avo">
+                                    <rect key="frame" x="0.0" y="130" width="375" height="350"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FQ-7H-rzf">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="gTB-JT-NMf"/>
                                             </constraints>
@@ -772,6 +835,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领域：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM9-d8-0Vv">
+                                            <rect key="frame" x="8" y="37" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Vds-7v-mXh"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="Xlz-As-iZD"/>
@@ -780,7 +844,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN9-Z1-jK0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN9-Z1-jK0">
+                                            <rect key="frame" x="74.5" y="37" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="b6N-uj-UHG"/>
                                             </constraints>
@@ -789,6 +854,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技能：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIe-gT-smZ">
+                                            <rect key="frame" x="8" y="60" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="5kD-u4-fmb"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="EJI-bK-w3k"/>
@@ -797,7 +863,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ot-F3-m9M">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ot-F3-m9M">
+                                            <rect key="frame" x="74.5" y="60" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="7zC-tv-Ho7"/>
                                             </constraints>
@@ -806,6 +873,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA0-Je-xMe">
+                                            <rect key="frame" x="8" y="129" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="J8V-aq-bxa"/>
                                                 <constraint firstAttribute="height" constant="21" id="k90-wk-EW2"/>
@@ -814,7 +882,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opv-GK-dlc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opv-GK-dlc">
+                                            <rect key="frame" x="74.5" y="129" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="IUO-ng-Kuj"/>
                                             </constraints>
@@ -823,6 +892,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学历：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqi-03-WM5">
+                                            <rect key="frame" x="8" y="83" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="o80-hc-z5f"/>
                                                 <constraint firstAttribute="height" constant="21" id="shn-qS-gfa"/>
@@ -831,7 +901,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faQ-Fs-g47">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faQ-Fs-g47">
+                                            <rect key="frame" x="74.5" y="83" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="EqQ-jV-kGm"/>
                                             </constraints>
@@ -840,6 +911,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="费用：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brw-2h-GDb">
+                                            <rect key="frame" x="8" y="152" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="DS4-Gl-O1o"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="tns-hF-2uu"/>
@@ -849,6 +921,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1T-l7-nEr">
+                                            <rect key="frame" x="8" y="175" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="SfM-OQ-AVY"/>
                                                 <constraint firstAttribute="width" constant="66.5" id="y62-9H-WE0"/>
@@ -857,7 +930,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-sy-4zc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-sy-4zc">
+                                            <rect key="frame" x="74.5" y="175" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="0RC-ip-FRO"/>
                                             </constraints>
@@ -866,6 +940,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结束日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-oG-hcN">
+                                            <rect key="frame" x="8" y="198" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="Cj2-Z5-y8z"/>
                                                 <constraint firstAttribute="height" constant="21" id="g4M-gk-5in"/>
@@ -874,7 +949,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-QD-9sm">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-QD-9sm">
+                                            <rect key="frame" x="74.5" y="198" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="E0Y-aH-zkk"/>
                                             </constraints>
@@ -882,7 +958,8 @@
                                             <color key="textColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxL-Qj-ftL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxL-Qj-ftL">
+                                            <rect key="frame" x="74.5" y="152" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="c53-lS-Ys3"/>
                                             </constraints>
@@ -891,6 +968,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求描述：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnZ-vX-VZe">
+                                            <rect key="frame" x="8" y="221" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="EQ9-S6-jxQ"/>
                                                 <constraint firstAttribute="height" constant="21" id="uPI-8x-pmd"/>
@@ -900,6 +978,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1.完成" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7kv-6J-lnw">
+                                            <rect key="frame" x="17" y="250" width="341" height="99"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="99" id="mJ3-19-SFd"/>
@@ -909,6 +988,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-B5-0Jg">
+                                            <rect key="frame" x="8" y="106" width="66.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66.5" id="5sD-Es-1g0"/>
                                                 <constraint firstAttribute="height" constant="21" id="XFM-ng-M6Y"/>
@@ -917,7 +997,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创易汇用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76w-QD-IfU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="世纪智库用户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76w-QD-IfU">
+                                            <rect key="frame" x="74.5" y="106" width="86" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Feb-1r-k9s"/>
                                             </constraints>
@@ -974,6 +1055,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdv-Uv-kTM">
+                                    <rect key="frame" x="8" y="515" width="359" height="40"/>
                                     <color key="backgroundColor" red="0.1960784314" green="0.69411764710000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="ka3-Yr-Dte"/>
@@ -1031,7 +1113,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ooh-jq-9Me" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aoI-re-QBv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

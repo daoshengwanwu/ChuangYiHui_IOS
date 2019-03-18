@@ -9,11 +9,17 @@
 #import "TeamListController.h"
 #import "TeamListCell.h"
 #import "TeamDetailController.h"
+#import "LBXScan1ViewController.h"
+#import "StyleDIY.h"
+#import "WBPopMenuModel.h"
+#import "WBPopMenuSingleton.h"
 
 #define cellIdentifier @"teamListCell"
 
 @interface TeamListController ()
-
+{
+    NSMutableArray *_obj;
+}
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *teamArr;
 @property (nonatomic, assign) NSInteger limit;
@@ -24,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpRightButton];
+    [self initPopView];
     _limit = 10;
     _teamArr = @[];
     _tableView = ({
@@ -58,6 +66,65 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)setUpRightButton{
+    //设置导航栏的右边按钮
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [rightButton setImage:[UIImage imageNamed:@"add_icon"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+
+- (void)rightButtonAction{
+    [self moreClicked];
+}
+
+//- (void)rightButtonAction{
+//    [self openScanVCWithStyle:[StyleDIY weixinStyle]];
+//}
+
+
+#pragma mark ---自定义界面
+
+- (void)openScanVCWithStyle:(LBXScanViewStyle*)style
+{
+    LBXScan1ViewController *vc = [LBXScan1ViewController new];
+    vc.style = style;
+    vc.isOpenInterestRect = YES;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)initPopView{
+    _obj = [NSMutableArray array];
+    
+    for (NSInteger i=0; i<[self titles].count; i++) {
+        WBPopMenuModel *info = [[WBPopMenuModel alloc] init];
+        info.title = [self titles][i];
+        [_obj addObject:info];
+    }
+}
+
+- (NSArray *) titles
+{
+    return @[@"扫一扫", @"搜一搜"];
+}
+
+
+- (void)moreClicked
+{
+    [[WBPopMenuSingleton shareManager] showPopMenuSelecteWithFrame:80.0 item:_obj action:^(NSInteger index) {
+        if(index==0){
+            [self openScanVCWithStyle:[StyleDIY weixinStyle]];
+        }else if(index ==1){
+            
+        }
+        
+    }];
 }
 
 

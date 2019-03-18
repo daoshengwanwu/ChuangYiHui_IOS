@@ -41,12 +41,23 @@
     }else if(_type == 3){
         self.title = @"经历背景";
         titles = @[@"教育经历", @"实习经历", @"工作经历"];
-    }else{
-        //我的经历背景
+    }else if(_type == 4){
+        //我的经历背景-非专家
         self.title = @"经历背景";
         titles = @[@"教育经历", @"实习经历", @"工作经历"];
         [self setUpRightButton];
         [self initPopView];
+    }else if(_type == 5){
+        //我的经历背景-专家
+        self.title = @"经历背景";
+        titles = @[@"教育经历", @"工作经历", @"研究方向",@"社会兼职",@"成就荣誉"];
+        [self setUpRightButton];
+        [self initPopView];
+    }
+    else if(_type == 6){
+        //别人的经历背景-专家
+        self.title = @"经历背景";
+        titles = @[@"教育经历", @"工作经历", @"研究方向",@"社会兼职",@"成就荣誉"];
     }
     
     
@@ -74,10 +85,42 @@
             vc.type = i + 3;
             vc.user_id = _user_id;
             [viewControllers addObject:vc];
-        }else{
+        }else if (_type == 4){
             ExperienceBackgroundController *vc = [ExperienceBackgroundController new];
             vc.type = i;
 //            vc.user_id = _user_id;
+            [viewControllers addObject:vc];
+        }else if (_type == 5){
+            ExperienceBackgroundController *vc = [ExperienceBackgroundController new];
+            if(i==0){
+                vc.type = 0;
+            }else if(i==1){
+                vc.type = 2;
+            }else if(i==2){
+                vc.type = 6;
+            }else if(i==3){
+                vc.type = 7;
+            }else if(i==4){
+                vc.type = 8;
+            }
+//            vc.type = i;
+            //            vc.user_id = _user_id;
+            [viewControllers addObject:vc];
+        }else if (_type == 6){
+            ExperienceBackgroundController *vc = [ExperienceBackgroundController new];
+            if(i==0){
+                vc.type = 3;
+            }else if(i==1){
+                vc.type = 5;
+            }else if(i==2){
+                vc.type = 9;
+            }else if(i==3){
+                vc.type = 10;
+            }else if(i==4){
+                vc.type = 11;
+            }
+//            vc.type = i;
+            //            vc.user_id = _user_id;
             [viewControllers addObject:vc];
         }
     }
@@ -92,11 +135,13 @@
 
 - (void)setUpRightButton{
     //设置导航栏的右边按钮
+
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [rightButton setImage:[UIImage imageNamed:@"add_icon"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightItem;
+
 }
 
 
@@ -106,21 +151,31 @@
 
 - (void)initPopView{
     _obj = [NSMutableArray array];
-    
-    for (NSInteger i=0; i<[self titles].count; i++) {
-        WBPopMenuModel *info = [[WBPopMenuModel alloc] init];
-        info.title = [self titles][i];
-        [_obj addObject:info];
+    if(_type==5){
+        for (NSInteger i=0; i<[self titles2].count; i++) {
+            WBPopMenuModel *info = [[WBPopMenuModel alloc] init];
+            info.title = [self titles2][i];
+            [_obj addObject:info];
+        }
+    }else{
+        for (NSInteger i=0; i<[self titles].count; i++) {
+            WBPopMenuModel *info = [[WBPopMenuModel alloc] init];
+            
+            info.title = [self titles][i];
+            [_obj addObject:info];
+        }
     }
 }
 
 - (NSArray *) titles
 {
-    
     return @[@"教育经历", @"实习经历", @"工作经历"];
-    
 }
 
+- (NSArray *) titles2
+{
+    return @[@"教育经历", @"工作经历", @"研究方向", @"社会兼职", @"成就荣誉"];
+}
 
 - (void)moreClicked
 {

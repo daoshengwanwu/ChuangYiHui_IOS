@@ -89,6 +89,30 @@
             baseUrl = URL_GET_OTHER_WORKS_EXPERIENCE(_user_id);
             break;
             
+        case 6:
+            baseUrl = URL_GET_EDUCATIONS_EXPERIENCE;
+            break;
+            
+        case 7:
+            baseUrl = URL_GET_FIELDWORK_EXPERIENCE;
+            break;
+            
+        case 8:
+            baseUrl = URL_GET_WORK_EXPERIENCE;
+            break;
+            
+        case 9:
+            baseUrl = URL_GET_OTHER_EDUCATIONS_EXPERIENCE(_user_id);
+            break;
+            
+        case 10:
+            baseUrl = URL_GET_OTHER_FIELDWORKS_EXPERIENCE(_user_id);
+            break;
+            
+        case 11:
+            baseUrl = URL_GET_OTHER_WORKS_EXPERIENCE(_user_id);
+            break;
+
         default:
             break;
     }

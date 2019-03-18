@@ -100,7 +100,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还不是用户？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGX-cN-Ly9">
-                                <rect key="frame" x="24" y="460" width="74" height="21"/>
+                                <rect key="frame" x="24" y="486" width="74" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="7kJ-Dt-kzw"/>
                                     <constraint firstAttribute="height" constant="21" id="Xh8-mA-cE3"/>
@@ -110,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpr-Lf-Z6j">
-                                <rect key="frame" x="98" y="455.5" width="30" height="30"/>
+                                <rect key="frame" x="98" y="481.5" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="UQv-aT-DQX"/>
                                     <constraint firstAttribute="height" constant="30" id="Yv7-rK-Knw"/>
@@ -123,9 +123,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZa-Tp-7oD">
-                                <rect key="frame" x="289" y="455" width="62" height="30"/>
+                                <rect key="frame" x="289" y="486" width="62" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7uN-fI-p9M"/>
+                                    <constraint firstAttribute="height" constant="21" id="7uN-fI-p9M"/>
                                     <constraint firstAttribute="width" constant="62" id="ti6-aV-Ddu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -135,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpd-t4-kO3">
-                                <rect key="frame" x="128" y="455" width="30" height="30"/>
+                                <rect key="frame" x="128" y="481" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="K7A-8R-73a"/>
                                     <constraint firstAttribute="width" constant="30" id="v24-bo-ClX"/>
@@ -157,11 +157,11 @@
                             <constraint firstItem="xGX-cN-Ly9" firstAttribute="leading" secondItem="nfg-Vm-rb0" secondAttribute="leading" id="CLY-ch-YEq"/>
                             <constraint firstItem="O8b-so-yqP" firstAttribute="top" secondItem="wFH-7w-Ruq" secondAttribute="bottom" constant="16" id="Gha-7O-ZJL"/>
                             <constraint firstItem="nfg-Vm-rb0" firstAttribute="trailing" secondItem="wFH-7w-Ruq" secondAttribute="trailing" id="MPH-w9-nvY"/>
-                            <constraint firstItem="xGX-cN-Ly9" firstAttribute="top" secondItem="nfg-Vm-rb0" secondAttribute="bottom" constant="24" id="Nb3-Qq-G8c"/>
+                            <constraint firstItem="xGX-cN-Ly9" firstAttribute="top" secondItem="nfg-Vm-rb0" secondAttribute="bottom" constant="50" id="Nb3-Qq-G8c"/>
                             <constraint firstItem="Qpr-Lf-Z6j" firstAttribute="leading" secondItem="xGX-cN-Ly9" secondAttribute="trailing" id="PRv-mz-hUI"/>
                             <constraint firstItem="Ch1-QP-lyY" firstAttribute="centerX" secondItem="tr6-Me-uzq" secondAttribute="centerX" id="YGP-85-We8"/>
                             <constraint firstItem="Qpr-Lf-Z6j" firstAttribute="centerY" secondItem="xGX-cN-Ly9" secondAttribute="centerY" id="aAR-Z3-cCn"/>
-                            <constraint firstItem="JZa-Tp-7oD" firstAttribute="top" secondItem="nfg-Vm-rb0" secondAttribute="bottom" constant="19" id="bg2-fe-OUW"/>
+                            <constraint firstItem="JZa-Tp-7oD" firstAttribute="top" secondItem="nfg-Vm-rb0" secondAttribute="bottom" constant="50" id="bg2-fe-OUW"/>
                             <constraint firstItem="gpd-t4-kO3" firstAttribute="centerY" secondItem="xGX-cN-Ly9" secondAttribute="centerY" id="bml-J5-WFu"/>
                             <constraint firstItem="wFH-7w-Ruq" firstAttribute="top" secondItem="Ch1-QP-lyY" secondAttribute="bottom" constant="43" id="cbs-Um-EFb"/>
                             <constraint firstItem="O8b-so-yqP" firstAttribute="leading" secondItem="wFH-7w-Ruq" secondAttribute="leading" id="f8j-ru-jb7"/>
@@ -600,7 +600,7 @@
                                         <constraint firstAttribute="height" constant="21" id="Ldx-hV-5nf"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="&lt;&lt;创易汇用户服务协议&gt;&gt;"/>
+                                    <state key="normal" title="&lt;&lt;世纪智库用户服务协议&gt;&gt;"/>
                                     <connections>
                                         <action selector="ServiceProtocolAction:" destination="dI1-9V-Tap" eventType="touchUpInside" id="Sun-5C-aAU"/>
                                     </connections>

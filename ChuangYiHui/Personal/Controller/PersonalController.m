@@ -21,6 +21,11 @@
 #import "IdentityVerifyController.h"
 #import "IdentityVerifyStatusController.h"
 #import "CreateZjcgController.h"
+#import "LBXScan1ViewController.h"
+#import "StyleDIY.h"
+
+#import "RealNameVerifyController.h"
+#import "RealNameVerifyStatusController.h"
 
 #define cellIdentifier @"imageTitleArrowCell"
 #define cellHeight 48
@@ -33,6 +38,7 @@
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)PersonalHeaderView *personalHeaderView;
 @property (nonatomic, strong)UserModel *userModel;
+@property (nonatomic, strong)NSString *invitecode;
 
 
 
@@ -43,9 +49,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _rowCountArr = @[@"1", @"5", @"2", @"3", @"2", @"2", @"1"];
-    _titleArr = @[@[@"邀请码"], @[@"个人信息",@"创建团队", @"个人动态",@"发布专家成果",  @"经历背景"], @[@"身份认证", @"实名认证"],@[@"团队列表", @"邀请列表", @"好友申请"], @[@"我的活动", @"我的竞赛"], @[@"我的任务", @"我关注的动态"], @[@"设置"]];
-    _imageNameArr = @[@[@"invite_code_icon"], @[@"information_icon", @"create_team_icon", @"event_icon",@"event_icon", @"exp_background_icon"], @[@"exp_background_icon", @"exp_background_icon"], @[@"team_list_icon", @"invitation_icon", @"friend_request_icon"], @[@"activity_icon", @"competition_icon"], @[@"task_icon", @"focus_event_icon"], @[@"setup_icon"]];
+    [self setUpRightButton];
+    _rowCountArr = @[@"1", @"5", @"4", @"3", @"2", @"1"];
+    _titleArr = @[@[@"邀请码"], @[@"个人动态",@"经历背景", @"实名认证" ,@"身份认证",@"发布专家成果"],@[@"团队列表", @"创建团队", @"邀请列表", @"好友申请"], @[@"我的活动", @"我的竞赛",@"我的收藏"], @[@"我的任务", @"我关注的动态"], @[@"设置"]];
+    _imageNameArr = @[@[@"invite_code_icon"], @[@"event_icon", @"exp_background_icon", @"exp_background_icon",@"exp_background_icon",@"event_icon"], @[@"team_list_icon",@"create_team_icon", @"invitation_icon", @"friend_request_icon"], @[@"activity_icon", @"competition_icon",@"star_icon_hover"], @[@"task_icon", @"focus_event_icon"], @[@"setup_icon"]];
     
     _tableView = [UITableView new];
     [self.view addSubview:_tableView];
@@ -110,9 +117,44 @@
     
 }
 
+- (void)setUpRightButton{
+    //设置导航栏的右边按钮
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [rightButton setImage:[UIImage imageNamed:@"share_icon"] forState:UIControlStateNormal];
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
+    [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)rightButtonAction
+{
+    NSString *textToShare = @"分享世纪智库！";
+    UIImage *imageToShare = [UIImage imageNamed:@"logo_icon"];
+    NSURL *urlToShare = [NSURL URLWithString:@"http://blog.csdn.net/Boyqicheng"];
+    // 分享的图片不能为空
+    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+    // 排除（UIActivityTypeAirDrop）AirDrop 共享、(UIActivityTypePostToFacebook)Facebook
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToFacebook, UIActivityTypeAirDrop];
+    [self presentViewController:activityVC animated:YES completion:nil];
+    // 通过block接收结果处理
+    UIActivityViewControllerCompletionWithItemsHandler completionHandler = ^(UIActivityType __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        if (completed) {
+//            [self showAlertViewWithMsg:@"恭喜你，分享成功！"];
+            NSLog(@"分享成功");
+        }else{
+//            [self showAlertViewWithMsg:@"很遗憾，分享失败！"];
+            NSLog(@"分享失败");
+        }
+    };
+    activityVC.completionWithItemsHandler = completionHandler;
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [self getUserProfile];
+    [self getInviteCode];
 }
 
 
@@ -146,8 +188,29 @@
         [[UserManager sharedManager] saveUserInfo:_userModel];
         
         [_personalHeaderView setHeaderByUserModel:_userModel];
+//        NSLog(@"self invite code: %@", _userModel.invitation_code);
     } failed:^(id data, NSString *message) {
 //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
+    }];
+}
+
+//获取邀请码
+- (void)getInviteCode{
+    NSLog(@"getInvitecode");
+    [[NetRequest sharedInstance] httpRequestWithGET:URL_GET_INVITECODE success:^(id data, NSString *message) {
+//        NSLog(@"self invite code: %@", data);
+        UserModel *modela = [UserModel mj_objectWithKeyValues:data];
+        _invitecode = modela.invitation_code;
+        NSLog(@"self invite code: %@", _invitecode);
+        
+//        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0  inSection:0];
+//        ImageTitleArrowCell *cell1 = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+//        cell1.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell1.title.text = _invitecode;
+//        cell1.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
+        
+    } failed:^(id data, NSString *message) {
+        //        [[SVHudManager sharedInstance] showErrorHudWithTitle:message andTime:1.0f];
     }];
 }
 
@@ -187,11 +250,16 @@
     ImageTitleArrowCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.title.text = _titleArr[indexPath.section][indexPath.row];
-    cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
-//    if([cell.title.text isEqualToString:@"发布专家成果"] && ![_userModel.role isEqualToString:@"专家"])
-//    {
-//        cell.hidden = YES;//重点
+    
+//    if(indexPath.section == 0 &&indexPath.row == 0){
+//        NSLog(@"self invite code1: %@", _invitecode);
+//        cell.title.text = _invitecode;
 //    }
+    cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
+    if([cell.title.text isEqualToString:@"发布专家成果"] && ![_userModel.role isEqualToString:@"专家"])
+    {
+        cell.hidden = YES;//重点
+    }
     return cell;
 }
 
@@ -204,10 +272,10 @@
     /*此写法会导致循环引用。引起崩溃
      UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
      */
-//    if(indexPath.section == 1 && indexPath.row == 3 && ![_userModel.role isEqualToString:@"专家"])
-//    {
-//        return 0;//重点
-//    }
+    if(indexPath.section == 1 && indexPath.row == 4 && ![_userModel.role isEqualToString:@"专家"])
+    {
+        return 0;//重点
+    }
 
     return 40;
 }
@@ -216,39 +284,48 @@
     return _rowCountArr.count;
 }
 
+//查看邀请码
+- (void)seeInviteCode
+{
+    // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+    NSString *mess = [NSString stringWithFormat:@"您的邀请码为%@，邀请好友注册世纪智库时输入邀请码可以增加积分",_invitecode];
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:mess preferredStyle:UIAlertControllerStyleAlert];
+    // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+//    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//        NSLog(@"点击了取消按钮");
+//    }];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"点击了确定按钮");
+    }];
+    // 3.将“取消”和“确定”按钮加入到弹框控制器中
+//    [alertVc addAction:cancle];
+    [alertVc addAction:confirm];
+    // 4.控制器 展示弹框控件，完成时不做操作
+    [self presentViewController:alertVc animated:YES completion:^{
+        nil;
+    }];
+}
+
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([CommonTool checkIfLogin:self]) {
         if (indexPath.section == 0) {
-            
+            [self seeInviteCode];
         }else if(indexPath.section == 1){
-            if (indexPath.row == 0) {
-                PersonalInformationController *vc = [PersonalInformationController new];
-                vc.hidesBottomBarWhenPushed = YES;
-                vc.userModel = _userModel;
-                [self.navigationController pushViewController:vc animated:YES];
-            }else if (indexPath.row == 1) {
-                //创建团队
-                CreateTeamController *vc = [CreateTeamController new];
-                vc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:vc animated:YES];
-            }else if(indexPath.row == 2){
+            if(indexPath.row == 0){
                 //个人动态
-            }else if(indexPath.row == 3){
-                //发布专家成果
-                CreateZjcgController *vc = [CreateZjcgController new];
-                vc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:vc animated:YES];
-            }else{
+            }else if (indexPath.row == 1){
                 //经历背景
                 TeamCategoryController *vc = [[TeamCategoryController alloc] init];
                 vc.type = 4;
+                NSLog(@"_userModel.role=%@",_userModel.role);
+                if ([_userModel.role isEqualToString:@"专家"]){
+                    vc.type = 5;
+                }
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
-            }
-        }else if(indexPath.section == 2){
-            //身份认证和实名认证
-            if (indexPath.row == 0) {
+            }else if (indexPath.row == 3) {
+                //身份认证
                 if ([_userModel.is_role_verified isEqualToString:@"0"]) {
                     
                     //身份认证,未提交
@@ -256,39 +333,93 @@
                     vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:YES];
                 }else{
-                    
                     //身份认证，已提交
                     IdentityVerifyStatusController *vc = [IdentityVerifyStatusController new];
                     vc.status = [_userModel.is_role_verified integerValue];
                     vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:YES];
                 }
+            }else if(indexPath.row == 2){
                 
-            }else{
                 //实名认证
+                //0 未实名 1 待审核 2 已实名 3 实名失败 4 eID实名通过
+                if ([_userModel.is_verified integerValue] == 0) {
+                    RealNameVerifyController *vc = [RealNameVerifyController new];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else if([_userModel.is_verified integerValue] == 1){
+                    RealNameVerifyStatusController *vc = [RealNameVerifyStatusController new];
+                    vc.status = [_userModel.is_role_verified integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else if([_userModel.is_verified integerValue] == 2){
+                    RealNameVerifyStatusController *vc = [RealNameVerifyStatusController new];
+                    vc.status = [_userModel.is_role_verified integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else if([_userModel.is_verified integerValue] == 3){
+                    RealNameVerifyStatusController *vc = [RealNameVerifyStatusController new];
+                    vc.status = [_userModel.is_role_verified integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else if([_userModel.is_verified integerValue] == 4){
+                    RealNameVerifyStatusController *vc = [RealNameVerifyStatusController new];
+                    vc.status = [_userModel.is_role_verified integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+            }else if(indexPath.row == 4){
+                //发布专家成果
+                CreateZjcgController *vc = [CreateZjcgController new];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }
-            
-        }else if(indexPath.section == 3){
-            if (indexPath.row == 2) {
+        }else if(indexPath.section == 2){
+            if (indexPath.row == 3) {
                 ObjectListController *vc = [[ObjectListController alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 vc.displayType = User_Friend_Invitation;
                 [self.navigationController pushViewController:vc animated:YES];
-            }else if(indexPath.row == 1){
+            }else if(indexPath.row == 2){
                 ObjectListController *vc = [[ObjectListController alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 vc.displayType = User_Team_Invitation;
                 [self.navigationController pushViewController:vc animated:YES];
-            }else{
+            }else if (indexPath.row == 1) {
+                //创建团队
+                if ([_userModel.is_role_verified isEqualToString:@"0"]){
+                    // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+                    NSString *mess = @"身份认证成功后才能创建团队";
+                    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:mess preferredStyle:UIAlertControllerStyleAlert];
+                    // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+                    //    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                    //        NSLog(@"点击了取消按钮");
+                    //    }];
+                    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        NSLog(@"点击了确定按钮");
+                    }];
+                    // 3.将“取消”和“确定”按钮加入到弹框控制器中
+                    //    [alertVc addAction:cancle];
+                    [alertVc addAction:confirm];
+                    // 4.控制器 展示弹框控件，完成时不做操作
+                    [self presentViewController:alertVc animated:YES completion:^{
+                        nil;
+                    }];
+                }else{
+                    CreateTeamController *vc = [CreateTeamController new];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+            }else if (indexPath.row == 0){
                 TeamCategoryController *vc = [TeamCategoryController new];
                 vc.type = 0;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
-        }else if(indexPath.section == 4){
+        }else if(indexPath.section == 3){
             
-        }else if(indexPath.section == 5){
+        }else if(indexPath.section == 4){
             if (indexPath.row == 0) {
                 //我的任务
                 TaskStatusController *vc = [TaskStatusController new];
@@ -300,7 +431,6 @@
             }else{
                 //我关注的动态
             }
-            
         }else{
             //        SetUpController *vc = [SetUpController new];
             //        vc.hidesBottomBarWhenPushed = YES;

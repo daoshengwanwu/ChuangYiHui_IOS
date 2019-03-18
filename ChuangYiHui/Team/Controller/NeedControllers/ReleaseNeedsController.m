@@ -51,9 +51,9 @@
     if (_needType == 0) {
         self.title = @"发布人员需求";
     }else if(_needType == 1){
-        self.title = @"发布承接需求";
+        self.title = @"发布附能需求";
     }else{
-        self.title = @"发布外包需求";
+        self.title = @"发布项目需求";
     }
 }
 

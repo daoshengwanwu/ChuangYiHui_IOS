@@ -25,13 +25,19 @@
 
 //get 获取用户列表 post 注册
 #define URL_GET_USERS URLFrame(@"users/")
+//获取专家列表
+#define URL_GET_EXPERTS URLFrame(@"users/screen/")
+
+
 #define URL_GET_TEAMS URLFrame(@"teams/")
 #define URL_GET_SELF_PROFILE URLFrame(@"users/current/profile/")
-#define URL_GET_FRIENDS URLFrame(@"users/current/friends/")
+#define URL_GET_FRIENDS URLFrame(@"users/current/friend/")
+#define URL_GET_INVITECODE URLFrame(@"users/current/invitation_code/")
 #define URL_GET_FOLLOWERS URLFrame(@"users/current/followers/")
 #define URL_GET_COMPETITIONS URLFrame(@"users/current/competition/")
 #define URL_GET_SCORE_RECORDS URLFrame(@"users/current/score_records/")
-#define URL_GET_FRIEND_REQUESTS URLFrame(@"users/current/friend_requests/")
+//#define URL_GET_FRIEND_REQUESTS URLFrame(@"users/current/friend_requests/")
+#define URL_GET_FRIEND_REQUESTS URLFrame(@"users/current/friend/request/")
 #define URL_GET_TEAM_INVITATIONS URLFrame(@"users/current/invitations/")
 #define URL_GET_RELATED_TEAMS URLFrame(@"users/current/teams/")
 #define URL_GET_OWNED_TEAMS URLFrame(@"users/current/teams/owned/")
@@ -54,6 +60,9 @@
 #define URL_UPLOAD_OTHER_IMAGE URLFrame(@"users/current/other_card/")
 //身份认证
 #define URL_IDENTITY_VERIFY URLFrame(@"users/current/other_identity_verification/")
+
+//实名认证
+#define URL_REALNAME_VERIFY URLFrame(@"users/current/identity_verification/")
 
 //意见反馈
 #define URL_FEEDBACK URLFrame(@"users/current/feedback/")

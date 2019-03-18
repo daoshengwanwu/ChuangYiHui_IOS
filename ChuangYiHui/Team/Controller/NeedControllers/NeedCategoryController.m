@@ -55,7 +55,7 @@
 
 
 - (void)setArr{
-    _titleArr = @[@"人员需求", @"承接需求", @"外包需求"];
+    _titleArr = @[@"人员需求", @"附能需求", @"项目需求"];
     _imageNameArr = @[@"internal_task_icon", @"undertake_task_icon", @"outsource_task_icon"];
 }
 

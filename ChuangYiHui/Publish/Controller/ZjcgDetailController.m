@@ -365,7 +365,7 @@
     }];
     line.backgroundColor = lightGray;
 
-    //底部按钮
+    //底部点赞按钮
     UIButton * btn_zan = [UIButton new];
     [line addSubview:btn_zan];
     [btn_zan mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -382,6 +382,24 @@
         [btn_zan setTitle:@"点 赞" forState:UIControlStateNormal];
         btn_zan.backgroundColor = blueTextColor;
     }
+    
+//    //底部收藏按钮
+//    UIButton * btn_favor = [UIButton new];
+//    [line addSubview:btn_favor];
+//    [btn_favor mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(10);
+//        make.right.mas_equalTo(-10);
+//        make.top.mas_equalTo(20);
+//        make.height.mas_equalTo(38);
+//    }];
+//    if([_model.is_yes isEqualToString:@"true"]){
+//        [btn_favor setTitle:@"取 消 收 藏" forState:UIControlStateNormal];
+//
+//        btn_favor.backgroundColor = grayTextColor;
+//    }else{
+//        [btn_favor setTitle:@"收 藏" forState:UIControlStateNormal];
+//        btn_favor.backgroundColor = blueTextColor;
+//    }
     
     
     [btn_zan addTarget:self action:@selector(onJoinClick) forControlEvents:UIControlEventTouchUpInside];

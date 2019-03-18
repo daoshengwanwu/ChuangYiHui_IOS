@@ -119,7 +119,7 @@
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-    //关于创易汇
+    //关于世纪智库
         [self performSegueWithIdentifier:@"goToAboutAppController" sender:self];
     }else if(indexPath.row == 1){
     //绑定手机号

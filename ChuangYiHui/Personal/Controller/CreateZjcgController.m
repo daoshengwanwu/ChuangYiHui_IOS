@@ -207,7 +207,7 @@
    {
        textView.text = [textView.text substringToIndex:200];
        NSString *title = NSLocalizedString(@"字数限制", nil);
-       NSString *message = NSLocalizedString(@"字数限定长度为200。", nil);
+       NSString *message = NSLocalizedString(@"字数限定长度为500。", nil);
        NSString *OKButtonTitle = NSLocalizedString(@"确定", nil);
        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
        
@@ -349,7 +349,7 @@
                 AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];//读取设备授权状态
                 if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
                     
-                    NSString *message=[NSString stringWithFormat:@"请前往设置－创易汇打开相机，以便拍照"];
+                    NSString *message=[NSString stringWithFormat:@"请前往设置－世纪智库打开相机，以便拍照"];
                     
                     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
                     

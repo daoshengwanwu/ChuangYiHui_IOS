@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KHy-b9-QE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KHy-b9-QE3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--创友列表-->
+        <!--个人-->
         <scene sceneID="2tw-XD-U7A">
             <objects>
-                <viewController id="CEp-VK-Ds7" customClass="UserListController" sceneMemberID="viewController">
+                <viewController id="CEp-VK-Ds7" customClass="UserController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zs4-RO-BJs"/>
                         <viewControllerLayoutGuide type="bottom" id="QMb-gn-QQY"/>
@@ -19,32 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="创友列表" id="nSk-Qc-phT"/>
-                    <connections>
-                        <segue destination="9P0-HT-xz9" kind="show" identifier="goToUserDetail" id="T47-bW-O7D"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="个人" id="nSk-Qc-phT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaP-r5-aTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1148" y="173.16341829085459"/>
-        </scene>
-        <!--创友-->
-        <scene sceneID="Z9b-DK-SFx">
-            <objects>
-                <viewController title="创友" id="9P0-HT-xz9" customClass="UserDetailController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dES-p8-yj3"/>
-                        <viewControllerLayoutGuide type="bottom" id="vXl-GE-nzy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KAx-3i-yV4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TVP-F8-Q95" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1983" y="173"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xNu-o4-b20">
@@ -52,7 +34,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHy-b9-QE3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WhO-tv-fLO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

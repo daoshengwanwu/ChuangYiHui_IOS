@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.title = [self getTitle];
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"进行中", @"已满足", @"已删除"];
+    NSArray *titles = @[@"进行中", @"已完成", @"已终止"];
     NSMutableArray *viewControllers = [NSMutableArray new];
     for (int i = 0 ; i< titles.count; i++) {
         TaskListController *vc = [TaskListController new];

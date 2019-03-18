@@ -10,17 +10,68 @@
 #import "UIBarButtonItem+GYY.h"
 #import "TabViewController.h"
 
+//#import "WXApiManager.h"
+//#import "ADWXLoginResp.h"
+//#import "ADCheckLoginResp.h"
+//#import "ADUserInfo.h"
+//#import "ADConnectResp.h"
+//#import "ADNetworkEngine.h"
+//#import "ADGetUserInfoResp.h"
+//#import "AppDelegate.h"
+//#import "ADNetworkEngine.h"
+//#import "AppDelegate.h"
+//#import "Definition.h"
+//#import "DebugViewController.h"
+
+//#import "UserInfoViewController.h"
+#import "AppDelegate.h"
+
+
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+static const int kWXLoginButtonWidth = 327;
+static const int kWXLoginButtonHeight = 40;
+static const CGFloat kWXLoginButtonFontSize = 16.0f;
+
+static NSString* const kWXLoginErrorTitle = @"微信登录失败";
+static NSString* const kConnectErrorTitle = @"连接服务器失败";
+static NSString* const kWXAuthDenyTitle = @"授权失败";
+
+
+/* Title Message */
+static NSString* const kVisitorLoginTitle = @"游客模式进入";
+static NSString* const kTitleLabelText = @"WeDemo";
+/* Font */
+static const CGFloat kTitleLabelFontSize = 18.0f;
+static const CGFloat kVisitorButtonFontSize = 12.0f;
+/* Size */
+static const int kLogoImageWidth = 75;
+static const int kLogoImageHeight = 52;
+static const int kTitleLabelWidth = 150;
+static const int kTitleLabelHeight = 44;
+static const int kWXLogoImageWidth = 25;
+static const int kWXLogoImageHeight = 20;
+static const int kVisitorLoginButtonWidth = 200;
+static const int kVisitorLoginButtonHeight = 44;
 
 
 @interface LoginController ()<RCIMUserInfoDataSource>
+
 
 @property (weak, nonatomic) IBOutlet UIView *usernameView;
 @property (weak, nonatomic) IBOutlet UITextField *usernameText;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (nonatomic, strong) UIButton *wxLoginButton;
 
 @end
+
+//@interface LoginController ()<WXAuthDelegate>
+
+//@end
 
 @implementation LoginController
 
@@ -50,13 +101,128 @@
     if (_enterType == 0) {
         [self setLeftButton];
     }
+    [self.view addSubview:self.wxLoginButton];
 }
 
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+//    CGFloat loginButtonCenterY = ScreenHeight / 3 * 2;
+    CGFloat loginButtonCenterY = 465;
+    self.wxLoginButton.frame = CGRectMake(0, 0, kWXLoginButtonWidth, kWXLoginButtonHeight);
+    self.wxLoginButton.center = CGPointMake(self.view.center.x, loginButtonCenterY);
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (UIButton *)wxLoginButton {
+//    if (_wxLoginButton == nil) {
+//        _wxLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        _wxLoginButton.backgroundColor = [UIColor colorWithRed:0.04
+//                                                         green:0.73
+//                                                          blue:0.03
+//                                                         alpha:1.00];
+//        _wxLoginButton.layer.cornerRadius = kLoginButtonCornerRadius;
+//        [_wxLoginButton setTitle:@"微信登录" forState:UIControlStateNormal];
+//        [_wxLoginButton addTarget:self
+//                           action:@selector(onClickWXLogin:)
+//                 forControlEvents:UIControlEventTouchUpInside];
+//        _wxLoginButton.titleLabel.font = [UIFont fontWithName:kChineseFont
+//                                                         size:kWXLoginButtonFontSize];
+//    }
+//    return _wxLoginButton;
+//}
+//
+//#pragma mark - User Actions
+//- (void)onClickWXLogin: (UIButton *)sender {
+//    if (sender != self.wxLoginButton)
+//        return;
+//    [[WXApiManager sharedManager] sendAuthRequestWithController:self
+//                                                       delegate:self];
+//}
+//
+//
+//#pragma mark - WXAuthDelegate
+//- (void)wxAuthSucceed:(NSString *)code {
+//    [ADUserInfo currentUser].authCode = code;
+//    ADShowActivity(self.view);
+//    [[ADNetworkEngine sharedEngine] wxLoginForAuthCode:code
+//                                        WithCompletion:^(ADWXLoginResp *resp) {
+//                                            [self handleWXLoginResponse:resp];
+//                                        }];
+//}
+//
+//- (void)wxAuthDenied {
+//    ADShowErrorAlert(kWXAuthDenyTitle);
+//}
+//
+//#pragma mark - Network Handlers
+//- (void)handleConnectResponse: (ADConnectResp *)resp {
+//    if (resp && resp.baseResp.errcode == 0) {
+//        [ADUserInfo currentUser].uin = (UInt32)resp.tempUin;
+//        [ADUserInfo visitorUser].uin = (UInt32)resp.tempUin;
+////        NSLog(@"sda");
+//    } else {
+//        NSLog(@"Connect Failed");
+//        NSString *errorTitle = [NSString errorTitleFromResponse:resp.baseResp
+//                                                   defaultError:kConnectErrorTitle];
+//        ADShowErrorAlert(errorTitle);
+//        ADHideActivity;
+//    }
+//}
+//
+//- (void)handleWXLoginResponse:(ADWXLoginResp *)resp {
+//    if (resp && resp.baseResp.errcode == ADErrorCodeNoError) {
+//        NSLog(@"WXLogin Success");
+//        [ADUserInfo currentUser].uin = (UInt32)resp.uin;
+//        [ADUserInfo currentUser].loginTicket = resp.loginTicket;
+//        [[ADNetworkEngine sharedEngine] checkLoginForUin:resp.uin
+//                                             LoginTicket:resp.loginTicket
+//                                          WithCompletion:^(ADCheckLoginResp *checkLoginResp) {
+//                                              [self handleCheckLoginResponse:checkLoginResp];
+//                                          }];
+//    } else {
+//        NSLog(@"WXLogin Fail");
+//        NSString *errorTitle = [NSString errorTitleFromResponse:resp.baseResp
+//                                                   defaultError:kWXLoginErrorTitle];
+//        ADShowErrorAlert(errorTitle);
+//        ADHideActivity;
+//    }
+//}
+//
+//- (void)handleCheckLoginResponse:(ADCheckLoginResp *)resp {
+//    ADHideActivity;
+//    if (resp && resp.sessionKey) {
+//        NSLog(@"Check Login Success");
+//        [ADUserInfo currentUser].sessionExpireTime = resp.expireTime;
+//        [[ADUserInfo currentUser] save];
+//        [[ADNetworkEngine sharedEngine] getUserInfoForUin:[ADUserInfo currentUser].uin
+//                                              LoginTicket:[ADUserInfo currentUser].loginTicket
+//                                           WithCompletion:^(ADGetUserInfoResp *resp) {
+//                                               [ADUserInfo currentUser].nickname = resp.nickname;
+//                                               [ADUserInfo currentUser].headimgurl = resp.headimgurl;
+//                                               AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+////                                               delegate.userInfoView.userInfoResp = resp;
+////                                               [[ADNetworkEngine sharedEngine] downloadImageForUrl:resp.headimgurl
+////                                                                                    WithCompletion:^(UIImage *image) {
+////                                                                                        [delegate.userInfoView.tableView reloadData];
+////                                                                                    }];
+//                                           }];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//    } else {
+////        NSLog(@"Check Login Fail");
+//        NSString *errorTitle = [NSString errorTitleFromResponse:resp.baseResp
+//                                                   defaultError:kWXLoginErrorTitle];
+//        ADShowErrorAlert(errorTitle);
+//        ADHideActivity;
+//    }
+//}
+
+
 
 
 //注册

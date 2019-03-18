@@ -17,6 +17,9 @@
 #import "SHPlacePickerView.h"
 #import "CY51CTOCourseListItem.h"
 #import "PlaceModel.h"
+#import "LBXScan1ViewController.h"
+#import "StyleDIY.h"
+#import "FilterViewController.h"
 
 
 @interface HotSpotController ()<XLSlideSwitchDelegate>
@@ -36,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpRightButton];
+
     NSArray *titles = @[@"发布", @"竞赛", @"活动", @"资源"];
     NSMutableArray *viewControllers = [NSMutableArray new];
     
@@ -114,7 +119,62 @@
     [arrowview setImage:[UIImage imageNamed:@"down_arrow"]];
     
     [self registerNotificationCenter];
+    
+    [self setUpLeftButton];
 }
+
+- (void)setUpLeftButton{
+    //设置导航栏的左边按钮
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"filter_icon"] forState:UIControlStateNormal];
+    UIView *leftCustomView = [[UIView alloc] initWithFrame: leftButton.frame];
+    [leftCustomView addSubview: leftButton];
+    [leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * leftItem =[[UIBarButtonItem alloc] initWithCustomView: leftCustomView];
+    
+//    self.navigationItem.leftBarButtonItems = @[self.headerIconItem];
+//    leftButton.imageEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
+//    [leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+- (void)setUpRightButton{
+    //设置导航栏的右边按钮
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [rightButton setImage:[UIImage imageNamed:@"scan_icon"] forState:UIControlStateNormal];
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(6, 6, 6, 6);
+    [rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+
+- (void)leftButtonAction{
+    FilterViewController *vc = [FilterViewController new];
+//    vc.style = style;
+//    vc.isOpenInterestRect = YES;
+//    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (void)rightButtonAction{
+    [self openScanVCWithStyle:[StyleDIY weixinStyle]];
+}
+
+
+#pragma mark ---自定义界面
+
+- (void)openScanVCWithStyle:(LBXScanViewStyle*)style
+{
+    LBXScan1ViewController *vc = [LBXScan1ViewController new];
+    vc.style = style;
+    vc.isOpenInterestRect = YES;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 -(void)selectAction{
     __weak __typeof(self)weakSelf = self;

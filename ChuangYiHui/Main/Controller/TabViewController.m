@@ -52,7 +52,7 @@
         UINavigationController *tab3 = (UINavigationController *)userSB.instantiateInitialViewController;
         tab3.delegate = self;
         
-        UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTitle:@"创友" image:[UIImage imageNamed:@"tab_user"] selectedImage:[UIImage imageNamed:@"tab_user_selected"]];
+        UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTitle:@"个人" image:[UIImage imageNamed:@"tab_user"] selectedImage:[UIImage imageNamed:@"tab_user_selected"]];
         tabItem.tag = 2;
         tab3.tabBarItem = tabItem;
         
@@ -60,7 +60,7 @@
         UINavigationController *tab4 = (UINavigationController *)teamSB.instantiateInitialViewController;
         tab4.delegate = self;
         
-        UITabBarItem *teamItem = [[UITabBarItem alloc] initWithTitle:@"团队" image:[UIImage imageNamed:@"tab_team"] selectedImage:[UIImage imageNamed:@"tab_team_selected"]];
+        UITabBarItem *teamItem = [[UITabBarItem alloc] initWithTitle:@"群体" image:[UIImage imageNamed:@"tab_team"] selectedImage:[UIImage imageNamed:@"tab_team_selected"]];
         teamItem.tag = 3;
         
         tab4.tabBarItem = teamItem;
@@ -69,7 +69,7 @@
         UIStoryboard *personalSB = [UIStoryboard storyboardWithName:@"Personal" bundle:nil];
         UINavigationController *tab5 = (UINavigationController *)personalSB.instantiateInitialViewController;
         tab5.delegate = self;
-        UITabBarItem *personalItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_me"] selectedImage:[UIImage imageNamed:@"tab_me_selected"]];
+        UITabBarItem *personalItem = [[UITabBarItem alloc] initWithTitle:@"我" image:[UIImage imageNamed:@"tab_me"] selectedImage:[UIImage imageNamed:@"tab_me_selected"]];
         personalItem.tag = 4;
         tab5.tabBarItem = personalItem;
         

@@ -601,9 +601,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.title.text = _titleArr[indexPath.section][indexPath.row];
     cell.img.image = [UIImage imageNamed:_imageNameArr[indexPath.section][indexPath.row]];
-    NSLog(@"name:%@,role:%@",_model.name,_model.role);
+//    NSLog(@"name:%@,role:%@",_model.name,_model.role);
     if([cell.title.text isEqualToString:@"朋友评价"] && [_model.role isEqualToString:@"专家"])
     {
+        NSLog(@"name:%@,role:%@",_model.name,_model.role);
         cell.hidden = YES;//重点
     }
     return cell;
@@ -642,6 +643,9 @@
             //他人的经历背景
             TeamCategoryController *vc = [[TeamCategoryController alloc] init];
             vc.type = 3;
+            if ([_model.role isEqualToString:@"专家"]){
+                vc.type = 6;
+            }
             vc.user_id = _model.user_id;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -676,10 +680,31 @@
             //个人标签
         }else if(indexPath.row == 1){
             //朋友评价
-            ObjectListController *vc = [ObjectListController new];
-            vc.object_id = _model.user_id;
-            vc.displayType = User_Comments;
-            [self.navigationController pushViewController:vc animated:YES];
+            if ([_model.role isEqualToString:@"专家"]){
+                // 1.创建弹框控制器, UIAlertControllerStyleAlert这个样式代表弹框显示在屏幕中央
+                NSString *mess = @"专家暂不支持朋友评价";
+                UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:mess preferredStyle:UIAlertControllerStyleAlert];
+                // 2.添加取消按钮，block中存放点击了“取消”按钮要执行的操作
+                //    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                //        NSLog(@"点击了取消按钮");
+                //    }];
+                UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    NSLog(@"点击了确定按钮");
+                }];
+                // 3.将“取消”和“确定”按钮加入到弹框控制器中
+                //    [alertVc addAction:cancle];
+                [alertVc addAction:confirm];
+                // 4.控制器 展示弹框控件，完成时不做操作
+                [self presentViewController:alertVc animated:YES completion:^{
+                    nil;
+                }];
+            }else{
+                ObjectListController *vc = [ObjectListController new];
+                vc.object_id = _model.user_id;
+                vc.displayType = User_Comments;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
         }else{
             //举报
             SCLAlertView *alert = [[SCLAlertView alloc] init];

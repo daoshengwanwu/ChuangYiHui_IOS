@@ -184,7 +184,7 @@
         make.right.mas_equalTo(arrowImageView.mas_left);;
         make.centerY.equalTo(underTakeHeaderView.mas_centerY).with.offset(-2);
     }];
-    headerTextLabel.text = @"承接需求";
+    headerTextLabel.text = @"附能需求";
     headerTextLabel.textColor = [UIColor darkGrayColor];
     
     bottomLineView = [UIView new];
@@ -271,7 +271,7 @@
         make.right.mas_equalTo(arrowImageView.mas_left);;
         make.centerY.equalTo(outSourceHeaderView.mas_centerY).with.offset(-2);
     }];
-    headerTextLabel.text = @"课题需求";
+    headerTextLabel.text = @"项目需求";
     headerTextLabel.textColor = [UIColor darkGrayColor];
     
     bottomLineView = [UIView new];

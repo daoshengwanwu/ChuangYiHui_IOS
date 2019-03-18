@@ -21,6 +21,8 @@ typedef void (^requestFailure) (id data, NSString *message);
 
 - (void)httpRequestWithGET:(NSString *)url success:(requestSuccess)success failed:(requestFailure)failed;
 
+- (void)httpRequestWithGETandParam:(NSString *)url parameters:(NSDictionary *)parameter success:(requestSuccess)success failed:(requestFailure)failed;
+
 - (void)httpRequestWithDELETE:(NSString *)url success:(requestSuccess)success failed:(requestFailure)failed;
 
 @end
