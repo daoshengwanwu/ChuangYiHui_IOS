@@ -13,6 +13,7 @@
 #import "StyleDIY.h"
 #import "WBPopMenuModel.h"
 #import "WBPopMenuSingleton.h"
+#import "LLSearchViewController.h"
 
 #define cellIdentifier @"teamListCell"
 
@@ -121,7 +122,8 @@
         if(index==0){
             [self openScanVCWithStyle:[StyleDIY weixinStyle]];
         }else if(index ==1){
-            
+            LLSearchViewController *seachVC = [[LLSearchViewController alloc] init];
+            [self.navigationController pushViewController:seachVC animated:YES];
         }
         
     }];
