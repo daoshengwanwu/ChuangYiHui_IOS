@@ -23,6 +23,7 @@
 #import "CreateZjcgController.h"
 #import "LBXScan1ViewController.h"
 #import "StyleDIY.h"
+#import "ContactViewController.h"
 
 #import "RealNameVerifyController.h"
 #import "RealNameVerifyStatusController.h"
@@ -74,9 +75,14 @@
     
     if ([CommonTool checkIfLogin:self]) {
         _personalHeaderView.FriendClickBlock = ^{
-            ObjectListController *vc = [[ObjectListController alloc] init];
-            vc.displayType = User_Friends;
+//            ObjectListController *vc = [[ObjectListController alloc] init];
+//            vc.displayType = User_Friends;
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
+            ContactViewController *vc = [ContactViewController new];
             vc.hidesBottomBarWhenPushed = YES;
+//            vc.userModel = weakSelf.userModel;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         };
         

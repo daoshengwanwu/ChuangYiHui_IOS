@@ -47,7 +47,7 @@
         tableView.dataSource = self;
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        tableView.rowHeight = 160.0f;
+        tableView.rowHeight = 120.0f;
         [tableView registerNib:[UINib nibWithNibName:@"TeamActionListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:TeamActionListCellIdentifier];
         
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

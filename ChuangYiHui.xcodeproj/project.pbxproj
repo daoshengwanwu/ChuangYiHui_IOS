@@ -40,19 +40,28 @@
 		6C71ADFC223FBBC800317AAD /* YZSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71ADF2223FBBC800317AAD /* YZSortViewController.m */; };
 		6C71ADFD223FBBC800317AAD /* YZAllCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71ADF3223FBBC800317AAD /* YZAllCourseViewController.m */; };
 		6C71AE05223FC73200317AAD /* YZCityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE04223FC73200317AAD /* YZCityTableViewController.m */; };
-		6C71AE1C2243489100317AAD /* leftImage220.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE082243488D00317AAD /* leftImage220.jpg */; };
-		6C71AE1D2243489100317AAD /* rightImage576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE0A2243488D00317AAD /* rightImage576.jpg */; };
-		6C71AE1E2243489100317AAD /* leftImage576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE0D2243488E00317AAD /* leftImage576.jpg */; };
 		6C71AE1F2243489100317AAD /* LLSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE0E2243488E00317AAD /* LLSearchResultView.m */; };
 		6C71AE202243489100317AAD /* LLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE0F2243488E00317AAD /* LLSearchResultViewController.m */; };
 		6C71AE212243489100317AAD /* LLSearchResultListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE112243488F00317AAD /* LLSearchResultListViewCell.m */; };
 		6C71AE222243489100317AAD /* LLSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE132243488F00317AAD /* LLSearchView.m */; };
-		6C71AE232243489100317AAD /* leftImage345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE142243488F00317AAD /* leftImage345.jpg */; };
 		6C71AE242243489100317AAD /* LLSearchResultDoubleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE152243488F00317AAD /* LLSearchResultDoubleViewCell.m */; };
-		6C71AE252243489100317AAD /* rightImage220.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE162243489000317AAD /* rightImage220.jpg */; };
 		6C71AE262243489100317AAD /* LLSearchSuggestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE182243489000317AAD /* LLSearchSuggestionVC.m */; };
 		6C71AE272243489100317AAD /* LLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE1A2243489000317AAD /* LLSearchViewController.m */; };
-		6C71AE282243489100317AAD /* rightImage345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C71AE1B2243489100317AAD /* rightImage345.jpg */; };
+		6C71AE322243602800317AAD /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE2A2243602700317AAD /* NSString+Utils.m */; };
+		6C71AE332243602800317AAD /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE2B2243602700317AAD /* ContactModel.m */; };
+		6C71AE342243602800317AAD /* ContactDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE2F2243602800317AAD /* ContactDataHelper.m */; };
+		6C71AE352243602800317AAD /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE312243602800317AAD /* ContactTableViewCell.m */; };
+		6C71AE382243604E00317AAD /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE372243604E00317AAD /* ContactViewController.m */; };
+		6C71AE542243620400317AAD /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE39224361FC00317AAD /* NSArray+JSONModel.m */; };
+		6C71AE772243631300317AAD /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE642243630F00317AAD /* JSONModelError.m */; };
+		6C71AE782243631300317AAD /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE6A2243631000317AAD /* JSONHTTPClient.m */; };
+		6C71AE792243631300317AAD /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE6E2243631100317AAD /* JSONAPI.m */; };
+		6C71AE7A2243631300317AAD /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE6F2243631100317AAD /* JSONKeyMapper.m */; };
+		6C71AE7B2243631300317AAD /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE702243631200317AAD /* JSONModel.m */; };
+		6C71AE7C2243631300317AAD /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE722243631200317AAD /* JSONModel+networking.m */; };
+		6C71AE7D2243631300317AAD /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE732243631200317AAD /* JSONModelArray.m */; };
+		6C71AE7E2243631300317AAD /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE742243631200317AAD /* JSONModelClassProperty.m */; };
+		6C71AE7F2243631300317AAD /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C71AE762243631300317AAD /* JSONValueTransformer.m */; };
 		6C94B8AE223609460042DA49 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C94B8AD223609460042DA49 /* Security.framework */; };
 		6C97902921F6F9B000C780ED /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C97902821F6F9B000C780ED /* XWScanImage.m */; };
 		6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A869D20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m */; };
@@ -358,26 +367,51 @@
 		6C71AE03223FC73200317AAD /* YZCityTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YZCityTableViewController.h; sourceTree = "<group>"; };
 		6C71AE04223FC73200317AAD /* YZCityTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZCityTableViewController.m; sourceTree = "<group>"; };
 		6C71AE072243488D00317AAD /* LLSearchResultListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchResultListViewCell.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultListViewCell.h"; sourceTree = "<group>"; };
-		6C71AE082243488D00317AAD /* leftImage220.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = leftImage220.jpg; path = "../../../LLSearchView-master/LLSearchView/leftImage220.jpg"; sourceTree = "<group>"; };
 		6C71AE092243488D00317AAD /* LLSearchSuggestionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchSuggestionVC.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchSuggestionVC.h"; sourceTree = "<group>"; };
-		6C71AE0A2243488D00317AAD /* rightImage576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rightImage576.jpg; path = "../../../LLSearchView-master/LLSearchView/rightImage576.jpg"; sourceTree = "<group>"; };
 		6C71AE0B2243488E00317AAD /* LLSearchView.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchView.pch; path = "../../../LLSearchView-master/LLSearchView/LLSearchView.pch"; sourceTree = "<group>"; };
 		6C71AE0C2243488E00317AAD /* LLSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchViewController.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchViewController.h"; sourceTree = "<group>"; };
-		6C71AE0D2243488E00317AAD /* leftImage576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = leftImage576.jpg; path = "../../../LLSearchView-master/LLSearchView/leftImage576.jpg"; sourceTree = "<group>"; };
 		6C71AE0E2243488E00317AAD /* LLSearchResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchResultView.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultView.m"; sourceTree = "<group>"; };
 		6C71AE0F2243488E00317AAD /* LLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchResultViewController.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultViewController.m"; sourceTree = "<group>"; };
 		6C71AE102243488E00317AAD /* LLSearchResultDoubleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchResultDoubleViewCell.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultDoubleViewCell.h"; sourceTree = "<group>"; };
 		6C71AE112243488F00317AAD /* LLSearchResultListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchResultListViewCell.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultListViewCell.m"; sourceTree = "<group>"; };
 		6C71AE122243488F00317AAD /* LLSearchResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchResultView.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultView.h"; sourceTree = "<group>"; };
 		6C71AE132243488F00317AAD /* LLSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchView.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchView.m"; sourceTree = "<group>"; };
-		6C71AE142243488F00317AAD /* leftImage345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = leftImage345.jpg; path = "../../../LLSearchView-master/LLSearchView/leftImage345.jpg"; sourceTree = "<group>"; };
 		6C71AE152243488F00317AAD /* LLSearchResultDoubleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchResultDoubleViewCell.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultDoubleViewCell.m"; sourceTree = "<group>"; };
-		6C71AE162243489000317AAD /* rightImage220.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rightImage220.jpg; path = "../../../LLSearchView-master/LLSearchView/rightImage220.jpg"; sourceTree = "<group>"; };
 		6C71AE172243489000317AAD /* LLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchResultViewController.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchResultViewController.h"; sourceTree = "<group>"; };
 		6C71AE182243489000317AAD /* LLSearchSuggestionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchSuggestionVC.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchSuggestionVC.m"; sourceTree = "<group>"; };
 		6C71AE192243489000317AAD /* LLSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSearchView.h; path = "../../../LLSearchView-master/LLSearchView/LLSearchView.h"; sourceTree = "<group>"; };
 		6C71AE1A2243489000317AAD /* LLSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSearchViewController.m; path = "../../../LLSearchView-master/LLSearchView/LLSearchViewController.m"; sourceTree = "<group>"; };
-		6C71AE1B2243489100317AAD /* rightImage345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rightImage345.jpg; path = "../../../LLSearchView-master/LLSearchView/rightImage345.jpg"; sourceTree = "<group>"; };
+		6C71AE2A2243602700317AAD /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Utils.m"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/libs/NSString+Utils.m"; sourceTree = "<group>"; };
+		6C71AE2B2243602700317AAD /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactModel.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/ContactModel.m"; sourceTree = "<group>"; };
+		6C71AE2C2243602700317AAD /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactTableViewCell.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/ContactTableViewCell.h"; sourceTree = "<group>"; };
+		6C71AE2D2243602700317AAD /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Utils.h"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/libs/NSString+Utils.h"; sourceTree = "<group>"; };
+		6C71AE2E2243602700317AAD /* ContactDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactDataHelper.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/libs/ContactDataHelper.h"; sourceTree = "<group>"; };
+		6C71AE2F2243602800317AAD /* ContactDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactDataHelper.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/libs/ContactDataHelper.m"; sourceTree = "<group>"; };
+		6C71AE302243602800317AAD /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactModel.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/ContactModel.h"; sourceTree = "<group>"; };
+		6C71AE312243602800317AAD /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactTableViewCell.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/ContactTableViewCell.m"; sourceTree = "<group>"; };
+		6C71AE362243604E00317AAD /* ContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		6C71AE372243604E00317AAD /* ContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		6C71AE39224361FC00317AAD /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+JSONModel.m"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelCategories/NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		6C71AE492243620000317AAD /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+JSONModel.h"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelCategories/NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		6C71AE642243630F00317AAD /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelError.m"; sourceTree = "<group>"; };
+		6C71AE652243630F00317AAD /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModel.h"; sourceTree = "<group>"; };
+		6C71AE662243630F00317AAD /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelArray.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelArray.h"; sourceTree = "<group>"; };
+		6C71AE672243631000317AAD /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONAPI.h"; sourceTree = "<group>"; };
+		6C71AE682243631000317AAD /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JSONModel+networking.h"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONModel+networking.h"; sourceTree = "<group>"; };
+		6C71AE692243631000317AAD /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONHTTPClient.h"; sourceTree = "<group>"; };
+		6C71AE6A2243631000317AAD /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONHTTPClient.m"; sourceTree = "<group>"; };
+		6C71AE6B2243631000317AAD /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelClassProperty.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelClassProperty.h"; sourceTree = "<group>"; };
+		6C71AE6C2243631100317AAD /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelError.h"; sourceTree = "<group>"; };
+		6C71AE6D2243631100317AAD /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelTransformations/JSONValueTransformer.h"; sourceTree = "<group>"; };
+		6C71AE6E2243631100317AAD /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONAPI.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONAPI.m"; sourceTree = "<group>"; };
+		6C71AE6F2243631100317AAD /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelTransformations/JSONKeyMapper.m"; sourceTree = "<group>"; };
+		6C71AE702243631200317AAD /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModel.m"; sourceTree = "<group>"; };
+		6C71AE712243631200317AAD /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKeyMapper.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelTransformations/JSONKeyMapper.h"; sourceTree = "<group>"; };
+		6C71AE722243631200317AAD /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JSONModel+networking.m"; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelNetworking/JSONModel+networking.m"; sourceTree = "<group>"; };
+		6C71AE732243631200317AAD /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModelArray.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelArray.m"; sourceTree = "<group>"; };
+		6C71AE742243631200317AAD /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModel/JSONModelClassProperty.m"; sourceTree = "<group>"; };
+		6C71AE752243631300317AAD /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModelLib.h; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelLib.h"; sourceTree = "<group>"; };
+		6C71AE762243631300317AAD /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = "../../../WeChatContacts-master/WeChatContacts-demo/WeChatContacts-demo/Resources/3rd/JSONModel/JSONModelTransformations/JSONValueTransformer.m"; sourceTree = "<group>"; };
 		6C94B8AD223609460042DA49 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6C97902721F6F9B000C780ED /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
 		6C97902821F6F9B000C780ED /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
@@ -948,9 +982,6 @@
 		6C71AE062243485500317AAD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				6C71AE082243488D00317AAD /* leftImage220.jpg */,
-				6C71AE142243488F00317AAD /* leftImage345.jpg */,
-				6C71AE0D2243488E00317AAD /* leftImage576.jpg */,
 				6C71AE102243488E00317AAD /* LLSearchResultDoubleViewCell.h */,
 				6C71AE152243488F00317AAD /* LLSearchResultDoubleViewCell.m */,
 				6C71AE072243488D00317AAD /* LLSearchResultListViewCell.h */,
@@ -966,11 +997,46 @@
 				6C71AE0B2243488E00317AAD /* LLSearchView.pch */,
 				6C71AE0C2243488E00317AAD /* LLSearchViewController.h */,
 				6C71AE1A2243489000317AAD /* LLSearchViewController.m */,
-				6C71AE162243489000317AAD /* rightImage220.jpg */,
-				6C71AE1B2243489100317AAD /* rightImage345.jpg */,
-				6C71AE0A2243488D00317AAD /* rightImage576.jpg */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		6C71AE2922435FBE00317AAD /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				6C71AE672243631000317AAD /* JSONAPI.h */,
+				6C71AE6E2243631100317AAD /* JSONAPI.m */,
+				6C71AE692243631000317AAD /* JSONHTTPClient.h */,
+				6C71AE6A2243631000317AAD /* JSONHTTPClient.m */,
+				6C71AE712243631200317AAD /* JSONKeyMapper.h */,
+				6C71AE6F2243631100317AAD /* JSONKeyMapper.m */,
+				6C71AE652243630F00317AAD /* JSONModel.h */,
+				6C71AE702243631200317AAD /* JSONModel.m */,
+				6C71AE682243631000317AAD /* JSONModel+networking.h */,
+				6C71AE722243631200317AAD /* JSONModel+networking.m */,
+				6C71AE662243630F00317AAD /* JSONModelArray.h */,
+				6C71AE732243631200317AAD /* JSONModelArray.m */,
+				6C71AE6B2243631000317AAD /* JSONModelClassProperty.h */,
+				6C71AE742243631200317AAD /* JSONModelClassProperty.m */,
+				6C71AE6C2243631100317AAD /* JSONModelError.h */,
+				6C71AE642243630F00317AAD /* JSONModelError.m */,
+				6C71AE752243631300317AAD /* JSONModelLib.h */,
+				6C71AE6D2243631100317AAD /* JSONValueTransformer.h */,
+				6C71AE762243631300317AAD /* JSONValueTransformer.m */,
+				6C71AE492243620000317AAD /* NSArray+JSONModel.h */,
+				6C71AE39224361FC00317AAD /* NSArray+JSONModel.m */,
+				6C71AE2E2243602700317AAD /* ContactDataHelper.h */,
+				6C71AE2F2243602800317AAD /* ContactDataHelper.m */,
+				6C71AE302243602800317AAD /* ContactModel.h */,
+				6C71AE2B2243602700317AAD /* ContactModel.m */,
+				6C71AE2C2243602700317AAD /* ContactTableViewCell.h */,
+				6C71AE312243602800317AAD /* ContactTableViewCell.m */,
+				6C71AE2D2243602700317AAD /* NSString+Utils.h */,
+				6C71AE2A2243602700317AAD /* NSString+Utils.m */,
+				6C71AE362243604E00317AAD /* ContactViewController.h */,
+				6C71AE372243604E00317AAD /* ContactViewController.m */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 		6C97902621F6F98B00C780ED /* XWScanImage */ = {
@@ -1104,6 +1170,7 @@
 		E31936281EC03DCE00621CA4 /* ChuangYiHui */ = {
 			isa = PBXGroup;
 			children = (
+				6C71AE2922435FBE00317AAD /* Contact */,
 				6C71AE062243485500317AAD /* Search */,
 				6C71ADDF223FBB0D00317AAD /* Filter */,
 				6C71ADD8223FB20800317AAD /* YZPullDownMenu */,
@@ -2358,12 +2425,9 @@
 				6C71ADF9223FBBC800317AAD /* YZAllCourseViewController.xib in Resources */,
 				E398F9491EC0B19600CF83C1 /* Society.storyboard in Resources */,
 				E31936391EC03DCE00621CA4 /* Assets.xcassets in Resources */,
-				6C71AE1D2243489100317AAD /* rightImage576.jpg in Resources */,
 				E398F9631EC1ABC700CF83C1 /* UserListCell.xib in Resources */,
 				E33E95881ECD9611002B10FB /* school.db in Resources */,
 				E398F9511EC0B3D900CF83C1 /* Main.storyboard in Resources */,
-				6C71AE252243489100317AAD /* rightImage220.jpg in Resources */,
-				6C71AE232243489100317AAD /* leftImage345.jpg in Resources */,
 				E3CD67C21ECC3B7D005C94BD /* ImageTextfieldCell.xib in Resources */,
 				E3D9B65E1EE7A58F004053D2 /* NeedCell.xib in Resources */,
 				E33A5B8E1EE6425D001E95FF /* InternalTaskCell.xib in Resources */,
@@ -2372,15 +2436,12 @@
 				E33E957E1ECD52F4002B10FB /* UserHeaderView.xib in Resources */,
 				E3B9AA081F4136F800AB2823 /* Competition.storyboard in Resources */,
 				6C71ADFB223FBBC800317AAD /* YZMoreMenuViewController.xib in Resources */,
-				6C71AE282243489100317AAD /* rightImage345.jpg in Resources */,
 				E3B9A9E91F404AA900AB2823 /* ActivityListCell.xib in Resources */,
 				E398F9801EC2FDE800CF83C1 /* ScanResultViewController.xib in Resources */,
 				E398F9471EC0B18500CF83C1 /* HotSpot.storyboard in Resources */,
-				6C71AE1E2243489100317AAD /* leftImage576.jpg in Resources */,
 				E398F92A1EC0A4BB00CF83C1 /* Team.storyboard in Resources */,
 				E398F96D1EC20FEA00CF83C1 /* TeamListCell.xib in Resources */,
 				E33E95841ECD8BB5002B10FB /* area.plist in Resources */,
-				6C71AE1C2243489100317AAD /* leftImage220.jpg in Resources */,
 				6C276FDC20A082F900B0E572 /* TeamActionListCell.xib in Resources */,
 				E3BC58191EC94C210068C971 /* ExperienceCell.xib in Resources */,
 				E398F92C1EC0A4C600CF83C1 /* User.storyboard in Resources */,
@@ -2557,7 +2618,9 @@
 				E33E95B31ECDA465002B10FB /* ActionSheetDistancePicker.m in Sources */,
 				E398F9071EC09F4D00CF83C1 /* NSString+Size.m in Sources */,
 				E398F9081EC09F4D00CF83C1 /* UIBarButtonItem+GYY.m in Sources */,
+				6C71AE7C2243631300317AAD /* JSONModel+networking.m in Sources */,
 				E398F9561EC1652D00CF83C1 /* ImageTitleArrowCell.m in Sources */,
+				6C71AE772243631300317AAD /* JSONModelError.m in Sources */,
 				6C276FD020A081C300B0E572 /* TeamActionController.m in Sources */,
 				E3D1E9281EC4990200B1F552 /* TeamCategoryController.m in Sources */,
 				E398F94C1EC0B1AD00CF83C1 /* HotSpotController.m in Sources */,
@@ -2582,6 +2645,7 @@
 				E3D9B65D1EE7A58F004053D2 /* NeedCell.m in Sources */,
 				E319362E1EC03DCE00621CA4 /* AppDelegate.m in Sources */,
 				6C71ADCB223E438F00317AAD /* UserController.m in Sources */,
+				6C71AE342243602800317AAD /* ContactDataHelper.m in Sources */,
 				E32490F81F05246800BBC943 /* SchoolPickerView.m in Sources */,
 				6C71ADF5223FBBC800317AAD /* YZMoreMenuCell.m in Sources */,
 				E3B9AA051F41327000AB2823 /* CompetitionListCell.m in Sources */,
@@ -2594,6 +2658,7 @@
 				6C71ADCE223E443C00317AAD /* ExpertListController.m in Sources */,
 				E398F97F1EC2FDE800CF83C1 /* ScanResultViewController.m in Sources */,
 				E33A5BA01EE6DF72001E95FF /* NeedListController.m in Sources */,
+				6C71AE7D2243631300317AAD /* JSONModelArray.m in Sources */,
 				E3BC58181EC94C210068C971 /* ExperienceCell.m in Sources */,
 				F7C42D7120AD456C00AC2266 /* PeopleRequireDetailController.m in Sources */,
 				6C518BF920E910090044E6FC /* CompetitionRankModel.m in Sources */,
@@ -2601,16 +2666,21 @@
 				E3D1E9221EC412A800B1F552 /* XLSegmentedSlideSwitch.m in Sources */,
 				E398F9971EC2FFC200CF83C1 /* UIWindow+LBXHierarchy.m in Sources */,
 				E32490EE1F033EF300BBC943 /* BindPhoneController.m in Sources */,
+				6C71AE7B2243631300317AAD /* JSONModel.m in Sources */,
 				E31936371EC03DCE00621CA4 /* ChuangYiHui.xcdatamodeld in Sources */,
 				F7E7BC202121AD3E0020B428 /* CY51CTOCourseListItem.m in Sources */,
 				6C276FD620A082DE00B0E572 /* PersonActionListCell.m in Sources */,
 				E30D71C91F135F630009F59B /* UserGuideViewController.m in Sources */,
 				E3CD67C11ECC3B7D005C94BD /* ImageTextfieldCell.m in Sources */,
+				6C71AE7E2243631300317AAD /* JSONModelClassProperty.m in Sources */,
 				6C71ADDD223FB22100317AAD /* YZPullDownMenu.m in Sources */,
 				E3BC58221EC97C960068C971 /* LabelFieldCell.m in Sources */,
 				E33E95B21ECDA465002B10FB /* ActionSheetDatePicker.m in Sources */,
 				F7FE4D8F20AC4F230061D165 /* PublishViewController.m in Sources */,
+				6C71AE352243602800317AAD /* ContactTableViewCell.m in Sources */,
 				6C9A869E20CD5BD5007D5DA0 /* CompetitionDetailControllerViewController.m in Sources */,
+				6C71AE382243604E00317AAD /* ContactViewController.m in Sources */,
+				6C71AE7A2243631300317AAD /* JSONKeyMapper.m in Sources */,
 				E398F9111EC0A00900CF83C1 /* NetRequest.m in Sources */,
 				E3D1E9251EC412A800B1F552 /* XLSlideSwitch.m in Sources */,
 				E3BFAE471F21DC1A00CFB792 /* OutSourceNeedDetailController.m in Sources */,
@@ -2623,12 +2693,14 @@
 				E398F9091EC09F4D00CF83C1 /* UIButton+Create.m in Sources */,
 				E398F9701EC214B900CF83C1 /* UserDetailController.m in Sources */,
 				6C59C917212B0A9D00461EA3 /* ExpertActionControllerViewController.m in Sources */,
+				6C71AE322243602800317AAD /* NSString+Utils.m in Sources */,
 				E398F95B1EC16FD200CF83C1 /* PersonalHeaderView.m in Sources */,
 				E3A60B151F3716EC004BCBAF /* TaskExternalReleaseViewController.m in Sources */,
 				E398F94F1EC0B1C000CF83C1 /* SocietyController.m in Sources */,
 				E319362B1EC03DCE00621CA4 /* main.m in Sources */,
 				6C71AE212243489100317AAD /* LLSearchResultListViewCell.m in Sources */,
 				E3B9A9EC1F404DF800AB2823 /* ActivityDetailController.m in Sources */,
+				6C71AE7F2243631300317AAD /* JSONValueTransformer.m in Sources */,
 				6C97902921F6F9B000C780ED /* XWScanImage.m in Sources */,
 				E3CD1C071EEC2CCD00D8FE32 /* RegisterController.m in Sources */,
 				6C276FCC20A0818E00B0E572 /* PersonnelActionController.m in Sources */,
@@ -2639,11 +2711,13 @@
 				6CA9D67D21ECAE5B00A63E37 /* ZjcgAdapter.m in Sources */,
 				E398F9321EC0A55E00CF83C1 /* PersonalController.m in Sources */,
 				6CBF908020D7D3C300E410CF /* OwendTeamPickerView.m in Sources */,
+				6C71AE542243620400317AAD /* NSArray+JSONModel.m in Sources */,
 				E3CD67BC1ECC2FB8005C94BD /* CreateTeamController.m in Sources */,
 				E3E8D1D51ED6B01A007B293D /* UserCommentsController.m in Sources */,
 				6C71ADFC223FBBC800317AAD /* YZSortViewController.m in Sources */,
 				E398F9941EC2FFC200CF83C1 /* UIActionSheet+LBXAlertAction.m in Sources */,
 				E33E95B51ECDA465002B10FB /* DistancePickerView.m in Sources */,
+				6C71AE332243602800317AAD /* ContactModel.m in Sources */,
 				E3C036701ECE9347002EF585 /* TeamDescriptionController.m in Sources */,
 				E3A1AC611EE549980037ED9A /* TaskListController.m in Sources */,
 				E3D1E9311EC588EF00B1F552 /* TeamDetailController.m in Sources */,
@@ -2695,6 +2769,7 @@
 				E33E95A01ECDA2C3002B10FB /* ActionSheetStringPicker.m in Sources */,
 				E32490FB1F05F78700BBC943 /* IdentityVerifyStatusController.m in Sources */,
 				E3D9B6641EE8F039004053D2 /* TaskDetailController.m in Sources */,
+				6C71AE782243631300317AAD /* JSONHTTPClient.m in Sources */,
 				6C71AE05223FC73200317AAD /* YZCityTableViewController.m in Sources */,
 				E33A5B9A1EE6DE88001E95FF /* NeedCategoryController.m in Sources */,
 				E398F9961EC2FFC200CF83C1 /* UIAlertView+LBXAlertAction.m in Sources */,
@@ -2712,6 +2787,7 @@
 				6C71AE222243489100317AAD /* LLSearchView.m in Sources */,
 				6C71ADF7223FBBC800317AAD /* UIView+YZCategory.m in Sources */,
 				E3CFDB661EE3A68C002A7A84 /* TeamMemberController.m in Sources */,
+				6C71AE792243631300317AAD /* JSONAPI.m in Sources */,
 				F7FE4D9420AC4F230061D165 /* OutSourceRequireCell.m in Sources */,
 				E33E95B41ECDA465002B10FB /* ActionSheetLocalePicker.m in Sources */,
 				6C71ADF4223FBBC800317AAD /* YZMoreMenuViewController.m in Sources */,

@@ -56,13 +56,17 @@ static NSString * const ID = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"调试indexPath.row:%ld",(long)indexPath.row);
+   
     _selectedCol = indexPath.row;
-    
+    NSLog(@"调试indexPath3:%ld",(long)indexPath);
     // 选中当前
     YZSortCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
+    NSLog(@"调试indexPath1:%ld",(long)indexPath);
+    NSLog(@"调试text:%@",cell.textLabel.text);
     // 更新菜单标题
     [[NSNotificationCenter defaultCenter] postNotificationName:YZUpdateMenuTitleNote object:self userInfo:@{@"title":cell.textLabel.text}];
+    NSLog(@"调试indexPath2:%ld",(long)indexPath);
     
     
 }

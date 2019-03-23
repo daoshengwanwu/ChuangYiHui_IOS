@@ -19,6 +19,13 @@
 
 @interface FilterViewController ()<YZPullDownMenuDataSource>
 @property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSString *area;
+@property (nonatomic, strong) NSString *classes;
+@property (nonatomic, strong) NSArray *saveShaixuan;                       // 存储选中筛选数组
+/**
+ *  观察者
+ */
+@property (nonatomic, weak)   id observer;
 @end
 
 @implementation FilterViewController
@@ -41,10 +48,100 @@
     menu.dataSource = self;
     
     // 初始化标题
-    _titles = @[@"类型",@"城市",@"学校"];
+    _titles = @[@"地区",@"领域"];
+    _area = @"不限";
+    _classes = @"不限";
     
     // 添加子控制器
     [self setupAllChildViewController];
+    //添加监控
+    [self addObser];
+    //确定按钮
+    UIButton * btn_zan = [UIButton new];
+    [self.view addSubview:btn_zan];
+    [btn_zan mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.bottom.mas_equalTo(-5);
+        make.height.mas_equalTo(38);
+    }];
+    UIColor * blueTextColor = COLOR(50, 177, 230);
+    [btn_zan setTitle:@"确 定" forState:UIControlStateNormal];
+    btn_zan.backgroundColor = blueTextColor;
+    
+    [btn_zan addTarget:self action:@selector(onSureClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)onSureClick {
+    
+    //保存信息
+    NSString *province = _area;
+    NSString *lingyu = _classes;
+    
+    self.saveShaixuan = @[province,lingyu];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"saveShaixuan"]) {
+        
+        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveShaixuan"];
+
+        NSString *everProvince = array[0];
+        NSString *everLingyu = array[1];
+        if([province isEqualToString:everProvince]&&[lingyu isEqualToString:everLingyu]){
+            //未做修改
+//            NSLog(@"未做修改0%@",province);
+//            NSLog(@"未做修改1%@",lingyu);
+//            NSLog(@"未做修改2%@",everProvince);
+//            NSLog(@"未做修改3%@",everLingyu);
+            NSString *title = NSLocalizedString(@"未选择", nil);
+            NSString *message = NSLocalizedString(@"请您选择或者更改选择后再点击确定。", nil);
+            NSString *OKButtonTitle = NSLocalizedString(@"确定", nil);
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *OKAction = [UIAlertAction actionWithTitle:OKButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            [alertVC addAction:OKAction];
+            [self.parentViewController presentViewController:alertVC animated:YES completion:nil];
+        }else{
+            //将筛选项保存到本地
+//            NSLog(@"保存0%@",province);
+//            NSLog(@"保存1%@",lingyu);
+            [[NSUserDefaults standardUserDefaults] setObject:self.saveShaixuan forKey:@"saveShaixuan"];
+        }
+    }
+    else{
+        //左上角展示为不限
+        //将筛选项保存到本地
+        [[NSUserDefaults standardUserDefaults] setObject:self.saveShaixuan forKey:@"saveShaixuan"];
+    }
+    
+//    NSLog(@"area%@",_area);
+//    NSLog(@"classes%@",_classes);
+    [self.navigationController popToRootViewControllerAnimated:YES];
+//    NSLog(@"%@",self.)
+//    NSLog(@"self.childViewControllers[0].title:%@",self.childViewControllers[0].title);
+//    NSLog(@"title%@",notification);
+}
+- (void)addObser
+{
+    // 监听更新菜单标题通知
+    _observer = [[NSNotificationCenter defaultCenter] addObserverForName:YZUpdateMenuTitleNote object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        
+        // 获取列
+        NSInteger col = [self.childViewControllers indexOfObject:note.object];
+        
+        if(col != NSNotFound){
+            // 获取所有值
+            NSArray *allValues = note.userInfo.allValues;
+            if(col==0){
+                _area = allValues.firstObject;
+            }
+            else if(col == 1){
+                _classes = allValues.firstObject;
+            }
+        }
+        
+    }];
 }
 
 #pragma mark - 添加子控制器
@@ -52,20 +149,23 @@
 {
     YZCityTableViewController *allCourse = [[YZCityTableViewController alloc] init];
     YZSortViewController *sort = [[YZSortViewController alloc] init];
-    YZMoreMenuViewController *moreMenu = [[YZMoreMenuViewController alloc] init];
-    //类型
-    [self addChildViewController:sort];
-    //城市
+//    YZMoreMenuViewController *moreMenu = [[YZMoreMenuViewController alloc] init];
+   
+    //地区
     [self addChildViewController:allCourse];
+    //领域
+    [self addChildViewController:sort];
+    
+    
     //学校
-    [self addChildViewController:moreMenu];
+//    [self addChildViewController:moreMenu];
 }
 
 #pragma mark - YZPullDownMenuDataSource
 // 返回下拉菜单多少列
 - (NSInteger)numberOfColsInMenu:(YZPullDownMenu *)pullDownMenu
 {
-    return 3;
+    return 2;
 }
 
 // 返回下拉菜单每列按钮
@@ -92,16 +192,16 @@
 {
     // 第1列 高度
     if (index == 0) {
-        return 400;
+        return 500;
     }
     
     // 第2列 高度
     if (index == 1) {
-        return 400;
+        return 500;
     }
     
     // 第3列 高度
-    return 400;
+    return 500;
 }
 
 

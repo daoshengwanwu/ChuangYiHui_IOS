@@ -72,7 +72,7 @@
     NSString * url = [NSString stringWithFormat:@"%@?limit=%ld", URL_GET_ALL_ZJCG, _ZjcgListLimit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         NSLog(@"至少成功了1");
         [_ZjcgTableView.mj_header endRefreshing];
         [_ZjcgTableView.mj_footer endRefreshing];

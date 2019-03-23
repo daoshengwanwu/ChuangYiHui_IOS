@@ -106,6 +106,8 @@
     [self.view addSubview:selectButton];
     self.selectButton = selectButton;
     
+    self.selectButton.hidden = YES;
+    
     UIImageView *arrowview = [UIImageView new];
     [self.view addSubview:arrowview];
     [arrowview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,6 +119,8 @@
         //        make.centerY.equalTo(_headerView.mas_centerY);
     }];
     [arrowview setImage:[UIImage imageNamed:@"down_arrow"]];
+    
+    arrowview.hidden = YES;
     
     [self registerNotificationCenter];
     
@@ -154,7 +158,7 @@
     FilterViewController *vc = [FilterViewController new];
 //    vc.style = style;
 //    vc.isOpenInterestRect = YES;
-//    vc.hidesBottomBarWhenPushed = YES;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

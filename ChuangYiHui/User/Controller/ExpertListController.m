@@ -27,21 +27,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpRightButton];
-    _limit = 10;
+    _limit = 20;
     _userArr = @[];
     _tableView = ({
         UITableView *tableView = [UITableView new];
         tableView.delegate = self;
         tableView.dataSource = self;
-        tableView.rowHeight = 102.0f;
+        tableView.rowHeight = 52.0f;
         [tableView registerNib:[UINib nibWithNibName:@"UserListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
         tableView.tableFooterView = [UIView new];
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            _limit = 10;
+            _limit = 20;
             [self getUsers];
         }];
         tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            _limit += 10;
+            _limit += 20;
             [self getUsers];
         }];
         tableView;

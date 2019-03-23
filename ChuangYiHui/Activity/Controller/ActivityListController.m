@@ -58,8 +58,8 @@
     [headerView addSubview:leftImage];
     [leftImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
-        make.height.mas_equalTo(27);
-        make.width.mas_equalTo(27);
+        make.height.mas_equalTo(18);
+        make.width.mas_equalTo(18);
         make.centerY.equalTo(headerView.mas_centerY);
     }];
     leftImage.image = [UIImage imageNamed:@"activity_icon"];
@@ -68,8 +68,8 @@
     [headerView addSubview:rightImage];
     [rightImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-10);
-        make.height.mas_equalTo(27);
-        make.width.mas_equalTo(27);
+        make.height.mas_equalTo(18);
+        make.width.mas_equalTo(18);
         make.centerY.equalTo(headerView.mas_centerY);
     }];
     rightImage.image = [UIImage imageNamed:@"search_icon"];
@@ -83,7 +83,7 @@
     }];
     line2.backgroundColor = LINE_COLOR;
     
-    _limit = 10;
+    _limit = 20;
     _activityArr = @[];
     _tableView = ({
         UITableView *tableView = [UITableView new];
@@ -91,15 +91,15 @@
         tableView.dataSource = self;
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        tableView.rowHeight = 88.0f;
+        tableView.rowHeight = 50.0f;
         [tableView registerNib:[UINib nibWithNibName:@"ActivityListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ActivityCellIdentifier];
         tableView.tableFooterView = [UIView new];
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            _limit = 10;
+            _limit = 20;
             [self getActivities];
         }];
         tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            _limit += 10;
+            _limit += 20;
             [self getActivities];
         }];
         tableView;
@@ -119,7 +119,7 @@
     NSString *url = [NSString stringWithFormat:@"%@?limit=%ld",URL_GET_ALL_ACTIVITIES, _limit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         
         NSLog(@"activities:%@", data);
         

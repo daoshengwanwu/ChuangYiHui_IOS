@@ -33,21 +33,21 @@
     [super viewDidLoad];
     [self setUpRightButton];
     [self initPopView];
-    _limit = 10;
+    _limit = 20;
     _teamArr = @[];
     _tableView = ({
         UITableView *tableView = [UITableView new];
         tableView.delegate = self;
         tableView.dataSource = self;
-        tableView.rowHeight = 102.0f;
+        tableView.rowHeight = 52.0f;
         [tableView registerNib:[UINib nibWithNibName:@"TeamListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
         tableView.tableFooterView = [UIView new];
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            _limit = 10;
+            _limit = 20;
             [self getTeams];
         }];
         tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            _limit += 10;
+            _limit += 20;
             [self getTeams];
         }];
         tableView;

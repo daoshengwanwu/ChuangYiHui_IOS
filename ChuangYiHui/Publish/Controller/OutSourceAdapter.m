@@ -72,7 +72,7 @@
     NSString * url = [NSString stringWithFormat:@"%@?limit=%ld", URL_GET_ALL_OUTSOURCE_NEEDS, _outSourceListLimit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         [_outSourceRequireTableView.mj_header endRefreshing];
         [_outSourceRequireTableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];

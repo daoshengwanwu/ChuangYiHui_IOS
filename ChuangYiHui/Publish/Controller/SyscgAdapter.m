@@ -73,7 +73,7 @@
     NSString * url = [NSString stringWithFormat:@"%@?limit=%ld", URL_GET_ALL_SYSCG, _SyscgListLimit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         NSLog(@"至少成功了2");
         [_SyscgTableView.mj_header endRefreshing];
         [_SyscgTableView.mj_footer endRefreshing];

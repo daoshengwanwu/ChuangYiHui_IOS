@@ -106,6 +106,47 @@ static NetRequest *_instance;
     }];
 }
 
+- (void)httpRequestWithGETandSort:(NSString *)url success:(requestSuccess)success failed:(requestFailure)failed
+{
+    NSString *everProvince = @"不限";
+    NSString *everLingyu = @"不限";
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"saveShaixuan"]) {
+        
+        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveShaixuan"];
+        
+        everProvince = array[0];
+        everLingyu = array[1];
+    }
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:@"everProvince" forKey:@"province"];
+    [parameters setObject:@"everLingyu" forKey:@"field"];
+    
+    [_instance GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"成功%@",everProvince);
+        NSLog(@"成功%@",everLingyu);
+        [self callBackWithTaskInfo:task data:responseObject success:success failed:failed];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (httpResponse.statusCode == 304) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    failed([NSString stringWithFormat:@"%ld", httpResponse.statusCode],@"请先去个人中心实名认证");
+                });
+            }else if (httpResponse.statusCode == 401) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    failed([NSString stringWithFormat:@"%ld", httpResponse.statusCode],@"未授权");
+                });
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    failed([NSString stringWithFormat:@"%ld", httpResponse.statusCode],@"网络异常");
+                });
+            }
+        });
+    }];
+}
+
+
 - (void)httpRequestWithGETandParam:(NSString *)url parameters:(NSDictionary *)parameters success:(requestSuccess)success failed:(requestFailure)failed
 {
     [_instance GET:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

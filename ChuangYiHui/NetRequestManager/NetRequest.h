@@ -13,6 +13,8 @@ typedef void (^requestFailure) (id data, NSString *message);
 
 @interface NetRequest : AFHTTPSessionManager
 
+
+
 + (instancetype)sharedInstance;
 
 - (void)httpRequestWithPost:(NSString *)url parameters:(NSDictionary *)parameters withToken:(BOOL)withToken success:(requestSuccess)success failed:(requestFailure)failed;
@@ -20,6 +22,8 @@ typedef void (^requestFailure) (id data, NSString *message);
 - (void)upLoad:(NSString *)url parameters:(NSDictionary *)parameter imageKey:(NSArray *)imageKeyArray imageArray:(NSArray *)uploadImages success:(requestSuccess)success failed:(requestFailure)failed;
 
 - (void)httpRequestWithGET:(NSString *)url success:(requestSuccess)success failed:(requestFailure)failed;
+
+- (void)httpRequestWithGETandSort:(NSString *)url success:(requestSuccess)success failed:(requestFailure)failed;
 
 - (void)httpRequestWithGETandParam:(NSString *)url parameters:(NSDictionary *)parameter success:(requestSuccess)success failed:(requestFailure)failed;
 

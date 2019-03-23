@@ -59,8 +59,8 @@
     [headerView addSubview:leftImage];
     [leftImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
-        make.height.mas_equalTo(27);
-        make.width.mas_equalTo(54);
+        make.height.mas_equalTo(15);
+        make.width.mas_equalTo(30);
         make.centerY.equalTo(headerView.mas_centerY);
     }];
     leftImage.image = [UIImage imageNamed:@"logo_competition"];
@@ -69,8 +69,8 @@
     [headerView addSubview:rightImage];
     [rightImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-10);
-        make.height.mas_equalTo(27);
-        make.width.mas_equalTo(27);
+        make.height.mas_equalTo(15);
+        make.width.mas_equalTo(15);
         make.centerY.equalTo(headerView.mas_centerY);
     }];
     rightImage.image = [UIImage imageNamed:@"search_icon"];
@@ -85,7 +85,7 @@
     line2.backgroundColor = LINE_COLOR;
 
     
-    _limit = 10;
+    _limit = 20;
     _competitionArr = @[];
     _tableView = ({
         UITableView *tableView = [UITableView new];
@@ -93,15 +93,15 @@
         tableView.dataSource = self;
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        tableView.rowHeight = 88.0f;
+        tableView.rowHeight = 50.0f;
         [tableView registerNib:[UINib nibWithNibName:@"CompetitionListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CompetitionCellIdentifier];
 
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            _limit = 10;
+            _limit = 20;
             [self getCompetitions];
         }];
         tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            _limit += 10;
+            _limit += 20;
             [self getCompetitions];
         }];
         tableView;
@@ -120,7 +120,7 @@
     NSString *url = [NSString stringWithFormat:@"%@?limit=%ld",URL_GET_ALL_COMPETITIONS, _limit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];

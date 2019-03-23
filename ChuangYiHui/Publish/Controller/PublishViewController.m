@@ -570,7 +570,7 @@
     NSString * url = [NSString stringWithFormat:@"%@?limit=%ld", URL_GET_ALL_MEMBER_NEEDS, _peopleListLimit];
     [SVProgressHUD showWithStatus:@"加载中"];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [[NetRequest sharedInstance] httpRequestWithGET:url success:^(id data, NSString *message) {
+    [[NetRequest sharedInstance] httpRequestWithGETandSort:url success:^(id data, NSString *message) {
         [_peopleRequireTableView.mj_header endRefreshing];
         [_peopleRequireTableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];
